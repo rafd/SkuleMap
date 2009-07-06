@@ -1,0 +1,2 @@
+module SkuleMapHelper
+end

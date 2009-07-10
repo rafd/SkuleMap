@@ -1,6 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+<<<<<<< HEAD:config/routes.rb
+=======
   map.resources :skule_maps
 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:config/routes.rb
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -19,6 +22,15 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
+<<<<<<< HEAD:config/routes.rb
+  
+  # Sample resource route with more complex sub-resources
+  #   map.resources :products do |products|
+  #     products.resources :comments
+  #     products.resources :sales, :collection => { :recent => :get }
+  #   end
+=======
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:config/routes.rb
 
   # Sample resource route within a namespace:
   #   map.namespace :admin do |admin|
@@ -32,6 +44,11 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
+<<<<<<< HEAD:config/routes.rb
+  # Note: These default routes make all actions in every controller accessible via GET requests. You should
+  # consider removing the them or commenting them out if you're using named routes and resources.
+=======
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:config/routes.rb
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

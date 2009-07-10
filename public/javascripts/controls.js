@@ -1,22 +1,42 @@
+<<<<<<< HEAD:public/javascripts/controls.js
+// Copyright (c) 2005-2008 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
+//           (c) 2005-2008 Ivan Krstic (http://blogs.law.harvard.edu/ivan)
+//           (c) 2005-2008 Jon Tirsen (http://www.tirsen.com)
+=======
 // Copyright (c) 2005-2007 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
 //           (c) 2005-2007 Ivan Krstic (http://blogs.law.harvard.edu/ivan)
 //           (c) 2005-2007 Jon Tirsen (http://www.tirsen.com)
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
 // Contributors:
 //  Richard Livsey
 //  Rahul Bhargava
 //  Rob Wills
+<<<<<<< HEAD:public/javascripts/controls.js
+//
+// script.aculo.us is freely distributable under the terms of an MIT-style license.
+// For details, see the script.aculo.us web site: http://script.aculo.us/
+
+// Autocompleter.Base handles all the autocompletion functionality
+=======
 // 
 // script.aculo.us is freely distributable under the terms of an MIT-style license.
 // For details, see the script.aculo.us web site: http://script.aculo.us/
 
 // Autocompleter.Base handles all the autocompletion functionality 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
 // that's independent of the data source for autocompletion. This
 // includes drawing the autocompletion menu, observing keyboard
 // and mouse events, and similar.
 //
+<<<<<<< HEAD:public/javascripts/controls.js
+// Specific autocompleters need to provide, at the very least,
+// a getUpdatedChoices function that will be invoked every time
+// the text inside the monitored textbox changes. This method
+=======
 // Specific autocompleters need to provide, at the very least, 
 // a getUpdatedChoices function that will be invoked every time
 // the text inside the monitored textbox changes. This method 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
 // should get the text for which to provide autocompletion by
 // invoking this.getToken(), NOT by directly accessing
 // this.element.value. This is to allow incremental tokenized
@@ -30,13 +50,30 @@
 // will incrementally autocomplete with a comma as the token.
 // Additionally, ',' in the above example can be replaced with
 // a token array, e.g. { tokens: [',', '\n'] } which
+<<<<<<< HEAD:public/javascripts/controls.js
+// enables autocompletion on multiple tokens. This is most
+// useful when one of the tokens is \n (a newline), as it
+=======
 // enables autocompletion on multiple tokens. This is most 
 // useful when one of the tokens is \n (a newline), as it 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
 // allows smart autocompletion after linebreaks.
 
 if(typeof Effect == 'undefined')
   throw("controls.js requires including script.aculo.us' effects.js library");
 
+<<<<<<< HEAD:public/javascripts/controls.js
+var Autocompleter = { };
+Autocompleter.Base = Class.create({
+  baseInitialize: function(element, update, options) {
+    element          = $(element);
+    this.element     = element;
+    this.update      = $(update);
+    this.hasFocus    = false;
+    this.changed     = false;
+    this.active      = false;
+    this.index       = 0;
+=======
 var Autocompleter = { }
 Autocompleter.Base = Class.create({
   baseInitialize: function(element, update, options) {
@@ -47,6 +84,7 @@ Autocompleter.Base = Class.create({
     this.changed     = false; 
     this.active      = false; 
     this.index       = 0;     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
     this.entryCount  = 0;
     this.oldElementValue = this.element.value;
 
@@ -59,28 +97,48 @@ Autocompleter.Base = Class.create({
     this.options.tokens       = this.options.tokens || [];
     this.options.frequency    = this.options.frequency || 0.4;
     this.options.minChars     = this.options.minChars || 1;
+<<<<<<< HEAD:public/javascripts/controls.js
+    this.options.onShow       = this.options.onShow ||
+      function(element, update){
+        if(!update.style.position || update.style.position=='absolute') {
+          update.style.position = 'absolute';
+          Position.clone(element, update, {
+            setHeight: false,
+=======
     this.options.onShow       = this.options.onShow || 
       function(element, update){ 
         if(!update.style.position || update.style.position=='absolute') {
           update.style.position = 'absolute';
           Position.clone(element, update, {
             setHeight: false, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
             offsetTop: element.offsetHeight
           });
         }
         Effect.Appear(update,{duration:0.15});
       };
+<<<<<<< HEAD:public/javascripts/controls.js
+    this.options.onHide = this.options.onHide ||
+      function(element, update){ new Effect.Fade(update,{duration:0.15}) };
+
+    if(typeof(this.options.tokens) == 'string')
+=======
     this.options.onHide = this.options.onHide || 
       function(element, update){ new Effect.Fade(update,{duration:0.15}) };
 
     if(typeof(this.options.tokens) == 'string') 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
       this.options.tokens = new Array(this.options.tokens);
     // Force carriage returns as token delimiters anyway
     if (!this.options.tokens.include('\n'))
       this.options.tokens.push('\n');
 
     this.observer = null;
+<<<<<<< HEAD:public/javascripts/controls.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
     this.element.setAttribute('autocomplete','off');
 
     Element.hide(this.update);
@@ -91,10 +149,17 @@ Autocompleter.Base = Class.create({
 
   show: function() {
     if(Element.getStyle(this.update, 'display')=='none') this.options.onShow(this.element, this.update);
+<<<<<<< HEAD:public/javascripts/controls.js
+    if(!this.iefix &&
+      (Prototype.Browser.IE) &&
+      (Element.getStyle(this.update, 'position')=='absolute')) {
+      new Insertion.After(this.update,
+=======
     if(!this.iefix && 
       (Prototype.Browser.IE) &&
       (Element.getStyle(this.update, 'position')=='absolute')) {
       new Insertion.After(this.update, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
        '<iframe id="' + this.update.id + '_iefix" '+
        'style="display:none;position:absolute;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);" ' +
        'src="javascript:false;" frameborder="0" scrolling="no"></iframe>');
@@ -102,7 +167,11 @@ Autocompleter.Base = Class.create({
     }
     if(this.iefix) setTimeout(this.fixIEOverlapping.bind(this), 50);
   },
+<<<<<<< HEAD:public/javascripts/controls.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
   fixIEOverlapping: function() {
     Position.clone(this.update, this.iefix, {setTop:(!this.update.style.height)});
     this.iefix.style.zIndex = 1;
@@ -150,15 +219,24 @@ Autocompleter.Base = Class.create({
          Event.stop(event);
          return;
       }
+<<<<<<< HEAD:public/javascripts/controls.js
+     else
+       if(event.keyCode==Event.KEY_TAB || event.keyCode==Event.KEY_RETURN ||
+=======
      else 
        if(event.keyCode==Event.KEY_TAB || event.keyCode==Event.KEY_RETURN || 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
          (Prototype.Browser.WebKit > 0 && event.keyCode == 0)) return;
 
     this.changed = true;
     this.hasFocus = true;
 
     if(this.observer) clearTimeout(this.observer);
+<<<<<<< HEAD:public/javascripts/controls.js
+      this.observer =
+=======
       this.observer = 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
         setTimeout(this.onObserverEvent.bind(this), this.options.frequency*1000);
   },
 
@@ -170,25 +248,49 @@ Autocompleter.Base = Class.create({
 
   onHover: function(event) {
     var element = Event.findElement(event, 'LI');
+<<<<<<< HEAD:public/javascripts/controls.js
+    if(this.index != element.autocompleteIndex)
+=======
     if(this.index != element.autocompleteIndex) 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
     {
         this.index = element.autocompleteIndex;
         this.render();
     }
     Event.stop(event);
   },
+<<<<<<< HEAD:public/javascripts/controls.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
   onClick: function(event) {
     var element = Event.findElement(event, 'LI');
     this.index = element.autocompleteIndex;
     this.selectEntry();
     this.hide();
   },
+<<<<<<< HEAD:public/javascripts/controls.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
   onBlur: function(event) {
     // needed to make click events working
     setTimeout(this.hide.bind(this), 250);
     this.hasFocus = false;
+<<<<<<< HEAD:public/javascripts/controls.js
+    this.active = false;
+  },
+
+  render: function() {
+    if(this.entryCount > 0) {
+      for (var i = 0; i < this.entryCount; i++)
+        this.index==i ?
+          Element.addClassName(this.getEntry(i),"selected") :
+          Element.removeClassName(this.getEntry(i),"selected");
+      if(this.hasFocus) {
+=======
     this.active = false;     
   }, 
   
@@ -199,6 +301,7 @@ Autocompleter.Base = Class.create({
           Element.addClassName(this.getEntry(i),"selected") : 
           Element.removeClassName(this.getEntry(i),"selected");
       if(this.hasFocus) { 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
         this.show();
         this.active = true;
       }
@@ -207,6 +310,29 @@ Autocompleter.Base = Class.create({
       this.hide();
     }
   },
+<<<<<<< HEAD:public/javascripts/controls.js
+
+  markPrevious: function() {
+    if(this.index > 0) this.index--;
+      else this.index = this.entryCount-1;
+    this.getEntry(this.index).scrollIntoView(true);
+  },
+
+  markNext: function() {
+    if(this.index < this.entryCount-1) this.index++;
+      else this.index = 0;
+    this.getEntry(this.index).scrollIntoView(false);
+  },
+
+  getEntry: function(index) {
+    return this.update.firstChild.childNodes[index];
+  },
+
+  getCurrentEntry: function() {
+    return this.getEntry(this.index);
+  },
+
+=======
   
   markPrevious: function() {
     if(this.index > 0) this.index--
@@ -228,6 +354,7 @@ Autocompleter.Base = Class.create({
     return this.getEntry(this.index);
   },
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
   selectEntry: function() {
     this.active = false;
     this.updateElement(this.getCurrentEntry());
@@ -244,7 +371,11 @@ Autocompleter.Base = Class.create({
       if(nodes.length>0) value = Element.collectTextNodes(nodes[0], this.options.select);
     } else
       value = Element.collectTextNodesIgnoreClass(selectedElement, 'informal');
+<<<<<<< HEAD:public/javascripts/controls.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
     var bounds = this.getTokenBounds();
     if (bounds[0] != -1) {
       var newValue = this.element.value.substr(0, bounds[0]);
@@ -257,7 +388,11 @@ Autocompleter.Base = Class.create({
     }
     this.oldElementValue = this.element.value;
     this.element.focus();
+<<<<<<< HEAD:public/javascripts/controls.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
     if (this.options.afterUpdateElement)
       this.options.afterUpdateElement(this.element, selectedElement);
   },
@@ -269,20 +404,32 @@ Autocompleter.Base = Class.create({
       Element.cleanWhitespace(this.update.down());
 
       if(this.update.firstChild && this.update.down().childNodes) {
+<<<<<<< HEAD:public/javascripts/controls.js
+        this.entryCount =
+=======
         this.entryCount = 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
           this.update.down().childNodes.length;
         for (var i = 0; i < this.entryCount; i++) {
           var entry = this.getEntry(i);
           entry.autocompleteIndex = i;
           this.addObservers(entry);
         }
+<<<<<<< HEAD:public/javascripts/controls.js
+      } else {
+=======
       } else { 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
         this.entryCount = 0;
       }
 
       this.stopIndicator();
       this.index = 0;
+<<<<<<< HEAD:public/javascripts/controls.js
+
+=======
       
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
       if(this.entryCount==1 && this.options.autoSelect) {
         this.selectEntry();
         this.hide();
@@ -298,7 +445,11 @@ Autocompleter.Base = Class.create({
   },
 
   onObserverEvent: function() {
+<<<<<<< HEAD:public/javascripts/controls.js
+    this.changed = false;
+=======
     this.changed = false;   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
     this.tokenBounds = null;
     if(this.getToken().length>=this.options.minChars) {
       this.getUpdatedChoices();
@@ -351,16 +502,27 @@ Ajax.Autocompleter = Class.create(Autocompleter.Base, {
 
   getUpdatedChoices: function() {
     this.startIndicator();
+<<<<<<< HEAD:public/javascripts/controls.js
+
+    var entry = encodeURIComponent(this.options.paramName) + '=' +
+=======
     
     var entry = encodeURIComponent(this.options.paramName) + '=' + 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
       encodeURIComponent(this.getToken());
 
     this.options.parameters = this.options.callback ?
       this.options.callback(this.element, entry) : entry;
 
+<<<<<<< HEAD:public/javascripts/controls.js
+    if(this.options.defaultParams)
+      this.options.parameters += '&' + this.options.defaultParams;
+
+=======
     if(this.options.defaultParams) 
       this.options.parameters += '&' + this.options.defaultParams;
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
     new Ajax.Request(this.url, this.options);
   },
 
@@ -382,7 +544,11 @@ Ajax.Autocompleter = Class.create(Autocompleter.Base, {
 // - choices - How many autocompletion choices to offer
 //
 // - partialSearch - If false, the autocompleter will match entered
+<<<<<<< HEAD:public/javascripts/controls.js
+//                    text only at the beginning of strings in the
+=======
 //                    text only at the beginning of strings in the 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
 //                    autocomplete array. Defaults to true, which will
 //                    match text at the beginning of any *word* in the
 //                    strings in the autocomplete array. If you want to
@@ -399,7 +565,11 @@ Ajax.Autocompleter = Class.create(Autocompleter.Base, {
 // - ignoreCase - Whether to ignore case when autocompleting.
 //                 Defaults to true.
 //
+<<<<<<< HEAD:public/javascripts/controls.js
+// It's possible to pass in a custom function as the 'selector'
+=======
 // It's possible to pass in a custom function as the 'selector' 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
 // option, if you prefer to write your own autocompletion logic.
 // In that case, the other options above will not apply unless
 // you support them.
@@ -427,6 +597,22 @@ Autocompleter.Local = Class.create(Autocompleter.Base, {
         var entry     = instance.getToken();
         var count     = 0;
 
+<<<<<<< HEAD:public/javascripts/controls.js
+        for (var i = 0; i < instance.options.array.length &&
+          ret.length < instance.options.choices ; i++) {
+
+          var elem = instance.options.array[i];
+          var foundPos = instance.options.ignoreCase ?
+            elem.toLowerCase().indexOf(entry.toLowerCase()) :
+            elem.indexOf(entry);
+
+          while (foundPos != -1) {
+            if (foundPos == 0 && elem.length != entry.length) {
+              ret.push("<li><strong>" + elem.substr(0, entry.length) + "</strong>" +
+                elem.substr(entry.length) + "</li>");
+              break;
+            } else if (entry.length >= instance.options.partialChars &&
+=======
         for (var i = 0; i < instance.options.array.length &&  
           ret.length < instance.options.choices ; i++) { 
 
@@ -441,6 +627,7 @@ Autocompleter.Local = Class.create(Autocompleter.Base, {
                 elem.substr(entry.length) + "</li>");
               break;
             } else if (entry.length >= instance.options.partialChars && 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
               instance.options.partialSearch && foundPos != -1) {
               if (instance.options.fullSearch || /\s/.test(elem.substr(foundPos-1,1))) {
                 partial.push("<li>" + elem.substr(0, foundPos) + "<strong>" +
@@ -450,14 +637,23 @@ Autocompleter.Local = Class.create(Autocompleter.Base, {
               }
             }
 
+<<<<<<< HEAD:public/javascripts/controls.js
+            foundPos = instance.options.ignoreCase ?
+              elem.toLowerCase().indexOf(entry.toLowerCase(), foundPos + 1) :
+=======
             foundPos = instance.options.ignoreCase ? 
               elem.toLowerCase().indexOf(entry.toLowerCase(), foundPos + 1) : 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
               elem.indexOf(entry, foundPos + 1);
 
           }
         }
         if (partial.length)
+<<<<<<< HEAD:public/javascripts/controls.js
+          ret = ret.concat(partial.slice(0, instance.options.choices - ret.length));
+=======
           ret = ret.concat(partial.slice(0, instance.options.choices - ret.length))
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
         return "<ul>" + ret.join('') + "</ul>";
       }
     }, options || { });
@@ -474,7 +670,11 @@ Field.scrollFreeActivate = function(field) {
   setTimeout(function() {
     Field.activate(field);
   }, 1);
+<<<<<<< HEAD:public/javascripts/controls.js
+};
+=======
 }
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
 
 Ajax.InPlaceEditor = Class.create({
   initialize: function(element, url, options) {
@@ -604,7 +804,11 @@ Ajax.InPlaceEditor = Class.create({
     this.triggerCallback('onEnterHover');
   },
   getText: function() {
+<<<<<<< HEAD:public/javascripts/controls.js
+    return this.element.innerHTML.unescapeHTML();
+=======
     return this.element.innerHTML;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
   },
   handleAJAXFailure: function(transport) {
     this.triggerCallback('onFailure', transport);
@@ -780,7 +984,11 @@ Ajax.InPlaceCollectionEditor = Class.create(Ajax.InPlaceEditor, {
       onSuccess: function(transport) {
         var js = transport.responseText.strip();
         if (!/^\[.*\]$/.test(js)) // TODO: improve sanity check
+<<<<<<< HEAD:public/javascripts/controls.js
+          throw('Server returned an invalid collection representation.');
+=======
           throw 'Server returned an invalid collection representation.';
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
         this._collection = eval(js);
         this.checkForExternalText();
       }.bind(this),
@@ -937,7 +1145,11 @@ Ajax.InPlaceCollectionEditor.DefaultOptions = {
   loadingCollectionText: 'Loading options...'
 };
 
+<<<<<<< HEAD:public/javascripts/controls.js
+// Delayed observer, like Form.Element.Observer,
+=======
 // Delayed observer, like Form.Element.Observer, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
 // but waits for delay after last key input
 // Ideal for live-search fields
 
@@ -947,7 +1159,11 @@ Form.Element.DelayedObserver = Class.create({
     this.element   = $(element);
     this.callback  = callback;
     this.timer     = null;
+<<<<<<< HEAD:public/javascripts/controls.js
+    this.lastValue = $F(this.element);
+=======
     this.lastValue = $F(this.element); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js
     Event.observe(this.element,'keyup',this.delayedListener.bindAsEventListener(this));
   },
   delayedListener: function(event) {
@@ -960,4 +1176,8 @@ Form.Element.DelayedObserver = Class.create({
     this.timer = null;
     this.callback(this.element, $F(this.element));
   }
+<<<<<<< HEAD:public/javascripts/controls.js
 });
+=======
+});
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/controls.js

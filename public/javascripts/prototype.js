@@ -1,5 +1,10 @@
+<<<<<<< HEAD:public/javascripts/prototype.js
+/*  Prototype JavaScript framework, version 1.6.0.3
+ *  (c) 2005-2008 Sam Stephenson
+=======
 /*  Prototype JavaScript framework, version 1.6.0.1
  *  (c) 2005-2007 Sam Stephenson
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
  *
  *  Prototype is freely distributable under the terms of an MIT-style license.
  *  For details, see the Prototype web site: http://www.prototypejs.org/
@@ -7,6 +12,17 @@
  *--------------------------------------------------------------------------*/
 
 var Prototype = {
+<<<<<<< HEAD:public/javascripts/prototype.js
+  Version: '1.6.0.3',
+
+  Browser: {
+    IE:     !!(window.attachEvent &&
+      navigator.userAgent.indexOf('Opera') === -1),
+    Opera:  navigator.userAgent.indexOf('Opera') > -1,
+    WebKit: navigator.userAgent.indexOf('AppleWebKit/') > -1,
+    Gecko:  navigator.userAgent.indexOf('Gecko') > -1 &&
+      navigator.userAgent.indexOf('KHTML') === -1,
+=======
   Version: '1.6.0.1',
 
   Browser: {
@@ -14,16 +30,26 @@ var Prototype = {
     Opera:  !!window.opera,
     WebKit: navigator.userAgent.indexOf('AppleWebKit/') > -1,
     Gecko:  navigator.userAgent.indexOf('Gecko') > -1 && navigator.userAgent.indexOf('KHTML') == -1,
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     MobileSafari: !!navigator.userAgent.match(/Apple.*Mobile.*Safari/)
   },
 
   BrowserFeatures: {
     XPath: !!document.evaluate,
+<<<<<<< HEAD:public/javascripts/prototype.js
+    SelectorsAPI: !!document.querySelector,
+    ElementExtensions: !!window.HTMLElement,
+    SpecificElementExtensions:
+      document.createElement('div')['__proto__'] &&
+      document.createElement('div')['__proto__'] !==
+        document.createElement('form')['__proto__']
+=======
     ElementExtensions: !!window.HTMLElement,
     SpecificElementExtensions:
       document.createElement('div').__proto__ &&
       document.createElement('div').__proto__ !==
         document.createElement('form').__proto__
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   },
 
   ScriptFragment: '<script[^>]*>([\\S\\s]*?)<\/script>',
@@ -83,12 +109,22 @@ Class.Methods = {
       var property = properties[i], value = source[property];
       if (ancestor && Object.isFunction(value) &&
           value.argumentNames().first() == "$super") {
+<<<<<<< HEAD:public/javascripts/prototype.js
+        var method = value;
+        value = (function(m) {
+          return function() { return ancestor[m].apply(this, arguments) };
+        })(property).wrap(method);
+
+        value.valueOf = method.valueOf.bind(method);
+        value.toString = method.toString.bind(method);
+=======
         var method = value, value = Object.extend((function(m) {
           return function() { return ancestor[m].apply(this, arguments) };
         })(property).wrap(method), {
           valueOf:  function() { return method },
           toString: function() { return method.toString() }
         });
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       }
       this.prototype[property] = value;
     }
@@ -110,7 +146,11 @@ Object.extend(Object, {
     try {
       if (Object.isUndefined(object)) return 'undefined';
       if (object === null) return 'null';
+<<<<<<< HEAD:public/javascripts/prototype.js
+      return object.inspect ? object.inspect() : String(object);
+=======
       return object.inspect ? object.inspect() : object.toString();
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     } catch (e) {
       if (e instanceof RangeError) return '...';
       throw e;
@@ -167,11 +207,20 @@ Object.extend(Object, {
   },
 
   isElement: function(object) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    return !!(object && object.nodeType == 1);
+  },
+
+  isArray: function(object) {
+    return object != null && typeof object == "object" &&
+      'splice' in object && 'join' in object;
+=======
     return object && object.nodeType == 1;
   },
 
   isArray: function(object) {
     return object && object.constructor === Array;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   },
 
   isHash: function(object) {
@@ -197,7 +246,12 @@ Object.extend(Object, {
 
 Object.extend(Function.prototype, {
   argumentNames: function() {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    var names = this.toString().match(/^[\s\(]*function[^(]*\(([^\)]*)\)/)[1]
+      .replace(/\s+/g, '').split(',');
+=======
     var names = this.toString().match(/^[\s\(]*function[^(]*\((.*?)\)/)[1].split(",").invoke("strip");
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     return names.length == 1 && !names[0] ? [] : names;
   },
 
@@ -231,6 +285,14 @@ Object.extend(Function.prototype, {
     }, timeout);
   },
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+  defer: function() {
+    var args = [0.01].concat($A(arguments));
+    return this.delay.apply(this, args);
+  },
+
+=======
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   wrap: function(wrapper) {
     var __method = this;
     return function() {
@@ -247,8 +309,11 @@ Object.extend(Function.prototype, {
   }
 });
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+=======
 Function.prototype.defer = Function.prototype.delay.curry(0.01);
 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
 Date.prototype.toJSON = function() {
   return '"' + this.getUTCFullYear() + '-' +
     (this.getUTCMonth() + 1).toPaddedString(2) + '-' +
@@ -529,7 +594,11 @@ if (Prototype.Browser.WebKit || Prototype.Browser.IE) Object.extend(String.proto
     return this.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   },
   unescapeHTML: function() {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    return this.stripTags().replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+=======
     return this.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   }
 });
 
@@ -546,7 +615,11 @@ Object.extend(String.prototype.escapeHTML, {
   text: document.createTextNode('')
 });
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+String.prototype.escapeHTML.div.appendChild(String.prototype.escapeHTML.text);
+=======
 with (String.prototype.escapeHTML) div.appendChild(text);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
 
 var Template = Class.create({
   initialize: function(template, pattern) {
@@ -578,7 +651,11 @@ var Template = Class.create({
       }
 
       return before + String.interpret(ctx);
+<<<<<<< HEAD:public/javascripts/prototype.js
+    });
+=======
     }.bind(this));
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   }
 });
 Template.Pattern = /(^|.|\r|\n)(#\{(.*?)\})/;
@@ -588,10 +665,16 @@ var $break = { };
 var Enumerable = {
   each: function(iterator, context) {
     var index = 0;
+<<<<<<< HEAD:public/javascripts/prototype.js
+    try {
+      this._each(function(value) {
+        iterator.call(context, value, index++);
+=======
     iterator = iterator.bind(context);
     try {
       this._each(function(value) {
         iterator(value, index++);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       });
     } catch (e) {
       if (e != $break) throw e;
@@ -600,47 +683,79 @@ var Enumerable = {
   },
 
   eachSlice: function(number, iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    var index = -number, slices = [], array = this.toArray();
+    if (number < 1) return array;
+=======
     iterator = iterator ? iterator.bind(context) : Prototype.K;
     var index = -number, slices = [], array = this.toArray();
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     while ((index += number) < array.length)
       slices.push(array.slice(index, index+number));
     return slices.collect(iterator, context);
   },
 
   all: function(iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    iterator = iterator || Prototype.K;
+    var result = true;
+    this.each(function(value, index) {
+      result = result && !!iterator.call(context, value, index);
+=======
     iterator = iterator ? iterator.bind(context) : Prototype.K;
     var result = true;
     this.each(function(value, index) {
       result = result && !!iterator(value, index);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       if (!result) throw $break;
     });
     return result;
   },
 
   any: function(iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    iterator = iterator || Prototype.K;
+    var result = false;
+    this.each(function(value, index) {
+      if (result = !!iterator.call(context, value, index))
+=======
     iterator = iterator ? iterator.bind(context) : Prototype.K;
     var result = false;
     this.each(function(value, index) {
       if (result = !!iterator(value, index))
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         throw $break;
     });
     return result;
   },
 
   collect: function(iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    iterator = iterator || Prototype.K;
+    var results = [];
+    this.each(function(value, index) {
+      results.push(iterator.call(context, value, index));
+=======
     iterator = iterator ? iterator.bind(context) : Prototype.K;
     var results = [];
     this.each(function(value, index) {
       results.push(iterator(value, index));
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     });
     return results;
   },
 
   detect: function(iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    var result;
+    this.each(function(value, index) {
+      if (iterator.call(context, value, index)) {
+=======
     iterator = iterator.bind(context);
     var result;
     this.each(function(value, index) {
       if (iterator(value, index)) {
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         result = value;
         throw $break;
       }
@@ -649,17 +764,27 @@ var Enumerable = {
   },
 
   findAll: function(iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    var results = [];
+    this.each(function(value, index) {
+      if (iterator.call(context, value, index))
+=======
     iterator = iterator.bind(context);
     var results = [];
     this.each(function(value, index) {
       if (iterator(value, index))
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         results.push(value);
     });
     return results;
   },
 
   grep: function(filter, iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    iterator = iterator || Prototype.K;
+=======
     iterator = iterator ? iterator.bind(context) : Prototype.K;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     var results = [];
 
     if (Object.isString(filter))
@@ -667,7 +792,11 @@ var Enumerable = {
 
     this.each(function(value, index) {
       if (filter.match(value))
+<<<<<<< HEAD:public/javascripts/prototype.js
+        results.push(iterator.call(context, value, index));
+=======
         results.push(iterator(value, index));
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     });
     return results;
   },
@@ -695,9 +824,14 @@ var Enumerable = {
   },
 
   inject: function(memo, iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    this.each(function(value, index) {
+      memo = iterator.call(context, memo, value, index);
+=======
     iterator = iterator.bind(context);
     this.each(function(value, index) {
       memo = iterator(memo, value, index);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     });
     return memo;
   },
@@ -710,10 +844,17 @@ var Enumerable = {
   },
 
   max: function(iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    iterator = iterator || Prototype.K;
+    var result;
+    this.each(function(value, index) {
+      value = iterator.call(context, value, index);
+=======
     iterator = iterator ? iterator.bind(context) : Prototype.K;
     var result;
     this.each(function(value, index) {
       value = iterator(value, index);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       if (result == null || value >= result)
         result = value;
     });
@@ -721,10 +862,17 @@ var Enumerable = {
   },
 
   min: function(iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    iterator = iterator || Prototype.K;
+    var result;
+    this.each(function(value, index) {
+      value = iterator.call(context, value, index);
+=======
     iterator = iterator ? iterator.bind(context) : Prototype.K;
     var result;
     this.each(function(value, index) {
       value = iterator(value, index);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       if (result == null || value < result)
         result = value;
     });
@@ -732,10 +880,17 @@ var Enumerable = {
   },
 
   partition: function(iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    iterator = iterator || Prototype.K;
+    var trues = [], falses = [];
+    this.each(function(value, index) {
+      (iterator.call(context, value, index) ?
+=======
     iterator = iterator ? iterator.bind(context) : Prototype.K;
     var trues = [], falses = [];
     this.each(function(value, index) {
       (iterator(value, index) ?
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         trues : falses).push(value);
     });
     return [trues, falses];
@@ -750,19 +905,33 @@ var Enumerable = {
   },
 
   reject: function(iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    var results = [];
+    this.each(function(value, index) {
+      if (!iterator.call(context, value, index))
+=======
     iterator = iterator.bind(context);
     var results = [];
     this.each(function(value, index) {
       if (!iterator(value, index))
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         results.push(value);
     });
     return results;
   },
 
   sortBy: function(iterator, context) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    return this.map(function(value, index) {
+      return {
+        value: value,
+        criteria: iterator.call(context, value, index)
+      };
+=======
     iterator = iterator.bind(context);
     return this.map(function(value, index) {
       return {value: value, criteria: iterator(value, index)};
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     }).sort(function(left, right) {
       var a = left.criteria, b = right.criteria;
       return a < b ? -1 : a > b ? 1 : 0;
@@ -806,12 +975,30 @@ Object.extend(Enumerable, {
 function $A(iterable) {
   if (!iterable) return [];
   if (iterable.toArray) return iterable.toArray();
+<<<<<<< HEAD:public/javascripts/prototype.js
+  var length = iterable.length || 0, results = new Array(length);
+=======
   var length = iterable.length, results = new Array(length);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   while (length--) results[length] = iterable[length];
   return results;
 }
 
 if (Prototype.Browser.WebKit) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+  $A = function(iterable) {
+    if (!iterable) return [];
+    // In Safari, only use the `toArray` method if it's not a NodeList.
+    // A NodeList is a function, has an function `item` property, and a numeric
+    // `length` property. Adapted from Google Doctype.
+    if (!(typeof iterable === 'function' && typeof iterable.length ===
+        'number' && typeof iterable.item === 'function') && iterable.toArray)
+      return iterable.toArray();
+    var length = iterable.length || 0, results = new Array(length);
+    while (length--) results[length] = iterable[length];
+    return results;
+  };
+=======
   function $A(iterable) {
     if (!iterable) return [];
     if (!(Object.isFunction(iterable) && iterable == '[object NodeList]') &&
@@ -820,6 +1007,7 @@ if (Prototype.Browser.WebKit) {
     while (length--) results[length] = iterable[length];
     return results;
   }
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
 }
 
 Array.from = $A;
@@ -962,8 +1150,13 @@ Object.extend(Number.prototype, {
     return this + 1;
   },
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+  times: function(iterator, context) {
+    $R(0, this, true).each(iterator, context);
+=======
   times: function(iterator) {
     $R(0, this, true).each(iterator);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     return this;
   },
 
@@ -1010,7 +1203,13 @@ var Hash = Class.create(Enumerable, (function() {
     },
 
     get: function(key) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+      // simulating poorly supported hasOwnProperty
+      if (this._object[key] !== Object.prototype[key])
+        return this._object[key];
+=======
       return this._object[key];
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     },
 
     unset: function(key) {
@@ -1050,14 +1249,24 @@ var Hash = Class.create(Enumerable, (function() {
     },
 
     toQueryString: function() {
+<<<<<<< HEAD:public/javascripts/prototype.js
+      return this.inject([], function(results, pair) {
+=======
       return this.map(function(pair) {
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         var key = encodeURIComponent(pair.key), values = pair.value;
 
         if (values && typeof values == 'object') {
           if (Object.isArray(values))
+<<<<<<< HEAD:public/javascripts/prototype.js
+            return results.concat(values.map(toQueryPair.curry(key)));
+        } else results.push(toQueryPair(key, values));
+        return results;
+=======
             return values.map(toQueryPair.curry(key)).join('&');
         }
         return toQueryPair(key, values);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       }).join('&');
     },
 
@@ -1298,7 +1507,11 @@ Ajax.Request = Class.create(Ajax.Base, {
 
       var contentType = response.getHeader('Content-type');
       if (this.options.evalJS == 'force'
+<<<<<<< HEAD:public/javascripts/prototype.js
+          || (this.options.evalJS && this.isSameOrigin() && contentType
+=======
           || (this.options.evalJS && contentType
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
           && contentType.match(/^\s*(text|application)\/(x-)?(java|ecma)script(;.*)?\s*$/i)))
         this.evalResponse();
     }
@@ -1316,9 +1529,24 @@ Ajax.Request = Class.create(Ajax.Base, {
     }
   },
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+  isSameOrigin: function() {
+    var m = this.url.match(/^\s*https?:\/\/[^\/]*/);
+    return !m || (m[0] == '#{protocol}//#{domain}#{port}'.interpolate({
+      protocol: location.protocol,
+      domain: document.domain,
+      port: location.port ? ':' + location.port : ''
+    }));
+  },
+
+  getHeader: function(name) {
+    try {
+      return this.transport.getResponseHeader(name) || null;
+=======
   getHeader: function(name) {
     try {
       return this.transport.getResponseHeader(name);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     } catch (e) { return null }
   },
 
@@ -1391,7 +1619,12 @@ Ajax.Response = Class.create({
     if (!json) return null;
     json = decodeURIComponent(escape(json));
     try {
+<<<<<<< HEAD:public/javascripts/prototype.js
+      return json.evalJSON(this.request.options.sanitizeJSON ||
+        !this.request.isSameOrigin());
+=======
       return json.evalJSON(this.request.options.sanitizeJSON);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     } catch (e) {
       this.request.dispatchException(e);
     }
@@ -1404,7 +1637,12 @@ Ajax.Response = Class.create({
         this.responseText.blank())
           return null;
     try {
+<<<<<<< HEAD:public/javascripts/prototype.js
+      return this.responseText.evalJSON(options.sanitizeJSON ||
+        !this.request.isSameOrigin());
+=======
       return this.responseText.evalJSON(options.sanitizeJSON);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     } catch (e) {
       this.request.dispatchException(e);
     }
@@ -1546,6 +1784,10 @@ if (!Node.ELEMENT_NODE) {
     return Element.writeAttribute(cache[tagName].cloneNode(false), attributes);
   };
   Object.extend(this.Element, element || { });
+<<<<<<< HEAD:public/javascripts/prototype.js
+  if (element) this.Element.prototype = element.prototype;
+=======
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
 }).call(window);
 
 Element.cache = { };
@@ -1562,12 +1804,22 @@ Element.Methods = {
   },
 
   hide: function(element) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    element = $(element);
+    element.style.display = 'none';
+=======
     $(element).style.display = 'none';
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     return element;
   },
 
   show: function(element) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    element = $(element);
+    element.style.display = '';
+=======
     $(element).style.display = '';
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     return element;
   },
 
@@ -1608,6 +1860,18 @@ Element.Methods = {
         Object.isElement(insertions) || (insertions && (insertions.toElement || insertions.toHTML)))
           insertions = {bottom:insertions};
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+    var content, insert, tagName, childNodes;
+
+    for (var position in insertions) {
+      content  = insertions[position];
+      position = position.toLowerCase();
+      insert = Element._insertionTranslations[position];
+
+      if (content && content.toElement) content = content.toElement();
+      if (Object.isElement(content)) {
+        insert(element, content);
+=======
     var content, t, range;
 
     for (position in insertions) {
@@ -1618,14 +1882,25 @@ Element.Methods = {
       if (content && content.toElement) content = content.toElement();
       if (Object.isElement(content)) {
         t.insert(element, content);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         continue;
       }
 
       content = Object.toHTML(content);
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+      tagName = ((position == 'before' || position == 'after')
+        ? element.parentNode : element).tagName.toUpperCase();
+
+      childNodes = Element._getContentFromAnonymousElement(tagName, content.stripScripts());
+
+      if (position == 'top' || position == 'after') childNodes.reverse();
+      childNodes.each(insert.curry(element));
+=======
       range = element.ownerDocument.createRange();
       t.initializeRange(element, range);
       t.insert(element, range.createContextualFragment(content.stripScripts()));
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
 
       content.evalScripts.bind(content).defer();
     }
@@ -1670,7 +1945,11 @@ Element.Methods = {
   },
 
   descendants: function(element) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    return $(element).select("*");
+=======
     return $(element).getElementsBySelector("*");
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   },
 
   firstDescendant: function(element) {
@@ -1709,32 +1988,52 @@ Element.Methods = {
     element = $(element);
     if (arguments.length == 1) return $(element.parentNode);
     var ancestors = element.ancestors();
+<<<<<<< HEAD:public/javascripts/prototype.js
+    return Object.isNumber(expression) ? ancestors[expression] :
+      Selector.findElement(ancestors, expression, index);
+=======
     return expression ? Selector.findElement(ancestors, expression, index) :
       ancestors[index || 0];
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   },
 
   down: function(element, expression, index) {
     element = $(element);
     if (arguments.length == 1) return element.firstDescendant();
+<<<<<<< HEAD:public/javascripts/prototype.js
+    return Object.isNumber(expression) ? element.descendants()[expression] :
+      Element.select(element, expression)[index || 0];
+=======
     var descendants = element.descendants();
     return expression ? Selector.findElement(descendants, expression, index) :
       descendants[index || 0];
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   },
 
   previous: function(element, expression, index) {
     element = $(element);
     if (arguments.length == 1) return $(Selector.handlers.previousElementSibling(element));
     var previousSiblings = element.previousSiblings();
+<<<<<<< HEAD:public/javascripts/prototype.js
+    return Object.isNumber(expression) ? previousSiblings[expression] :
+      Selector.findElement(previousSiblings, expression, index);
+=======
     return expression ? Selector.findElement(previousSiblings, expression, index) :
       previousSiblings[index || 0];
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   },
 
   next: function(element, expression, index) {
     element = $(element);
     if (arguments.length == 1) return $(Selector.handlers.nextElementSibling(element));
     var nextSiblings = element.nextSiblings();
+<<<<<<< HEAD:public/javascripts/prototype.js
+    return Object.isNumber(expression) ? nextSiblings[expression] :
+      Selector.findElement(nextSiblings, expression, index);
+=======
     return expression ? Selector.findElement(nextSiblings, expression, index) :
       nextSiblings[index || 0];
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   },
 
   select: function() {
@@ -1848,11 +2147,22 @@ Element.Methods = {
 
   descendantOf: function(element, ancestor) {
     element = $(element), ancestor = $(ancestor);
+<<<<<<< HEAD:public/javascripts/prototype.js
+=======
     var originalAncestor = ancestor;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
 
     if (element.compareDocumentPosition)
       return (element.compareDocumentPosition(ancestor) & 8) === 8;
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+    if (ancestor.contains)
+      return ancestor.contains(element) && ancestor !== element;
+
+    while (element = element.parentNode)
+      if (element == ancestor) return true;
+
+=======
     if (element.sourceIndex && !Prototype.Browser.Opera) {
       var e = element.sourceIndex, a = ancestor.sourceIndex,
        nextAncestor = ancestor.nextSibling;
@@ -1865,6 +2175,7 @@ Element.Methods = {
 
     while (element = element.parentNode)
       if (element == originalAncestor) return true;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     return false;
   },
 
@@ -1879,7 +2190,11 @@ Element.Methods = {
     element = $(element);
     style = style == 'float' ? 'cssFloat' : style.camelize();
     var value = element.style[style];
+<<<<<<< HEAD:public/javascripts/prototype.js
+    if (!value || value == 'auto') {
+=======
     if (!value) {
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       var css = document.defaultView.getComputedStyle(element, null);
       value = css ? css[style] : null;
     }
@@ -1918,7 +2233,11 @@ Element.Methods = {
 
   getDimensions: function(element) {
     element = $(element);
+<<<<<<< HEAD:public/javascripts/prototype.js
+    var display = element.getStyle('display');
+=======
     var display = $(element).getStyle('display');
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     if (display != 'none' && display != null) // Safari bug
       return {width: element.offsetWidth, height: element.offsetHeight};
 
@@ -1947,7 +2266,11 @@ Element.Methods = {
       element.style.position = 'relative';
       // Opera returns the offset relative to the positioning context, when an
       // element is position relative but top and left have not been defined
+<<<<<<< HEAD:public/javascripts/prototype.js
+      if (Prototype.Browser.Opera) {
+=======
       if (window.opera) {
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         element.style.top = 0;
         element.style.left = 0;
       }
@@ -2002,9 +2325,15 @@ Element.Methods = {
       valueL += element.offsetLeft || 0;
       element = element.offsetParent;
       if (element) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+        if (element.tagName.toUpperCase() == 'BODY') break;
+        var p = Element.getStyle(element, 'position');
+        if (p !== 'static') break;
+=======
         if (element.tagName == 'BODY') break;
         var p = Element.getStyle(element, 'position');
         if (p == 'relative' || p == 'absolute') break;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       }
     } while (element);
     return Element._returnOffset(valueL, valueT);
@@ -2012,7 +2341,11 @@ Element.Methods = {
 
   absolutize: function(element) {
     element = $(element);
+<<<<<<< HEAD:public/javascripts/prototype.js
+    if (element.getStyle('position') == 'absolute') return element;
+=======
     if (element.getStyle('position') == 'absolute') return;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     // Position.prepare(); // To be done manually by Scripty when it needs it.
 
     var offsets = element.positionedOffset();
@@ -2036,7 +2369,11 @@ Element.Methods = {
 
   relativize: function(element) {
     element = $(element);
+<<<<<<< HEAD:public/javascripts/prototype.js
+    if (element.getStyle('position') == 'relative') return element;
+=======
     if (element.getStyle('position') == 'relative') return;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     // Position.prepare(); // To be done manually by Scripty when it needs it.
 
     element.style.position = 'relative';
@@ -2087,7 +2424,11 @@ Element.Methods = {
 
     element = forElement;
     do {
+<<<<<<< HEAD:public/javascripts/prototype.js
+      if (!Prototype.Browser.Opera || (element.tagName && (element.tagName.toUpperCase() == 'BODY'))) {
+=======
       if (!Prototype.Browser.Opera || element.tagName == 'BODY') {
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         valueT -= element.scrollTop  || 0;
         valueL -= element.scrollLeft || 0;
       }
@@ -2153,6 +2494,8 @@ Element._attributeTranslations = {
   }
 };
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+=======
 
 if (!document.createRange || Prototype.Browser.Opera) {
   Element.Methods.insert = function(element, insertions) {
@@ -2193,6 +2536,7 @@ if (!document.createRange || Prototype.Browser.Opera) {
   };
 }
 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
 if (Prototype.Browser.Opera) {
   Element.Methods.getStyle = Element.Methods.getStyle.wrap(
     function(proceed, element, style) {
@@ -2237,12 +2581,45 @@ if (Prototype.Browser.Opera) {
 }
 
 else if (Prototype.Browser.IE) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+  // IE doesn't report offsets correctly for static elements, so we change them
+  // to "relative" to get the values, then change them back.
+  Element.Methods.getOffsetParent = Element.Methods.getOffsetParent.wrap(
+    function(proceed, element) {
+      element = $(element);
+      // IE throws an error if element is not in document
+      try { element.offsetParent }
+      catch(e) { return $(document.body) }
+      var position = element.getStyle('position');
+      if (position !== 'static') return proceed(element);
+      element.setStyle({ position: 'relative' });
+      var value = proceed(element);
+      element.setStyle({ position: position });
+      return value;
+    }
+  );
+
+  $w('positionedOffset viewportOffset').each(function(method) {
+    Element.Methods[method] = Element.Methods[method].wrap(
+      function(proceed, element) {
+        element = $(element);
+        try { element.offsetParent }
+        catch(e) { return Element._returnOffset(0,0) }
+        var position = element.getStyle('position');
+        if (position !== 'static') return proceed(element);
+        // Trigger hasLayout on the offset parent so that IE6 reports
+        // accurate offsetTop and offsetLeft values for position: fixed.
+        var offsetParent = element.getOffsetParent();
+        if (offsetParent && offsetParent.getStyle('position') === 'fixed')
+          offsetParent.setStyle({ zoom: 1 });
+=======
   $w('positionedOffset getOffsetParent viewportOffset').each(function(method) {
     Element.Methods[method] = Element.Methods[method].wrap(
       function(proceed, element) {
         element = $(element);
         var position = element.getStyle('position');
         if (position != 'static') return proceed(element);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         element.setStyle({ position: 'relative' });
         var value = proceed(element);
         element.setStyle({ position: position });
@@ -2251,6 +2628,17 @@ else if (Prototype.Browser.IE) {
     );
   });
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+  Element.Methods.cumulativeOffset = Element.Methods.cumulativeOffset.wrap(
+    function(proceed, element) {
+      try { element.offsetParent }
+      catch(e) { return Element._returnOffset(0,0) }
+      return proceed(element);
+    }
+  );
+
+=======
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   Element.Methods.getStyle = function(element, style) {
     element = $(element);
     style = (style == 'float' || style == 'cssFloat') ? 'styleFloat' : style.camelize();
@@ -2324,7 +2712,14 @@ else if (Prototype.Browser.IE) {
   };
 
   Element._attributeTranslations.write = {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    names: Object.extend({
+      cellpadding: 'cellPadding',
+      cellspacing: 'cellSpacing'
+    }, Element._attributeTranslations.read.names),
+=======
     names: Object.clone(Element._attributeTranslations.read.names),
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     values: {
       checked: function(element, value) {
         element.checked = !!value;
@@ -2339,7 +2734,11 @@ else if (Prototype.Browser.IE) {
   Element._attributeTranslations.has = {};
 
   $w('colSpan rowSpan vAlign dateTime accessKey tabIndex ' +
+<<<<<<< HEAD:public/javascripts/prototype.js
+      'encType maxLength readOnly longDesc frameBorder').each(function(attr) {
+=======
       'encType maxLength readOnly longDesc').each(function(attr) {
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     Element._attributeTranslations.write.names[attr.toLowerCase()] = attr;
     Element._attributeTranslations.has[attr.toLowerCase()] = attr;
   });
@@ -2392,7 +2791,11 @@ else if (Prototype.Browser.WebKit) {
       (value < 0.00001) ? 0 : value;
 
     if (value == 1)
+<<<<<<< HEAD:public/javascripts/prototype.js
+      if(element.tagName.toUpperCase() == 'IMG' && element.width) {
+=======
       if(element.tagName == 'IMG' && element.width) {
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         element.width++; element.width--;
       } else try {
         var n = document.createTextNode(' ');
@@ -2444,7 +2847,11 @@ if (Prototype.Browser.IE || Prototype.Browser.Opera) {
   };
 }
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+if ('outerHTML' in document.createElement('div')) {
+=======
 if (document.createElement('div').outerHTML) {
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   Element.Methods.replace = function(element, content) {
     element = $(element);
 
@@ -2482,12 +2889,32 @@ Element._returnOffset = function(l, t) {
 
 Element._getContentFromAnonymousElement = function(tagName, html) {
   var div = new Element('div'), t = Element._insertionTranslations.tags[tagName];
+<<<<<<< HEAD:public/javascripts/prototype.js
+  if (t) {
+    div.innerHTML = t[0] + html + t[1];
+    t[2].times(function() { div = div.firstChild });
+  } else div.innerHTML = html;
+=======
   div.innerHTML = t[0] + html + t[1];
   t[2].times(function() { div = div.firstChild });
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   return $A(div.childNodes);
 };
 
 Element._insertionTranslations = {
+<<<<<<< HEAD:public/javascripts/prototype.js
+  before: function(element, node) {
+    element.parentNode.insertBefore(node, element);
+  },
+  top: function(element, node) {
+    element.insertBefore(node, element.firstChild);
+  },
+  bottom: function(element, node) {
+    element.appendChild(node);
+  },
+  after: function(element, node) {
+    element.parentNode.insertBefore(node, element.nextSibling);
+=======
   before: {
     adjacency: 'beforeBegin',
     insert: function(element, node) {
@@ -2521,6 +2948,7 @@ Element._insertionTranslations = {
     initializeRange: function(element, range) {
       range.setStartAfter(element);
     }
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   },
   tags: {
     TABLE:  ['<table>',                '</table>',                   1],
@@ -2532,7 +2960,10 @@ Element._insertionTranslations = {
 };
 
 (function() {
+<<<<<<< HEAD:public/javascripts/prototype.js
+=======
   this.bottom.initializeRange = this.top.initializeRange;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   Object.extend(this.tags, {
     THEAD: this.tags.TBODY,
     TFOOT: this.tags.TBODY,
@@ -2544,7 +2975,11 @@ Element.Methods.Simulated = {
   hasAttribute: function(element, attribute) {
     attribute = Element._attributeTranslations.has[attribute] || attribute;
     var node = $(element).getAttributeNode(attribute);
+<<<<<<< HEAD:public/javascripts/prototype.js
+    return !!(node && node.specified);
+=======
     return node && node.specified;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   }
 };
 
@@ -2553,9 +2988,15 @@ Element.Methods.ByTag = { };
 Object.extend(Element, Element.Methods);
 
 if (!Prototype.BrowserFeatures.ElementExtensions &&
+<<<<<<< HEAD:public/javascripts/prototype.js
+    document.createElement('div')['__proto__']) {
+  window.HTMLElement = { };
+  window.HTMLElement.prototype = document.createElement('div')['__proto__'];
+=======
     document.createElement('div').__proto__) {
   window.HTMLElement = { };
   window.HTMLElement.prototype = document.createElement('div').__proto__;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   Prototype.BrowserFeatures.ElementExtensions = true;
 }
 
@@ -2570,7 +3011,11 @@ Element.extend = (function() {
         element.nodeType != 1 || element == window) return element;
 
     var methods = Object.clone(Methods),
+<<<<<<< HEAD:public/javascripts/prototype.js
+      tagName = element.tagName.toUpperCase(), property, value;
+=======
       tagName = element.tagName, property, value;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
 
     // extend methods for specific tags
     if (ByTag[tagName]) Object.extend(methods, ByTag[tagName]);
@@ -2666,7 +3111,11 @@ Element.addMethods = function(methods) {
     if (window[klass]) return window[klass];
 
     window[klass] = { };
+<<<<<<< HEAD:public/javascripts/prototype.js
+    window[klass].prototype = document.createElement(tagName)['__proto__'];
+=======
     window[klass].prototype = document.createElement(tagName).__proto__;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     return window[klass];
   }
 
@@ -2692,12 +3141,27 @@ Element.addMethods = function(methods) {
 
 document.viewport = {
   getDimensions: function() {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    var dimensions = { }, B = Prototype.Browser;
+    $w('width height').each(function(d) {
+      var D = d.capitalize();
+      if (B.WebKit && !document.evaluate) {
+        // Safari <3.0 needs self.innerWidth/Height
+        dimensions[d] = self['inner' + D];
+      } else if (B.Opera && parseFloat(window.opera.version()) < 9.5) {
+        // Opera <9.5 needs document.body.clientWidth/Height
+        dimensions[d] = document.body['client' + D]
+      } else {
+        dimensions[d] = document.documentElement['client' + D];
+      }
+=======
     var dimensions = { };
     var B = Prototype.Browser;
     $w('width height').each(function(d) {
       var D = d.capitalize();
       dimensions[d] = (B.WebKit && !document.evaluate) ? self['inner' + D] :
         (B.Opera) ? document.body['client' + D] : document.documentElement['client' + D];
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     });
     return dimensions;
   },
@@ -2716,14 +3180,32 @@ document.viewport = {
       window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop);
   }
 };
+<<<<<<< HEAD:public/javascripts/prototype.js
+/* Portions of the Selector class are derived from Jack Slocum's DomQuery,
+=======
 /* Portions of the Selector class are derived from Jack Slocum’s DomQuery,
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
  * part of YUI-Ext version 0.40, distributed under the terms of an MIT-style
  * license.  Please see http://www.yui-ext.com/ for more information. */
 
 var Selector = Class.create({
   initialize: function(expression) {
     this.expression = expression.strip();
+<<<<<<< HEAD:public/javascripts/prototype.js
+
+    if (this.shouldUseSelectorsAPI()) {
+      this.mode = 'selectorsAPI';
+    } else if (this.shouldUseXPath()) {
+      this.mode = 'xpath';
+      this.compileXPathMatcher();
+    } else {
+      this.mode = "normal";
+      this.compileMatcher();
+    }
+
+=======
     this.compileMatcher();
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   },
 
   shouldUseXPath: function() {
@@ -2738,16 +3220,40 @@ var Selector = Class.create({
 
     // XPath can't do namespaced attributes, nor can it read
     // the "checked" property from DOM nodes
-    if ((/(\[[\w-]*?:|:checked)/).test(this.expression))
+<<<<<<< HEAD:public/javascripts/prototype.js
+    if ((/(\[[\w-]*?:|:checked)/).test(e))
       return false;
 
     return true;
   },
 
+  shouldUseSelectorsAPI: function() {
+    if (!Prototype.BrowserFeatures.SelectorsAPI) return false;
+
+    if (!Selector._div) Selector._div = new Element('div');
+
+    // Make sure the browser treats the selector as valid. Test on an
+    // isolated element to minimize cost of this check.
+    try {
+      Selector._div.querySelector(this.expression);
+    } catch(e) {
+      return false;
+    }
+=======
+    if ((/(\[[\w-]*?:|:checked)/).test(this.expression))
+      return false;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
+
+    return true;
+  },
+
   compileMatcher: function() {
+<<<<<<< HEAD:public/javascripts/prototype.js
+=======
     if (this.shouldUseXPath())
       return this.compileXPathMatcher();
 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     var e = this.expression, ps = Selector.patterns, h = Selector.handlers,
         c = Selector.criteria, le, p, m;
 
@@ -2765,7 +3271,11 @@ var Selector = Class.create({
         p = ps[i];
         if (m = e.match(p)) {
           this.matcher.push(Object.isFunction(c[i]) ? c[i](m) :
+<<<<<<< HEAD:public/javascripts/prototype.js
+            new Template(c[i]).evaluate(m));
+=======
     	      new Template(c[i]).evaluate(m));
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
           e = e.replace(m[0], '');
           break;
         }
@@ -2804,8 +3314,32 @@ var Selector = Class.create({
 
   findElements: function(root) {
     root = root || document;
+<<<<<<< HEAD:public/javascripts/prototype.js
+    var e = this.expression, results;
+
+    switch (this.mode) {
+      case 'selectorsAPI':
+        // querySelectorAll queries document-wide, then filters to descendants
+        // of the context element. That's not what we want.
+        // Add an explicit context to the selector if necessary.
+        if (root !== document) {
+          var oldId = root.id, id = $(root).identify();
+          e = "#" + id + " " + e;
+        }
+
+        results = $A(root.querySelectorAll(e)).map(Element.extend);
+        root.id = oldId;
+
+        return results;
+      case 'xpath':
+        return document._getElementsByXPath(this.xpath, root);
+      default:
+       return this.matcher(root);
+    }
+=======
     if (this.xpath) return document._getElementsByXPath(this.xpath, root);
     return this.matcher(root);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   },
 
   match: function(element) {
@@ -2896,10 +3430,17 @@ Object.extend(Selector, {
       'first-child': '[not(preceding-sibling::*)]',
       'last-child':  '[not(following-sibling::*)]',
       'only-child':  '[not(preceding-sibling::* or following-sibling::*)]',
+<<<<<<< HEAD:public/javascripts/prototype.js
+      'empty':       "[count(*) = 0 and (count(text()) = 0)]",
+      'checked':     "[@checked]",
+      'disabled':    "[(@disabled) and (@type!='hidden')]",
+      'enabled':     "[not(@disabled) and (@type!='hidden')]",
+=======
       'empty':       "[count(*) = 0 and (count(text()) = 0 or translate(text(), ' \t\r\n', '') = '')]",
       'checked':     "[@checked]",
       'disabled':    "[@disabled]",
       'enabled':     "[not(@disabled)]",
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       'not': function(m) {
         var e = m[6], p = Selector.patterns,
             x = Selector.xpath, le, v;
@@ -2959,6 +3500,15 @@ Object.extend(Selector, {
   },
 
   criteria: {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    tagName:      'n = h.tagName(n, r, "#{1}", c);      c = false;',
+    className:    'n = h.className(n, r, "#{1}", c);    c = false;',
+    id:           'n = h.id(n, r, "#{1}", c);           c = false;',
+    attrPresence: 'n = h.attrPresence(n, r, "#{1}", c); c = false;',
+    attr: function(m) {
+      m[3] = (m[5] || m[6]);
+      return new Template('n = h.attr(n, r, "#{1}", "#{3}", "#{2}", c); c = false;').evaluate(m);
+=======
     tagName:      'n = h.tagName(n, r, "#{1}", c);   c = false;',
     className:    'n = h.className(n, r, "#{1}", c); c = false;',
     id:           'n = h.id(n, r, "#{1}", c);        c = false;',
@@ -2966,6 +3516,7 @@ Object.extend(Selector, {
     attr: function(m) {
       m[3] = (m[5] || m[6]);
       return new Template('n = h.attr(n, r, "#{1}", "#{3}", "#{2}"); c = false;').evaluate(m);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     },
     pseudo: function(m) {
       if (m[6]) m[6] = m[6].replace(/"/g, '\\"');
@@ -2989,8 +3540,14 @@ Object.extend(Selector, {
     tagName:      /^\s*(\*|[\w\-]+)(\b|$)?/,
     id:           /^#([\w\-\*]+)(\b|$)/,
     className:    /^\.([\w\-\*]+)(\b|$)/,
+<<<<<<< HEAD:public/javascripts/prototype.js
+    pseudo:
+/^:((first|last|nth|nth-last|only)(-child|-of-type)|empty|checked|(en|dis)abled|not)(\((.*?)\))?(\b|$|(?=\s|[:+~>]))/,
+    attrPresence: /^\[((?:[\w]+:)?[\w]+)\]/,
+=======
     pseudo:       /^:((first|last|nth|nth-last|only)(-child|-of-type)|empty|checked|(en|dis)abled|not)(\((.*?)\))?(\b|$|(?=\s)|(?=:))/,
     attrPresence: /^\[([\w]+)\]/,
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     attr:         /\[((?:[\w-]*:)?[\w-]+)\s*(?:([!^$*~|]?=)\s*((['"])([^\4]*?)\4|([^'"][^\]]*?)))?\]/
   },
 
@@ -3014,7 +3571,11 @@ Object.extend(Selector, {
 
     attr: function(element, matches) {
       var nodeValue = Element.readAttribute(element, matches[1]);
+<<<<<<< HEAD:public/javascripts/prototype.js
+      return nodeValue && Selector.operators[matches[2]](nodeValue, matches[5] || matches[6]);
+=======
       return Selector.operators[matches[2]](nodeValue, matches[3]);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     }
   },
 
@@ -3029,14 +3590,24 @@ Object.extend(Selector, {
 
     // marks an array of nodes for counting
     mark: function(nodes) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+      var _true = Prototype.emptyFunction;
+      for (var i = 0, node; node = nodes[i]; i++)
+        node._countedByPrototype = _true;
+=======
       for (var i = 0, node; node = nodes[i]; i++)
         node._counted = true;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       return nodes;
     },
 
     unmark: function(nodes) {
       for (var i = 0, node; node = nodes[i]; i++)
+<<<<<<< HEAD:public/javascripts/prototype.js
+        node._countedByPrototype = undefined;
+=======
         node._counted = undefined;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       return nodes;
     },
 
@@ -3044,6 +3615,17 @@ Object.extend(Selector, {
     // "ofType" flag indicates whether we're indexing for nth-of-type
     // rather than nth-child
     index: function(parentNode, reverse, ofType) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+      parentNode._countedByPrototype = Prototype.emptyFunction;
+      if (reverse) {
+        for (var nodes = parentNode.childNodes, i = nodes.length - 1, j = 1; i >= 0; i--) {
+          var node = nodes[i];
+          if (node.nodeType == 1 && (!ofType || node._countedByPrototype)) node.nodeIndex = j++;
+        }
+      } else {
+        for (var i = 0, j = 1, nodes = parentNode.childNodes; node = nodes[i]; i++)
+          if (node.nodeType == 1 && (!ofType || node._countedByPrototype)) node.nodeIndex = j++;
+=======
       parentNode._counted = true;
       if (reverse) {
         for (var nodes = parentNode.childNodes, i = nodes.length - 1, j = 1; i >= 0; i--) {
@@ -3053,6 +3635,7 @@ Object.extend(Selector, {
       } else {
         for (var i = 0, j = 1, nodes = parentNode.childNodes; node = nodes[i]; i++)
           if (node.nodeType == 1 && (!ofType || node._counted)) node.nodeIndex = j++;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       }
     },
 
@@ -3061,8 +3644,13 @@ Object.extend(Selector, {
       if (nodes.length == 0) return nodes;
       var results = [], n;
       for (var i = 0, l = nodes.length; i < l; i++)
+<<<<<<< HEAD:public/javascripts/prototype.js
+        if (!(n = nodes[i])._countedByPrototype) {
+          n._countedByPrototype = Prototype.emptyFunction;
+=======
         if (!(n = nodes[i])._counted) {
           n._counted = true;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
           results.push(Element.extend(n));
         }
       return Selector.handlers.unmark(results);
@@ -3102,7 +3690,11 @@ Object.extend(Selector, {
 
     nextElementSibling: function(node) {
       while (node = node.nextSibling)
+<<<<<<< HEAD:public/javascripts/prototype.js
+        if (node.nodeType == 1) return node;
+=======
 	      if (node.nodeType == 1) return node;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       return null;
     },
 
@@ -3114,7 +3706,11 @@ Object.extend(Selector, {
 
     // TOKEN FUNCTIONS
     tagName: function(nodes, root, tagName, combinator) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+      var uTagName = tagName.toUpperCase();
+=======
       tagName = tagName.toUpperCase();
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       var results = [], h = Selector.handlers;
       if (nodes) {
         if (combinator) {
@@ -3127,7 +3723,11 @@ Object.extend(Selector, {
           if (tagName == "*") return nodes;
         }
         for (var i = 0, node; node = nodes[i]; i++)
+<<<<<<< HEAD:public/javascripts/prototype.js
+          if (node.tagName.toUpperCase() === uTagName) results.push(node);
+=======
           if (node.tagName.toUpperCase() == tagName) results.push(node);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         return results;
       } else return root.getElementsByTagName(tagName);
     },
@@ -3174,16 +3774,28 @@ Object.extend(Selector, {
       return results;
     },
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+    attrPresence: function(nodes, root, attr, combinator) {
+      if (!nodes) nodes = root.getElementsByTagName("*");
+      if (nodes && combinator) nodes = this[combinator](nodes);
+=======
     attrPresence: function(nodes, root, attr) {
       if (!nodes) nodes = root.getElementsByTagName("*");
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       var results = [];
       for (var i = 0, node; node = nodes[i]; i++)
         if (Element.hasAttribute(node, attr)) results.push(node);
       return results;
     },
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+    attr: function(nodes, root, attr, value, operator, combinator) {
+      if (!nodes) nodes = root.getElementsByTagName("*");
+      if (nodes && combinator) nodes = this[combinator](nodes);
+=======
     attr: function(nodes, root, attr, value, operator) {
       if (!nodes) nodes = root.getElementsByTagName("*");
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       var handler = Selector.operators[operator], results = [];
       for (var i = 0, node; node = nodes[i]; i++) {
         var nodeValue = Element.readAttribute(node, attr);
@@ -3262,7 +3874,11 @@ Object.extend(Selector, {
       var h = Selector.handlers, results = [], indexed = [], m;
       h.mark(nodes);
       for (var i = 0, node; node = nodes[i]; i++) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+        if (!node.parentNode._countedByPrototype) {
+=======
         if (!node.parentNode._counted) {
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
           h.index(node.parentNode, reverse, ofType);
           indexed.push(node.parentNode);
         }
@@ -3289,7 +3905,11 @@ Object.extend(Selector, {
     'empty': function(nodes, value, root) {
       for (var i = 0, results = [], node; node = nodes[i]; i++) {
         // IE treats comments as element nodes
+<<<<<<< HEAD:public/javascripts/prototype.js
+        if (node.tagName == '!' || node.firstChild) continue;
+=======
         if (node.tagName == '!' || (node.firstChild && !node.innerHTML.match(/^\s*$/))) continue;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         results.push(node);
       }
       return results;
@@ -3300,14 +3920,23 @@ Object.extend(Selector, {
       var exclusions = new Selector(selector).findElements(root);
       h.mark(exclusions);
       for (var i = 0, results = [], node; node = nodes[i]; i++)
+<<<<<<< HEAD:public/javascripts/prototype.js
+        if (!node._countedByPrototype) results.push(node);
+=======
         if (!node._counted) results.push(node);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       h.unmark(exclusions);
       return results;
     },
 
     'enabled': function(nodes, value, root) {
       for (var i = 0, results = [], node; node = nodes[i]; i++)
+<<<<<<< HEAD:public/javascripts/prototype.js
+        if (!node.disabled && (!node.type || node.type !== 'hidden'))
+          results.push(node);
+=======
         if (!node.disabled) results.push(node);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       return results;
     },
 
@@ -3327,6 +3956,31 @@ Object.extend(Selector, {
   operators: {
     '=':  function(nv, v) { return nv == v; },
     '!=': function(nv, v) { return nv != v; },
+<<<<<<< HEAD:public/javascripts/prototype.js
+    '^=': function(nv, v) { return nv == v || nv && nv.startsWith(v); },
+    '$=': function(nv, v) { return nv == v || nv && nv.endsWith(v); },
+    '*=': function(nv, v) { return nv == v || nv && nv.include(v); },
+    '$=': function(nv, v) { return nv.endsWith(v); },
+    '*=': function(nv, v) { return nv.include(v); },
+    '~=': function(nv, v) { return (' ' + nv + ' ').include(' ' + v + ' '); },
+    '|=': function(nv, v) { return ('-' + (nv || "").toUpperCase() +
+     '-').include('-' + (v || "").toUpperCase() + '-'); }
+  },
+
+  split: function(expression) {
+    var expressions = [];
+    expression.scan(/(([\w#:.~>+()\s-]+|\*|\[.*?\])+)\s*(,|$)/, function(m) {
+      expressions.push(m[1].strip());
+    });
+    return expressions;
+  },
+
+  matchElements: function(elements, expression) {
+    var matches = $$(expression), h = Selector.handlers;
+    h.mark(matches);
+    for (var i = 0, results = [], element; element = elements[i]; i++)
+      if (element._countedByPrototype) results.push(element);
+=======
     '^=': function(nv, v) { return nv.startsWith(v); },
     '$=': function(nv, v) { return nv.endsWith(v); },
     '*=': function(nv, v) { return nv.include(v); },
@@ -3339,6 +3993,7 @@ Object.extend(Selector, {
     h.mark(matches);
     for (var i = 0, results = [], element; element = elements[i]; i++)
       if (element._counted) results.push(element);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     h.unmark(matches);
     return results;
   },
@@ -3351,11 +4006,15 @@ Object.extend(Selector, {
   },
 
   findChildElements: function(element, expressions) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    expressions = Selector.split(expressions.join(','));
+=======
     var exprs = expressions.join(',');
     expressions = [];
     exprs.scan(/(([\w#:.~>+()\s-]+|\*|\[.*?\])+)\s*(,|$)/, function(m) {
       expressions.push(m[1].strip());
     });
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     var results = [], h = Selector.handlers;
     for (var i = 0, l = expressions.length, selector; i < l; i++) {
       selector = new Selector(expressions[i].strip());
@@ -3366,6 +4025,24 @@ Object.extend(Selector, {
 });
 
 if (Prototype.Browser.IE) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+  Object.extend(Selector.handlers, {
+    // IE returns comment nodes on getElementsByTagName("*").
+    // Filter them out.
+    concat: function(a, b) {
+      for (var i = 0, node; node = b[i]; i++)
+        if (node.tagName !== "!") a.push(node);
+      return a;
+    },
+
+    // IE improperly serializes _countedByPrototype in (inner|outer)HTML.
+    unmark: function(nodes) {
+      for (var i = 0, node; node = nodes[i]; i++)
+        node.removeAttribute('_countedByPrototype');
+      return nodes;
+    }
+  });
+=======
   // IE returns comment nodes on getElementsByTagName("*").
   // Filter them out.
   Selector.handlers.concat = function(a, b) {
@@ -3373,6 +4050,7 @@ if (Prototype.Browser.IE) {
       if (node.tagName !== "!") a.push(node);
     return a;
   };
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
 }
 
 function $$() {
@@ -3392,7 +4070,11 @@ var Form = {
     var data = elements.inject({ }, function(result, element) {
       if (!element.disabled && element.name) {
         key = element.name; value = $(element).getValue();
+<<<<<<< HEAD:public/javascripts/prototype.js
+        if (value != null && element.type != 'file' && (element.type != 'submit' || (!submitted &&
+=======
         if (value != null && (element.type != 'submit' || (!submitted &&
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
             submit !== false && (!submit || key == submit) && (submitted = true)))) {
           if (key in result) {
             // a key is already present; construct an array of values
@@ -3553,7 +4235,10 @@ Form.Element.Methods = {
 
   disable: function(element) {
     element = $(element);
+<<<<<<< HEAD:public/javascripts/prototype.js
+=======
     element.blur();
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     element.disabled = true;
     return element;
   },
@@ -3593,6 +4278,19 @@ Form.Element.Serializers = {
     else element.value = value;
   },
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+  select: function(element, value) {
+    if (Object.isUndefined(value))
+      return this[element.type == 'select-one' ?
+        'selectOne' : 'selectMany'](element);
+    else {
+      var opt, currentValue, single = !Object.isArray(value);
+      for (var i = 0, length = element.length; i < length; i++) {
+        opt = element.options[i];
+        currentValue = this.optionValue(opt);
+        if (single) {
+          if (currentValue == value) {
+=======
   select: function(element, index) {
     if (Object.isUndefined(index))
       return this[element.type == 'select-one' ?
@@ -3604,11 +4302,16 @@ Form.Element.Serializers = {
         value = this.optionValue(opt);
         if (single) {
           if (value == index) {
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
             opt.selected = true;
             return;
           }
         }
+<<<<<<< HEAD:public/javascripts/prototype.js
+        else opt.selected = value.include(currentValue);
+=======
         else opt.selected = index.include(value);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       }
     }
   },
@@ -3779,8 +4482,28 @@ Event.Methods = (function() {
     isRightClick:  function(event) { return isButton(event, 2) },
 
     element: function(event) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+      event = Event.extend(event);
+
+      var node          = event.target,
+          type          = event.type,
+          currentTarget = event.currentTarget;
+
+      if (currentTarget && currentTarget.tagName) {
+        // Firefox screws up the "click" event when moving between radio buttons
+        // via arrow keys. It also screws up the "load" and "error" events on images,
+        // reporting the document as the target instead of the original image.
+        if (type === 'load' || type === 'error' ||
+          (type === 'click' && currentTarget.tagName.toLowerCase() === 'input'
+            && currentTarget.type === 'radio'))
+              node = currentTarget;
+      }
+      if (node.nodeType == Node.TEXT_NODE) node = node.parentNode;
+      return Element.extend(node);
+=======
       var node = Event.extend(event).target;
       return Element.extend(node.nodeType == Node.TEXT_NODE ? node.parentNode : node);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     },
 
     findElement: function(event, expression) {
@@ -3791,11 +4514,23 @@ Event.Methods = (function() {
     },
 
     pointer: function(event) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+      var docElement = document.documentElement,
+      body = document.body || { scrollLeft: 0, scrollTop: 0 };
+      return {
+        x: event.pageX || (event.clientX +
+          (docElement.scrollLeft || body.scrollLeft) -
+          (docElement.clientLeft || 0)),
+        y: event.pageY || (event.clientY +
+          (docElement.scrollTop || body.scrollTop) -
+          (docElement.clientTop || 0))
+=======
       return {
         x: event.pageX || (event.clientX +
           (document.documentElement.scrollLeft || document.body.scrollLeft)),
         y: event.pageY || (event.clientY +
           (document.documentElement.scrollTop || document.body.scrollTop))
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
       };
     },
 
@@ -3840,7 +4575,11 @@ Event.extend = (function() {
     };
 
   } else {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    Event.prototype = Event.prototype || document.createEvent("HTMLEvents")['__proto__'];
+=======
     Event.prototype = Event.prototype || document.createEvent("HTMLEvents").__proto__;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     Object.extend(Event.prototype, methods);
     return Prototype.K;
   }
@@ -3850,9 +4589,15 @@ Object.extend(Event, (function() {
   var cache = Event.cache;
 
   function getEventID(element) {
+<<<<<<< HEAD:public/javascripts/prototype.js
+    if (element._prototypeEventID) return element._prototypeEventID[0];
+    arguments.callee.id = arguments.callee.id || 1;
+    return element._prototypeEventID = [++arguments.callee.id];
+=======
     if (element._eventID) return element._eventID;
     arguments.callee.id = arguments.callee.id || 1;
     return element._eventID = ++arguments.callee.id;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   }
 
   function getDOMEventName(eventName) {
@@ -3880,7 +4625,11 @@ Object.extend(Event, (function() {
           return false;
 
       Event.extend(event);
+<<<<<<< HEAD:public/javascripts/prototype.js
+      handler.call(element, event);
+=======
       handler.call(element, event)
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
     };
 
     wrapper.handler = handler;
@@ -3905,10 +4654,26 @@ Object.extend(Event, (function() {
         cache[id][eventName] = null;
   }
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+
+  // Internet Explorer needs to remove event handlers on page unload
+  // in order to avoid memory leaks.
+=======
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   if (window.attachEvent) {
     window.attachEvent("onunload", destroyCache);
   }
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+  // Safari has a dummy event handler on page unload so that it won't
+  // use its bfcache. Safari <= 3.1 has an issue with restoring the "document"
+  // object when page is returned to via the back button using its bfcache.
+  if (Prototype.Browser.WebKit) {
+    window.addEventListener('unload', Prototype.emptyFunction, false);
+  }
+
+=======
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   return {
     observe: function(element, eventName, handler) {
       element = $(element);
@@ -3962,11 +4727,20 @@ Object.extend(Event, (function() {
       if (element == document && document.createEvent && !element.dispatchEvent)
         element = document.documentElement;
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+      var event;
+      if (document.createEvent) {
+        event = document.createEvent("HTMLEvents");
+        event.initEvent("dataavailable", true, true);
+      } else {
+        event = document.createEventObject();
+=======
       if (document.createEvent) {
         var event = document.createEvent("HTMLEvents");
         event.initEvent("dataavailable", true, true);
       } else {
         var event = document.createEventObject();
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
         event.eventType = "ondataavailable";
       }
 
@@ -3995,13 +4769,27 @@ Element.addMethods({
 Object.extend(document, {
   fire:          Element.Methods.fire.methodize(),
   observe:       Element.Methods.observe.methodize(),
+<<<<<<< HEAD:public/javascripts/prototype.js
+  stopObserving: Element.Methods.stopObserving.methodize(),
+  loaded:        false
+=======
   stopObserving: Element.Methods.stopObserving.methodize()
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
 });
 
 (function() {
   /* Support for the DOMContentLoaded event is based on work by Dan Webb,
      Matthias Miller, Dean Edwards and John Resig. */
 
+<<<<<<< HEAD:public/javascripts/prototype.js
+  var timer;
+
+  function fireContentLoadedEvent() {
+    if (document.loaded) return;
+    if (timer) window.clearInterval(timer);
+    document.fire("dom:loaded");
+    document.loaded = true;
+=======
   var timer, fired = false;
 
   function fireContentLoadedEvent() {
@@ -4009,6 +4797,7 @@ Object.extend(document, {
     if (timer) window.clearInterval(timer);
     document.fire("dom:loaded");
     fired = true;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/prototype.js
   }
 
   if (document.addEventListener) {

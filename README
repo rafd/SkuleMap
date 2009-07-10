@@ -1,5 +1,16 @@
 == Welcome to Rails
 
+<<<<<<< HEAD:README
+Rails is a web-application framework that includes everything needed to create 
+database-backed web applications according to the Model-View-Control pattern. 
+
+This pattern splits the view (also called the presentation) into "dumb" templates
+that are primarily responsible for inserting pre-built data in between HTML tags.
+The model contains the "smart" domain objects (such as Account, Product, Person,
+Post) that holds all the business logic and knows how to persist themselves to
+a database. The controller handles the incoming requests (such as Save New Account,
+Update Product, Show Post) by manipulating the model and directing data to the view.
+=======
 Rails is a web-application and persistence framework that includes everything
 needed to create database-backed web-applications according to the
 Model-View-Control pattern of separation. This pattern splits the view (also
@@ -9,6 +20,7 @@ for inserting pre-built data in between HTML tags. The model contains the
 the business logic and knows how to persist themselves to a database. The
 controller handles the incoming requests (such as Save New Account, Update
 Product, Show Post) by manipulating the model and directing data to the view.
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:README
 
 In Rails, the model is handled by what's called an object-relational mapping
 layer entitled Active Record. This layer allows you to present the data from
@@ -29,24 +41,82 @@ link:files/vendor/rails/actionpack/README.html.
 
 1. At the command prompt, start a new Rails application using the <tt>rails</tt> command
    and your application name. Ex: rails myapp
+<<<<<<< HEAD:README
+2. Change directory into myapp and start the web server: <tt>script/server</tt> (run with --help for options)
+3. Go to http://localhost:3000/ and get "Welcome aboard: You're riding the Rails!"
+=======
    (If you've downloaded Rails in a complete tgz or zip, this step is already done)
 2. Change directory into myapp and start the web server: <tt>script/server</tt> (run with --help for options)
 3. Go to http://localhost:3000/ and get "Welcome aboard: You’re riding the Rails!"
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:README
 4. Follow the guidelines to start developing your application
 
 
 == Web Servers
 
+<<<<<<< HEAD:README
+By default, Rails will try to use Mongrel if it's are installed when started with script/server, otherwise Rails will use WEBrick, the webserver that ships with Ruby. But you can also use Rails
+with a variety of other web servers.
+=======
 By default, Rails will try to use Mongrel and lighttpd if they are installed, otherwise
 Rails will use WEBrick, the webserver that ships with Ruby. When you run script/server,
 Rails will check if Mongrel exists, then lighttpd and finally fall back to WEBrick. This ensures
 that you can always get up and running quickly.
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:README
 
 Mongrel is a Ruby-based webserver with a C component (which requires compilation) that is
 suitable for development and deployment of Rails applications. If you have Ruby Gems installed,
 getting up and running with mongrel is as easy as: <tt>gem install mongrel</tt>.
 More info at: http://mongrel.rubyforge.org
 
+<<<<<<< HEAD:README
+Say other Ruby web servers like Thin and Ebb or regular web servers like Apache or LiteSpeed or
+Lighttpd or IIS. The Ruby web servers are run through Rack and the latter can either be setup to use
+FCGI or proxy to a pack of Mongrels/Thin/Ebb servers.
+
+== Apache .htaccess example for FCGI/CGI
+
+# General Apache options
+AddHandler fastcgi-script .fcgi
+AddHandler cgi-script .cgi
+Options +FollowSymLinks +ExecCGI
+
+# If you don't want Rails to look in certain directories,
+# use the following rewrite rules so that Apache won't rewrite certain requests
+# 
+# Example:
+#   RewriteCond %{REQUEST_URI} ^/notrails.*
+#   RewriteRule .* - [L]
+
+# Redirect all requests not available on the filesystem to Rails
+# By default the cgi dispatcher is used which is very slow
+# 
+# For better performance replace the dispatcher with the fastcgi one
+#
+# Example:
+#   RewriteRule ^(.*)$ dispatch.fcgi [QSA,L]
+RewriteEngine On
+
+# If your Rails application is accessed via an Alias directive,
+# then you MUST also set the RewriteBase in this htaccess file.
+#
+# Example:
+#   Alias /myrailsapp /path/to/myrailsapp/public
+#   RewriteBase /myrailsapp
+
+RewriteRule ^$ index.html [QSA]
+RewriteRule ^([^.]+)$ $1.html [QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ dispatch.cgi [QSA,L]
+
+# In case Rails experiences terminal errors
+# Instead of displaying this message you can supply a file here which will be rendered instead
+# 
+# Example:
+#   ErrorDocument 500 /500.html
+
+ErrorDocument 500 "<h2>Application error</h2>Rails application failed to start properly"
+=======
 If Mongrel is not installed, Rails will look for lighttpd. It's considerably faster than
 Mongrel and WEBrick and also suited for production use, but requires additional
 installation and currently only works well on OS X/Unix (Windows users are encouraged
@@ -60,6 +130,7 @@ for production.
 But of course its also possible to run Rails on any platform that supports FCGI.
 Apache, LiteSpeed, IIS are just a few. For more information on FCGI,
 please visit: http://wiki.rubyonrails.com/rails/pages/FastCGI
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:README
 
 
 == Debugging Rails
@@ -102,7 +173,13 @@ and also on programming in general.
 
 Debugger support is available through the debugger command when you start your Mongrel or
 Webrick server with --debugger. This means that you can break out of execution at any point
+<<<<<<< HEAD:README
+in the code, investigate and change the model, AND then resume execution! 
+You need to install ruby-debug to run the server in debugging mode. With gems, use 'gem install ruby-debug'
+Example:
+=======
 in the code, investigate and change the model, AND then resume execution! Example:
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:README
 
   class WeblogController < ActionController::Base
     def index
@@ -140,6 +217,16 @@ Passing an argument will specify a different environment, like <tt>script/consol
 
 To reload your controllers and models after launching the console run <tt>reload!</tt>
 
+<<<<<<< HEAD:README
+== dbconsole
+
+You can go to the command line of your database directly through <tt>script/dbconsole</tt>.
+You would be connected to the database with the credentials defined in database.yml.
+Starting the script without arguments will connect you to the development database. Passing an
+argument will connect you to a different database, like <tt>script/dbconsole production</tt>.
+Currently works for mysql, postgresql and sqlite.
+=======
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:README
 
 == Description of Contents
 
@@ -157,13 +244,21 @@ app/models
 
 app/views
   Holds the template files for the view that should be named like
+<<<<<<< HEAD:README
+  weblogs/index.html.erb for the WeblogsController#index action. All views use eRuby
+=======
   weblogs/index.erb for the WeblogsController#index action. All views use eRuby
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:README
   syntax.
 
 app/views/layouts
   Holds the template files for layouts to be used with views. This models the common
   header/footer method of wrapping views. In your views, define a layout using the
+<<<<<<< HEAD:README
+  <tt>layout :default</tt> and create a file named default.html.erb. Inside default.html.erb,
+=======
   <tt>layout :default</tt> and create a file named default.erb. Inside default.erb,
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:README
   call <% yield %> to render the view using this layout.
 
 app/helpers
@@ -200,4 +295,8 @@ test
 
 vendor
   External libraries that the application depends on. Also includes the plugins subdirectory.
+<<<<<<< HEAD:README
+  If the app has frozen rails, those gems also go here, under vendor/rails/.
+=======
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:README
   This directory is in the load path.

@@ -1,8 +1,32 @@
+<<<<<<< HEAD:public/javascripts/effects.js
+// Copyright (c) 2005-2008 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
+=======
 // Copyright (c) 2005-2007 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
 // Contributors:
 //  Justin Palmer (http://encytemedia.com/)
 //  Mark Pilgrim (http://diveintomark.org/)
 //  Martin Bialasinki
+<<<<<<< HEAD:public/javascripts/effects.js
+//
+// script.aculo.us is freely distributable under the terms of an MIT-style license.
+// For details, see the script.aculo.us web site: http://script.aculo.us/
+
+// converts rgb() and #xxx to #xxxxxx format,
+// returns self (or first argument) if not convertable
+String.prototype.parseColor = function() {
+  var color = '#';
+  if (this.slice(0,4) == 'rgb(') {
+    var cols = this.slice(4,this.length-1).split(',');
+    var i=0; do { color += parseInt(cols[i]).toColorPart() } while (++i<3);
+  } else {
+    if (this.slice(0,1) == '#') {
+      if (this.length==4) for(var i=1;i<4;i++) color += (this.charAt(i) + this.charAt(i)).toLowerCase();
+      if (this.length==7) color = this.toLowerCase();
+    }
+  }
+  return (color.length==7 ? color : (arguments[0] || this));
+=======
 // 
 // script.aculo.us is freely distributable under the terms of an MIT-style license.
 // For details, see the script.aculo.us web site: http://script.aculo.us/ 
@@ -21,28 +45,47 @@ String.prototype.parseColor = function() {
     }  
   }  
   return (color.length==7 ? color : (arguments[0] || this));  
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
 };
 
 /*--------------------------------------------------------------------------*/
 
+<<<<<<< HEAD:public/javascripts/effects.js
+Element.collectTextNodes = function(element) {
+  return $A($(element).childNodes).collect( function(node) {
+    return (node.nodeType==3 ? node.nodeValue :
+=======
 Element.collectTextNodes = function(element) {  
   return $A($(element).childNodes).collect( function(node) {
     return (node.nodeType==3 ? node.nodeValue : 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       (node.hasChildNodes() ? Element.collectTextNodes(node) : ''));
   }).flatten().join('');
 };
 
+<<<<<<< HEAD:public/javascripts/effects.js
+Element.collectTextNodesIgnoreClass = function(element, className) {
+  return $A($(element).childNodes).collect( function(node) {
+    return (node.nodeType==3 ? node.nodeValue :
+      ((node.hasChildNodes() && !Element.hasClassName(node,className)) ?
+=======
 Element.collectTextNodesIgnoreClass = function(element, className) {  
   return $A($(element).childNodes).collect( function(node) {
     return (node.nodeType==3 ? node.nodeValue : 
       ((node.hasChildNodes() && !Element.hasClassName(node,className)) ? 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
         Element.collectTextNodesIgnoreClass(node, className) : ''));
   }).flatten().join('');
 };
 
 Element.setContentZoom = function(element, percent) {
+<<<<<<< HEAD:public/javascripts/effects.js
+  element = $(element);
+  element.setStyle({fontSize: (percent/100) + 'em'});
+=======
   element = $(element);  
   element.setStyle({fontSize: (percent/100) + 'em'});   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
   if (Prototype.Browser.WebKit) window.scrollBy(0,0);
   return element;
 };
@@ -70,12 +113,29 @@ var Effect = {
   Transitions: {
     linear: Prototype.K,
     sinoidal: function(pos) {
+<<<<<<< HEAD:public/javascripts/effects.js
+      return (-Math.cos(pos*Math.PI)/2) + .5;
+=======
       return (-Math.cos(pos*Math.PI)/2) + 0.5;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     },
     reverse: function(pos) {
       return 1-pos;
     },
     flicker: function(pos) {
+<<<<<<< HEAD:public/javascripts/effects.js
+      var pos = ((-Math.cos(pos*Math.PI)/4) + .75) + Math.random()/4;
+      return pos > 1 ? 1 : pos;
+    },
+    wobble: function(pos) {
+      return (-Math.cos(pos*Math.PI*(9*pos))/2) + .5;
+    },
+    pulse: function(pos, pulses) {
+      return (-Math.cos((pos*((pulses||5)-.5)*2)*Math.PI)/2) + .5;
+    },
+    spring: function(pos) {
+      return 1 - (Math.cos(pos * 4.5 * Math.PI) * Math.exp(-pos * 6));
+=======
       var pos = ((-Math.cos(pos*Math.PI)/4) + 0.75) + Math.random()/4;
       return pos > 1 ? 1 : pos;
     },
@@ -92,6 +152,7 @@ var Effect = {
     },
     spring: function(pos) { 
       return 1 - (Math.cos(pos * 4.5 * Math.PI) * Math.exp(-pos * 6)); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     },
     none: function(pos) {
       return 0;
@@ -112,14 +173,22 @@ var Effect = {
   tagifyText: function(element) {
     var tagifyStyle = 'position:relative';
     if (Prototype.Browser.IE) tagifyStyle += ';zoom:1';
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     element = $(element);
     $A(element.childNodes).each( function(child) {
       if (child.nodeType==3) {
         child.nodeValue.toArray().each( function(character) {
           element.insertBefore(
             new Element('span', {style: tagifyStyle}).update(
+<<<<<<< HEAD:public/javascripts/effects.js
+              character == ' ' ? String.fromCharCode(160) : character),
+=======
               character == ' ' ? String.fromCharCode(160) : character), 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
               child);
         });
         Element.remove(child);
@@ -128,13 +197,22 @@ var Effect = {
   },
   multiple: function(element, effect) {
     var elements;
+<<<<<<< HEAD:public/javascripts/effects.js
+    if (((typeof element == 'object') ||
+        Object.isFunction(element)) &&
+=======
     if (((typeof element == 'object') || 
         Object.isFunction(element)) && 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
        (element.length))
       elements = element;
     else
       elements = $(element).childNodes;
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
       
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     var options = Object.extend({
       speed: 0.1,
       delay: 0.0
@@ -156,7 +234,11 @@ var Effect = {
     var options = Object.extend({
       queue: { position:'end', scope:(element.id || 'global'), limit: 1 }
     }, arguments[2] || { });
+<<<<<<< HEAD:public/javascripts/effects.js
+    Effect[element.visible() ?
+=======
     Effect[element.visible() ? 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       Effect.PAIRS[effect][1] : Effect.PAIRS[effect][0]](element, options);
   }
 };
@@ -168,13 +250,26 @@ Effect.DefaultOptions.transition = Effect.Transitions.sinoidal;
 Effect.ScopedQueue = Class.create(Enumerable, {
   initialize: function() {
     this.effects  = [];
+<<<<<<< HEAD:public/javascripts/effects.js
+    this.interval = null;
+=======
     this.interval = null;    
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
   },
   _each: function(iterator) {
     this.effects._each(iterator);
   },
   add: function(effect) {
     var timestamp = new Date().getTime();
+<<<<<<< HEAD:public/javascripts/effects.js
+
+    var position = Object.isString(effect.options.queue) ?
+      effect.options.queue : effect.options.queue.position;
+
+    switch(position) {
+      case 'front':
+        // move unstarted effects after this effect
+=======
     
     var position = Object.isString(effect.options.queue) ? 
       effect.options.queue : effect.options.queue.position;
@@ -182,6 +277,7 @@ Effect.ScopedQueue = Class.create(Enumerable, {
     switch(position) {
       case 'front':
         // move unstarted effects after this effect  
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
         this.effects.findAll(function(e){ return e.state=='idle' }).each( function(e) {
             e.startOn  += effect.finishOn;
             e.finishOn += effect.finishOn;
@@ -195,13 +291,21 @@ Effect.ScopedQueue = Class.create(Enumerable, {
         timestamp = this.effects.pluck('finishOn').max() || timestamp;
         break;
     }
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     effect.startOn  += timestamp;
     effect.finishOn += timestamp;
 
     if (!effect.options.queue.limit || (this.effects.length < effect.options.queue.limit))
       this.effects.push(effect);
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     if (!this.interval)
       this.interval = setInterval(this.loop.bind(this), 15);
   },
@@ -214,7 +318,11 @@ Effect.ScopedQueue = Class.create(Enumerable, {
   },
   loop: function() {
     var timePos = new Date().getTime();
+<<<<<<< HEAD:public/javascripts/effects.js
+    for(var i=0, len=this.effects.length;i<len;i++)
+=======
     for(var i=0, len=this.effects.length;i<len;i++) 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       this.effects[i] && this.effects[i].loop(timePos);
   }
 });
@@ -223,7 +331,11 @@ Effect.Queues = {
   instances: $H(),
   get: function(queueName) {
     if (!Object.isString(queueName)) return queueName;
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     return this.instances.get(queueName) ||
       this.instances.set(queueName, new Effect.ScopedQueue());
   }
@@ -248,6 +360,37 @@ Effect.Base = Class.create({
     this.fromToDelta  = this.options.to-this.options.from;
     this.totalTime    = this.finishOn-this.startOn;
     this.totalFrames  = this.options.fps*this.options.duration;
+<<<<<<< HEAD:public/javascripts/effects.js
+
+    this.render = (function() {
+      function dispatch(effect, eventName) {
+        if (effect.options[eventName + 'Internal'])
+          effect.options[eventName + 'Internal'](effect);
+        if (effect.options[eventName])
+          effect.options[eventName](effect);
+      }
+
+      return function(pos) {
+        if (this.state === "idle") {
+          this.state = "running";
+          dispatch(this, 'beforeSetup');
+          if (this.setup) this.setup();
+          dispatch(this, 'afterSetup');
+        }
+        if (this.state === "running") {
+          pos = (this.options.transition(pos) * this.fromToDelta) + this.options.from;
+          this.position = pos;
+          dispatch(this, 'beforeUpdate');
+          if (this.update) this.update(pos);
+          dispatch(this, 'afterUpdate');
+        }
+      };
+    })();
+
+    this.event('beforeStart');
+    if (!this.options.sync)
+      Effect.Queues.get(Object.isString(this.options.queue) ?
+=======
     
     eval('this.render = function(pos){ '+
       'if (this.state=="idle"){this.state="running";'+
@@ -265,6 +408,7 @@ Effect.Base = Class.create({
     this.event('beforeStart');
     if (!this.options.sync)
       Effect.Queues.get(Object.isString(this.options.queue) ? 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
         'global' : this.options.queue.scope).add(this);
   },
   loop: function(timePos) {
@@ -273,9 +417,15 @@ Effect.Base = Class.create({
         this.render(1.0);
         this.cancel();
         this.event('beforeFinish');
+<<<<<<< HEAD:public/javascripts/effects.js
+        if (this.finish) this.finish();
+        this.event('afterFinish');
+        return;
+=======
         if (this.finish) this.finish(); 
         this.event('afterFinish');
         return;  
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       }
       var pos   = (timePos - this.startOn) / this.totalTime,
           frame = (pos * this.totalFrames).round();
@@ -287,7 +437,11 @@ Effect.Base = Class.create({
   },
   cancel: function() {
     if (!this.options.sync)
+<<<<<<< HEAD:public/javascripts/effects.js
+      Effect.Queues.get(Object.isString(this.options.queue) ?
+=======
       Effect.Queues.get(Object.isString(this.options.queue) ? 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
         'global' : this.options.queue.scope).remove(this);
     this.state = 'finished';
   },
@@ -325,10 +479,17 @@ Effect.Parallel = Class.create(Effect.Base, {
 Effect.Tween = Class.create(Effect.Base, {
   initialize: function(object, from, to) {
     object = Object.isString(object) ? $(object) : object;
+<<<<<<< HEAD:public/javascripts/effects.js
+    var args = $A(arguments), method = args.last(),
+      options = args.length == 5 ? args[3] : null;
+    this.method = Object.isFunction(method) ? method.bind(object) :
+      Object.isFunction(object[method]) ? object[method].bind(object) :
+=======
     var args = $A(arguments), method = args.last(), 
       options = args.length == 5 ? args[3] : null;
     this.method = Object.isFunction(method) ? method.bind(object) :
       Object.isFunction(object[method]) ? object[method].bind(object) : 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       function(value) { object[method] = value };
     this.start(Object.extend({ from: from, to: to }, options || { }));
   },
@@ -392,7 +553,11 @@ Effect.Move = Class.create(Effect.Base, {
 
 // for backwards compatibility
 Effect.MoveBy = function(element, toTop, toLeft) {
+<<<<<<< HEAD:public/javascripts/effects.js
+  return new Effect.Move(element,
+=======
   return new Effect.Move(element, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     Object.extend({ x: toLeft, y: toTop }, arguments[3] || { }));
 };
 
@@ -414,15 +579,26 @@ Effect.Scale = Class.create(Effect.Base, {
   setup: function() {
     this.restoreAfterFinish = this.options.restoreAfterFinish || false;
     this.elementPositioning = this.element.getStyle('position');
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     this.originalStyle = { };
     ['top','left','width','height','fontSize'].each( function(k) {
       this.originalStyle[k] = this.element.style[k];
     }.bind(this));
+<<<<<<< HEAD:public/javascripts/effects.js
+
+    this.originalTop  = this.element.offsetTop;
+    this.originalLeft = this.element.offsetLeft;
+
+=======
       
     this.originalTop  = this.element.offsetTop;
     this.originalLeft = this.element.offsetLeft;
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     var fontSize = this.element.getStyle('font-size') || '100%';
     ['em','px','%','pt'].each( function(fontSizeType) {
       if (fontSize.indexOf(fontSizeType)>0) {
@@ -430,9 +606,15 @@ Effect.Scale = Class.create(Effect.Base, {
         this.fontSizeType = fontSizeType;
       }
     }.bind(this));
+<<<<<<< HEAD:public/javascripts/effects.js
+
+    this.factor = (this.options.scaleTo - this.options.scaleFrom)/100;
+
+=======
     
     this.factor = (this.options.scaleTo - this.options.scaleFrom)/100;
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     this.dims = null;
     if (this.options.scaleMode=='box')
       this.dims = [this.element.offsetHeight, this.element.offsetWidth];
@@ -507,17 +689,28 @@ Effect.Highlight = Class.create(Effect.Base, {
 
 Effect.ScrollTo = function(element) {
   var options = arguments[1] || { },
+<<<<<<< HEAD:public/javascripts/effects.js
+  scrollOffsets = document.viewport.getScrollOffsets(),
+  elementOffsets = $(element).cumulativeOffset();
+=======
     scrollOffsets = document.viewport.getScrollOffsets(),
     elementOffsets = $(element).cumulativeOffset(),
     max = (window.height || document.body.scrollHeight) - document.viewport.getHeight();  
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
 
   if (options.offset) elementOffsets[1] += options.offset;
 
   return new Effect.Tween(null,
     scrollOffsets.top,
+<<<<<<< HEAD:public/javascripts/effects.js
+    elementOffsets[1],
+    options,
+    function(p){ scrollTo(scrollOffsets.left, p.round()); }
+=======
     elementOffsets[1] > max ? max : elementOffsets[1],
     options,
     function(p){ scrollTo(scrollOffsets.left, p.round()) }
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
   );
 };
 
@@ -529,9 +722,15 @@ Effect.Fade = function(element) {
   var options = Object.extend({
     from: element.getOpacity() || 1.0,
     to:   0.0,
+<<<<<<< HEAD:public/javascripts/effects.js
+    afterFinishInternal: function(effect) {
+      if (effect.options.to!=0) return;
+      effect.element.hide().setStyle({opacity: oldOpacity});
+=======
     afterFinishInternal: function(effect) { 
       if (effect.options.to!=0) return;
       effect.element.hide().setStyle({opacity: oldOpacity}); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     }
   }, arguments[1] || { });
   return new Effect.Opacity(element,options);
@@ -547,15 +746,24 @@ Effect.Appear = function(element) {
     effect.element.forceRerendering();
   },
   beforeSetup: function(effect) {
+<<<<<<< HEAD:public/javascripts/effects.js
+    effect.element.setOpacity(effect.options.from).show();
+=======
     effect.element.setOpacity(effect.options.from).show(); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
   }}, arguments[1] || { });
   return new Effect.Opacity(element,options);
 };
 
 Effect.Puff = function(element) {
   element = $(element);
+<<<<<<< HEAD:public/javascripts/effects.js
+  var oldStyle = {
+    opacity: element.getInlineOpacity(),
+=======
   var oldStyle = { 
     opacity: element.getInlineOpacity(), 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     position: element.getStyle('position'),
     top:  element.style.top,
     left: element.style.left,
@@ -563,12 +771,21 @@ Effect.Puff = function(element) {
     height: element.style.height
   };
   return new Effect.Parallel(
+<<<<<<< HEAD:public/javascripts/effects.js
+   [ new Effect.Scale(element, 200,
+      { sync: true, scaleFromCenter: true, scaleContent: true, restoreAfterFinish: true }),
+     new Effect.Opacity(element, { sync: true, to: 0.0 } ) ],
+     Object.extend({ duration: 1.0,
+      beforeSetupInternal: function(effect) {
+        Position.absolutize(effect.effects[0].element);
+=======
    [ new Effect.Scale(element, 200, 
       { sync: true, scaleFromCenter: true, scaleContent: true, restoreAfterFinish: true }), 
      new Effect.Opacity(element, { sync: true, to: 0.0 } ) ], 
      Object.extend({ duration: 1.0, 
       beforeSetupInternal: function(effect) {
         Position.absolutize(effect.effects[0].element)
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       },
       afterFinishInternal: function(effect) {
          effect.effects[0].element.hide().setStyle(oldStyle); }
@@ -580,12 +797,21 @@ Effect.BlindUp = function(element) {
   element = $(element);
   element.makeClipping();
   return new Effect.Scale(element, 0,
+<<<<<<< HEAD:public/javascripts/effects.js
+    Object.extend({ scaleContent: false,
+      scaleX: false,
+      restoreAfterFinish: true,
+      afterFinishInternal: function(effect) {
+        effect.element.hide().undoClipping();
+      }
+=======
     Object.extend({ scaleContent: false, 
       scaleX: false, 
       restoreAfterFinish: true,
       afterFinishInternal: function(effect) {
         effect.element.hide().undoClipping();
       } 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     }, arguments[1] || { })
   );
 };
@@ -593,15 +819,25 @@ Effect.BlindUp = function(element) {
 Effect.BlindDown = function(element) {
   element = $(element);
   var elementDimensions = element.getDimensions();
+<<<<<<< HEAD:public/javascripts/effects.js
+  return new Effect.Scale(element, 100, Object.extend({
+    scaleContent: false,
+=======
   return new Effect.Scale(element, 100, Object.extend({ 
     scaleContent: false, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     scaleX: false,
     scaleFrom: 0,
     scaleMode: {originalHeight: elementDimensions.height, originalWidth: elementDimensions.width},
     restoreAfterFinish: true,
     afterSetup: function(effect) {
+<<<<<<< HEAD:public/javascripts/effects.js
+      effect.element.makeClipping().setStyle({height: '0px'}).show();
+    },
+=======
       effect.element.makeClipping().setStyle({height: '0px'}).show(); 
     },  
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     afterFinishInternal: function(effect) {
       effect.element.undoClipping();
     }
@@ -616,16 +852,27 @@ Effect.SwitchOff = function(element) {
     from: 0,
     transition: Effect.Transitions.flicker,
     afterFinishInternal: function(effect) {
+<<<<<<< HEAD:public/javascripts/effects.js
+      new Effect.Scale(effect.element, 1, {
+        duration: 0.3, scaleFromCenter: true,
+        scaleX: false, scaleContent: false, restoreAfterFinish: true,
+        beforeSetup: function(effect) {
+=======
       new Effect.Scale(effect.element, 1, { 
         duration: 0.3, scaleFromCenter: true,
         scaleX: false, scaleContent: false, restoreAfterFinish: true,
         beforeSetup: function(effect) { 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
           effect.element.makePositioned().makeClipping();
         },
         afterFinishInternal: function(effect) {
           effect.element.hide().undoClipping().undoPositioned().setStyle({opacity: oldOpacity});
         }
+<<<<<<< HEAD:public/javascripts/effects.js
+      });
+=======
       })
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     }
   }, arguments[1] || { }));
 };
@@ -637,16 +884,28 @@ Effect.DropOut = function(element) {
     left: element.getStyle('left'),
     opacity: element.getInlineOpacity() };
   return new Effect.Parallel(
+<<<<<<< HEAD:public/javascripts/effects.js
+    [ new Effect.Move(element, {x: 0, y: 100, sync: true }),
+=======
     [ new Effect.Move(element, {x: 0, y: 100, sync: true }), 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       new Effect.Opacity(element, { sync: true, to: 0.0 }) ],
     Object.extend(
       { duration: 0.5,
         beforeSetup: function(effect) {
+<<<<<<< HEAD:public/javascripts/effects.js
+          effect.effects[0].element.makePositioned();
+        },
+        afterFinishInternal: function(effect) {
+          effect.effects[0].element.hide().undoPositioned().setStyle(oldStyle);
+        }
+=======
           effect.effects[0].element.makePositioned(); 
         },
         afterFinishInternal: function(effect) {
           effect.effects[0].element.hide().undoPositioned().setStyle(oldStyle);
         } 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       }, arguments[1] || { }));
 };
 
@@ -674,7 +933,11 @@ Effect.Shake = function(element) {
     new Effect.Move(effect.element,
       { x: -distance, y: 0, duration: split, afterFinishInternal: function(effect) {
         effect.element.undoPositioned().setStyle(oldStyle);
+<<<<<<< HEAD:public/javascripts/effects.js
+  }}); }}); }}); }}); }}); }});
+=======
   }}) }}) }}) }}) }}) }});
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
 };
 
 Effect.SlideDown = function(element) {
@@ -682,9 +945,15 @@ Effect.SlideDown = function(element) {
   // SlideDown need to have the content of the element wrapped in a container element with fixed height!
   var oldInnerBottom = element.down().getStyle('bottom');
   var elementDimensions = element.getDimensions();
+<<<<<<< HEAD:public/javascripts/effects.js
+  return new Effect.Scale(element, 100, Object.extend({
+    scaleContent: false,
+    scaleX: false,
+=======
   return new Effect.Scale(element, 100, Object.extend({ 
     scaleContent: false, 
     scaleX: false, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     scaleFrom: window.opera ? 0 : 1,
     scaleMode: {originalHeight: elementDimensions.height, originalWidth: elementDimensions.width},
     restoreAfterFinish: true,
@@ -692,11 +961,19 @@ Effect.SlideDown = function(element) {
       effect.element.makePositioned();
       effect.element.down().makePositioned();
       if (window.opera) effect.element.setStyle({top: ''});
+<<<<<<< HEAD:public/javascripts/effects.js
+      effect.element.makeClipping().setStyle({height: '0px'}).show();
+    },
+    afterUpdateInternal: function(effect) {
+      effect.element.down().setStyle({bottom:
+        (effect.dims[0] - effect.element.clientHeight) + 'px' });
+=======
       effect.element.makeClipping().setStyle({height: '0px'}).show(); 
     },
     afterUpdateInternal: function(effect) {
       effect.element.down().setStyle({bottom:
         (effect.dims[0] - effect.element.clientHeight) + 'px' }); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     },
     afterFinishInternal: function(effect) {
       effect.element.undoClipping().undoPositioned();
@@ -710,8 +987,13 @@ Effect.SlideUp = function(element) {
   var oldInnerBottom = element.down().getStyle('bottom');
   var elementDimensions = element.getDimensions();
   return new Effect.Scale(element, window.opera ? 0 : 1,
+<<<<<<< HEAD:public/javascripts/effects.js
+   Object.extend({ scaleContent: false,
+    scaleX: false,
+=======
    Object.extend({ scaleContent: false, 
     scaleX: false, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     scaleMode: 'box',
     scaleFrom: 100,
     scaleMode: {originalHeight: elementDimensions.height, originalWidth: elementDimensions.width},
@@ -721,7 +1003,11 @@ Effect.SlideUp = function(element) {
       effect.element.down().makePositioned();
       if (window.opera) effect.element.setStyle({top: ''});
       effect.element.makeClipping().show();
+<<<<<<< HEAD:public/javascripts/effects.js
+    },
+=======
     },  
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     afterUpdateInternal: function(effect) {
       effect.element.down().setStyle({bottom:
         (effect.dims[0] - effect.element.clientHeight) + 'px' });
@@ -734,6 +1020,17 @@ Effect.SlideUp = function(element) {
   );
 };
 
+<<<<<<< HEAD:public/javascripts/effects.js
+// Bug in opera makes the TD containing this element expand for a instance after finish
+Effect.Squish = function(element) {
+  return new Effect.Scale(element, window.opera ? 1 : 0, {
+    restoreAfterFinish: true,
+    beforeSetup: function(effect) {
+      effect.element.makeClipping();
+    },
+    afterFinishInternal: function(effect) {
+      effect.element.hide().undoClipping();
+=======
 // Bug in opera makes the TD containing this element expand for a instance after finish 
 Effect.Squish = function(element) {
   return new Effect.Scale(element, window.opera ? 1 : 0, { 
@@ -743,6 +1040,7 @@ Effect.Squish = function(element) {
     },  
     afterFinishInternal: function(effect) {
       effect.element.hide().undoClipping(); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     }
   });
 };
@@ -762,6 +1060,15 @@ Effect.Grow = function(element) {
     width: element.style.width,
     opacity: element.getInlineOpacity() };
 
+<<<<<<< HEAD:public/javascripts/effects.js
+  var dims = element.getDimensions();
+  var initialMoveX, initialMoveY;
+  var moveX, moveY;
+
+  switch (options.direction) {
+    case 'top-left':
+      initialMoveX = initialMoveY = moveX = moveY = 0;
+=======
   var dims = element.getDimensions();    
   var initialMoveX, initialMoveY;
   var moveX, moveY;
@@ -769,6 +1076,7 @@ Effect.Grow = function(element) {
   switch (options.direction) {
     case 'top-left':
       initialMoveX = initialMoveY = moveX = moveY = 0; 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       break;
     case 'top-right':
       initialMoveX = dims.width;
@@ -793,11 +1101,19 @@ Effect.Grow = function(element) {
       moveY = -dims.height / 2;
       break;
   }
+<<<<<<< HEAD:public/javascripts/effects.js
+
+  return new Effect.Move(element, {
+    x: initialMoveX,
+    y: initialMoveY,
+    duration: 0.01,
+=======
   
   return new Effect.Move(element, {
     x: initialMoveX,
     y: initialMoveY,
     duration: 0.01, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     beforeSetup: function(effect) {
       effect.element.hide().makeClipping().makePositioned();
     },
@@ -806,6 +1122,19 @@ Effect.Grow = function(element) {
         [ new Effect.Opacity(effect.element, { sync: true, to: 1.0, from: 0.0, transition: options.opacityTransition }),
           new Effect.Move(effect.element, { x: moveX, y: moveY, sync: true, transition: options.moveTransition }),
           new Effect.Scale(effect.element, 100, {
+<<<<<<< HEAD:public/javascripts/effects.js
+            scaleMode: { originalHeight: dims.height, originalWidth: dims.width },
+            sync: true, scaleFrom: window.opera ? 1 : 0, transition: options.scaleTransition, restoreAfterFinish: true})
+        ], Object.extend({
+             beforeSetup: function(effect) {
+               effect.effects[0].element.setStyle({height: '0px'}).show();
+             },
+             afterFinishInternal: function(effect) {
+               effect.effects[0].element.undoClipping().undoPositioned().setStyle(oldStyle);
+             }
+           }, options)
+      );
+=======
             scaleMode: { originalHeight: dims.height, originalWidth: dims.width }, 
             sync: true, scaleFrom: window.opera ? 1 : 0, transition: options.scaleTransition, restoreAfterFinish: true})
         ], Object.extend({
@@ -817,6 +1146,7 @@ Effect.Grow = function(element) {
              }
            }, options)
       )
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     }
   });
 };
@@ -838,7 +1168,11 @@ Effect.Shrink = function(element) {
 
   var dims = element.getDimensions();
   var moveX, moveY;
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
   switch (options.direction) {
     case 'top-left':
       moveX = moveY = 0;
@@ -855,19 +1189,33 @@ Effect.Shrink = function(element) {
       moveX = dims.width;
       moveY = dims.height;
       break;
+<<<<<<< HEAD:public/javascripts/effects.js
+    case 'center':
+=======
     case 'center':  
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       moveX = dims.width / 2;
       moveY = dims.height / 2;
       break;
   }
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
   return new Effect.Parallel(
     [ new Effect.Opacity(element, { sync: true, to: 0.0, from: 1.0, transition: options.opacityTransition }),
       new Effect.Scale(element, window.opera ? 1 : 0, { sync: true, transition: options.scaleTransition, restoreAfterFinish: true}),
       new Effect.Move(element, { x: moveX, y: moveY, sync: true, transition: options.moveTransition })
+<<<<<<< HEAD:public/javascripts/effects.js
+    ], Object.extend({
+         beforeStartInternal: function(effect) {
+           effect.effects[0].element.makePositioned().makeClipping();
+=======
     ], Object.extend({            
          beforeStartInternal: function(effect) {
            effect.effects[0].element.makePositioned().makeClipping(); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
          },
          afterFinishInternal: function(effect) {
            effect.effects[0].element.hide().undoClipping().undoPositioned().setStyle(oldStyle); }
@@ -877,12 +1225,23 @@ Effect.Shrink = function(element) {
 
 Effect.Pulsate = function(element) {
   element = $(element);
+<<<<<<< HEAD:public/javascripts/effects.js
+  var options    = arguments[1] || { },
+    oldOpacity = element.getInlineOpacity(),
+    transition = options.transition || Effect.Transitions.linear,
+    reverser   = function(pos){
+      return 1 - transition((-Math.cos((pos*(options.pulses||5)*2)*Math.PI)/2) + .5);
+    };
+
+  return new Effect.Opacity(element,
+=======
   var options    = arguments[1] || { };
   var oldOpacity = element.getInlineOpacity();
   var transition = options.transition || Effect.Transitions.sinoidal;
   var reverser   = function(pos){ return transition(1-Effect.Transitions.pulse(pos, options.pulses)) };
   reverser.bind(transition);
   return new Effect.Opacity(element, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     Object.extend(Object.extend({  duration: 2.0, from: 0,
       afterFinishInternal: function(effect) { effect.element.setStyle({opacity: oldOpacity}); }
     }, options), {transition: reverser}));
@@ -896,12 +1255,21 @@ Effect.Fold = function(element) {
     width: element.style.width,
     height: element.style.height };
   element.makeClipping();
+<<<<<<< HEAD:public/javascripts/effects.js
+  return new Effect.Scale(element, 5, Object.extend({
+    scaleContent: false,
+    scaleX: false,
+    afterFinishInternal: function(effect) {
+    new Effect.Scale(element, 1, {
+      scaleContent: false,
+=======
   return new Effect.Scale(element, 5, Object.extend({   
     scaleContent: false,
     scaleX: false,
     afterFinishInternal: function(effect) {
     new Effect.Scale(element, 1, { 
       scaleContent: false, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       scaleY: false,
       afterFinishInternal: function(effect) {
         effect.element.hide().undoClipping().setStyle(oldStyle);
@@ -916,7 +1284,11 @@ Effect.Morph = Class.create(Effect.Base, {
     var options = Object.extend({
       style: { }
     }, arguments[1] || { });
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     if (!Object.isString(options.style)) this.style = $H(options.style);
     else {
       if (options.style.include(':'))
@@ -934,18 +1306,30 @@ Effect.Morph = Class.create(Effect.Base, {
           effect.transforms.each(function(transform) {
             effect.element.style[transform.style] = '';
           });
+<<<<<<< HEAD:public/javascripts/effects.js
+        };
+=======
         }
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       }
     }
     this.start(options);
   },
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
   setup: function(){
     function parseColor(color){
       if (!color || ['rgba(0, 0, 0, 0)','transparent'].include(color)) color = '#ffffff';
       color = color.parseColor();
       return $R(0,2).map(function(i){
+<<<<<<< HEAD:public/javascripts/effects.js
+        return parseInt( color.slice(i*2+1,i*2+3), 16 );
+=======
         return parseInt( color.slice(i*2+1,i*2+3), 16 ) 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
       });
     }
     this.transforms = this.style.map(function(pair){
@@ -965,9 +1349,15 @@ Effect.Morph = Class.create(Effect.Base, {
       }
 
       var originalValue = this.element.getStyle(property);
+<<<<<<< HEAD:public/javascripts/effects.js
+      return {
+        style: property.camelize(),
+        originalValue: unit=='color' ? parseColor(originalValue) : parseFloat(originalValue || 0),
+=======
       return { 
         style: property.camelize(), 
         originalValue: unit=='color' ? parseColor(originalValue) : parseFloat(originalValue || 0), 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
         targetValue: unit=='color' ? parseColor(value) : value,
         unit: unit
       };
@@ -978,13 +1368,21 @@ Effect.Morph = Class.create(Effect.Base, {
           transform.unit != 'color' &&
           (isNaN(transform.originalValue) || isNaN(transform.targetValue))
         )
+<<<<<<< HEAD:public/javascripts/effects.js
+      );
+=======
       )
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     });
   },
   update: function(position) {
     var style = { }, transform, i = this.transforms.length;
     while(i--)
+<<<<<<< HEAD:public/javascripts/effects.js
+      style[(transform = this.transforms[i]).style] =
+=======
       style[(transform = this.transforms[i]).style] = 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
         transform.unit=='color' ? '#'+
           (Math.round(transform.originalValue[0]+
             (transform.targetValue[0]-transform.originalValue[0])*position)).toColorPart() +
@@ -993,7 +1391,11 @@ Effect.Morph = Class.create(Effect.Base, {
           (Math.round(transform.originalValue[2]+
             (transform.targetValue[2]-transform.originalValue[2])*position)).toColorPart() :
         (transform.originalValue +
+<<<<<<< HEAD:public/javascripts/effects.js
+          (transform.targetValue - transform.originalValue) * position).toFixed(3) +
+=======
           (transform.targetValue - transform.originalValue) * position).toFixed(3) + 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
             (transform.unit === null ? '' : transform.unit);
     this.element.setStyle(style, true);
   }
@@ -1030,7 +1432,11 @@ Effect.Transform = Class.create({
 });
 
 Element.CSS_PROPERTIES = $w(
+<<<<<<< HEAD:public/javascripts/effects.js
+  'backgroundColor backgroundPosition borderBottomColor borderBottomStyle ' +
+=======
   'backgroundColor backgroundPosition borderBottomColor borderBottomStyle ' + 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
   'borderBottomWidth borderLeftColor borderLeftStyle borderLeftWidth ' +
   'borderRightColor borderRightStyle borderRightWidth borderSpacing ' +
   'borderTopColor borderTopStyle borderTopWidth bottom clip color ' +
@@ -1039,7 +1445,11 @@ Element.CSS_PROPERTIES = $w(
   'maxWidth minHeight minWidth opacity outlineColor outlineOffset ' +
   'outlineWidth paddingBottom paddingLeft paddingRight paddingTop ' +
   'right textIndent top width wordSpacing zIndex');
+<<<<<<< HEAD:public/javascripts/effects.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
 Element.CSS_LENGTH = /^(([\+\-]?[0-9\.]+)(em|ex|px|in|cm|mm|pt|pc|\%))|0$/;
 
 String.__parseStyleElement = document.createElement('div');
@@ -1051,11 +1461,19 @@ String.prototype.parseStyle = function(){
     String.__parseStyleElement.innerHTML = '<div style="' + this + '"></div>';
     style = String.__parseStyleElement.childNodes[0].style;
   }
+<<<<<<< HEAD:public/javascripts/effects.js
+
+  Element.CSS_PROPERTIES.each(function(property){
+    if (style[property]) styleRules.set(property, style[property]);
+  });
+
+=======
   
   Element.CSS_PROPERTIES.each(function(property){
     if (style[property]) styleRules.set(property, style[property]); 
   });
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
   if (Prototype.Browser.IE && this.include('opacity'))
     styleRules.set('opacity', this.match(/opacity:\s*((?:0|1)?(?:\.\d*)?)/)[1]);
 
@@ -1074,6 +1492,16 @@ if (document.defaultView && document.defaultView.getComputedStyle) {
   Element.getStyles = function(element) {
     element = $(element);
     var css = element.currentStyle, styles;
+<<<<<<< HEAD:public/javascripts/effects.js
+    styles = Element.CSS_PROPERTIES.inject({ }, function(results, property) {
+      results[property] = css[property];
+      return results;
+    });
+    if (!styles.opacity) styles.opacity = element.getOpacity();
+    return styles;
+  };
+}
+=======
     styles = Element.CSS_PROPERTIES.inject({ }, function(hash, property) {
       hash.set(property, css[property]);
       return hash;
@@ -1082,6 +1510,7 @@ if (document.defaultView && document.defaultView.getComputedStyle) {
     return styles;
   };
 };
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
 
 Effect.Methods = {
   morph: function(element, style) {
@@ -1090,7 +1519,11 @@ Effect.Methods = {
     return element;
   },
   visualEffect: function(element, effect, options) {
+<<<<<<< HEAD:public/javascripts/effects.js
+    element = $(element);
+=======
     element = $(element)
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     var s = effect.dasherize().camelize(), klass = s.charAt(0).toUpperCase() + s.substring(1);
     new Effect[klass](element, options);
     return element;
@@ -1104,11 +1537,26 @@ Effect.Methods = {
 
 $w('fade appear grow shrink fold blindUp blindDown slideUp slideDown '+
   'pulsate shake puff squish switchOff dropOut').each(
+<<<<<<< HEAD:public/javascripts/effects.js
+  function(effect) {
+=======
   function(effect) { 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js
     Effect.Methods[effect] = function(element, options){
       element = $(element);
       Effect[effect.charAt(0).toUpperCase() + effect.substring(1)](element, options);
       return element;
+<<<<<<< HEAD:public/javascripts/effects.js
+    };
+  }
+);
+
+$w('getInlineOpacity forceRerendering setContentZoom collectTextNodes collectTextNodesIgnoreClass getStyles').each(
+  function(f) { Effect.Methods[f] = Element[f]; }
+);
+
+Element.addMethods(Effect.Methods);
+=======
     }
   }
 );
@@ -1118,3 +1566,4 @@ $w('getInlineOpacity forceRerendering setContentZoom collectTextNodes collectTex
 );
 
 Element.addMethods(Effect.Methods);
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/effects.js

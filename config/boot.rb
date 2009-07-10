@@ -24,9 +24,14 @@ module Rails
       File.exist?("#{RAILS_ROOT}/vendor/rails")
     end
 
+<<<<<<< HEAD:config/boot.rb
+    def preinitialize
+      load(preinitializer_path) if File.exist?(preinitializer_path)
+=======
     # FIXME : Ruby 1.9
     def preinitialize
       load(preinitializer_path) if File.exists?(preinitializer_path)
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:config/boot.rb
     end
 
     def preinitializer_path
@@ -44,6 +49,11 @@ module Rails
   class VendorBoot < Boot
     def load_initializer
       require "#{RAILS_ROOT}/vendor/rails/railties/lib/initializer"
+<<<<<<< HEAD:config/boot.rb
+      Rails::Initializer.run(:install_gem_spec_stubs)
+      Rails::GemDependency.add_frozen_gem_path
+=======
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:config/boot.rb
     end
   end
 
@@ -67,7 +77,11 @@ module Rails
 
     class << self
       def rubygems_version
+<<<<<<< HEAD:config/boot.rb
+        Gem::RubyGemsVersion rescue nil
+=======
         Gem::RubyGemsVersion if defined? Gem::RubyGemsVersion
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:config/boot.rb
       end
 
       def gem_version
@@ -82,14 +96,24 @@ module Rails
 
       def load_rubygems
         require 'rubygems'
+<<<<<<< HEAD:config/boot.rb
+        min_version = '1.3.1'
+        unless rubygems_version >= min_version
+          $stderr.puts %Q(Rails requires RubyGems >= #{min_version} (you have #{rubygems_version}). Please `gem update --system` and try again.)
+=======
 
         unless rubygems_version >= '0.9.4'
           $stderr.puts %(Rails requires RubyGems >= 0.9.4 (you have #{rubygems_version}). Please `gem update --system` and try again.)
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:config/boot.rb
           exit 1
         end
 
       rescue LoadError
+<<<<<<< HEAD:config/boot.rb
+        $stderr.puts %Q(Rails requires RubyGems >= #{min_version}. Please install RubyGems and try again: http://rubygems.rubyforge.org)
+=======
         $stderr.puts %(Rails requires RubyGems >= 0.9.4. Please install RubyGems and try again: http://rubygems.rubyforge.org)
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:config/boot.rb
         exit 1
       end
 

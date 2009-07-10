@@ -2,7 +2,11 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 
+<<<<<<< HEAD:test/test_helper.rb
+class ActiveSupport::TestCase
+=======
 class Test::Unit::TestCase
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:test/test_helper.rb
   # Transactional fixtures accelerate your tests by wrapping each test method
   # in a transaction that's rolled back on completion.  This ensures that the
   # test database remains unchanged so your fixtures don't have to be reloaded

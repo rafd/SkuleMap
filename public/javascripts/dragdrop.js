@@ -1,6 +1,12 @@
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+// Copyright (c) 2005-2008 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
+//           (c) 2005-2008 Sammi Williams (http://www.oriontransfer.co.nz, sammi@oriontransfer.co.nz)
+//
+=======
 // Copyright (c) 2005-2007 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
 //           (c) 2005-2007 Sammi Williams (http://www.oriontransfer.co.nz, sammi@oriontransfer.co.nz)
 // 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
 // script.aculo.us is freely distributable under the terms of an MIT-style license.
 // For details, see the script.aculo.us web site: http://script.aculo.us/
 
@@ -32,7 +38,11 @@ var Droppables = {
         options._containers.push($(containment));
       }
     }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(options.accept) options.accept = [options.accept].flatten();
 
     Element.makePositioned(element); // fix IE
@@ -40,6 +50,16 @@ var Droppables = {
 
     this.drops.push(options);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+  findDeepestChild: function(drops) {
+    deepest = drops[0];
+
+    for (i = 1; i < drops.length; ++i)
+      if (Element.isParent(drops[i].element, deepest.element))
+        deepest = drops[i];
+
+=======
   
   findDeepestChild: function(drops) {
     deepest = drops[0];
@@ -48,26 +68,39 @@ var Droppables = {
       if (Element.isParent(drops[i].element, deepest.element))
         deepest = drops[i];
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     return deepest;
   },
 
   isContained: function(element, drop) {
     var containmentNode;
     if(drop.tree) {
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+      containmentNode = element.treeNode;
+=======
       containmentNode = element.treeNode; 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     } else {
       containmentNode = element.parentNode;
     }
     return drop._containers.detect(function(c) { return containmentNode == c });
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   isAffected: function(point, element, drop) {
     return (
       (drop.element!=element) &&
       ((!drop._containers) ||
         this.isContained(element, drop)) &&
       ((!drop.accept) ||
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+        (Element.classNames(element).detect(
+=======
         (Element.classNames(element).detect( 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
           function(v) { return drop.accept.include(v) } ) )) &&
       Position.within(drop.element, point[0], point[1]) );
   },
@@ -87,12 +120,20 @@ var Droppables = {
   show: function(point, element) {
     if(!this.drops.length) return;
     var drop, affected = [];
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     this.drops.each( function(drop) {
       if(Droppables.isAffected(point, element, drop))
         affected.push(drop);
     });
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
         
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(affected.length>0)
       drop = Droppables.findDeepestChild(affected);
 
@@ -101,7 +142,11 @@ var Droppables = {
       Position.within(drop.element, point[0], point[1]);
       if(drop.onHover)
         drop.onHover(element, drop.element, Position.overlap(drop.overlap, drop.element));
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
       
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       if (drop != this.last_active) Droppables.activate(drop);
     }
   },
@@ -112,8 +157,13 @@ var Droppables = {
 
     if (this.isAffected([Event.pointerX(event), Event.pointerY(event)], element, this.last_active))
       if (this.last_active.onDrop) {
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+        this.last_active.onDrop(element, this.last_active.element, event);
+        return true;
+=======
         this.last_active.onDrop(element, this.last_active.element, event); 
         return true; 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       }
   },
 
@@ -121,25 +171,41 @@ var Droppables = {
     if(this.last_active)
       this.deactivate(this.last_active);
   }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+};
+=======
 }
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
 
 var Draggables = {
   drags: [],
   observers: [],
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   register: function(draggable) {
     if(this.drags.length == 0) {
       this.eventMouseUp   = this.endDrag.bindAsEventListener(this);
       this.eventMouseMove = this.updateDrag.bindAsEventListener(this);
       this.eventKeypress  = this.keyPress.bindAsEventListener(this);
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
       
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       Event.observe(document, "mouseup", this.eventMouseUp);
       Event.observe(document, "mousemove", this.eventMouseMove);
       Event.observe(document, "keypress", this.eventKeypress);
     }
     this.drags.push(draggable);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   unregister: function(draggable) {
     this.drags = this.drags.reject(function(d) { return d==draggable });
     if(this.drags.length == 0) {
@@ -148,6 +214,16 @@ var Draggables = {
       Event.stopObserving(document, "keypress", this.eventKeypress);
     }
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+  activate: function(draggable) {
+    if(draggable.options.delay) {
+      this._timeout = setTimeout(function() {
+        Draggables._timeout = null;
+        window.focus();
+        Draggables.activeDraggable = draggable;
+      }.bind(this), draggable.options.delay);
+=======
   
   activate: function(draggable) {
     if(draggable.options.delay) { 
@@ -156,16 +232,25 @@ var Draggables = {
         window.focus(); 
         Draggables.activeDraggable = draggable; 
       }.bind(this), draggable.options.delay); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     } else {
       window.focus(); // allows keypress events if window isn't currently focused, fails for Safari
       this.activeDraggable = draggable;
     }
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+  deactivate: function() {
+    this.activeDraggable = null;
+  },
+
+=======
   
   deactivate: function() {
     this.activeDraggable = null;
   },
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   updateDrag: function(event) {
     if(!this.activeDraggable) return;
     var pointer = [Event.pointerX(event), Event.pointerY(event)];
@@ -173,6 +258,16 @@ var Draggables = {
     // the same coordinates, prevent needless redrawing (moz bug?)
     if(this._lastPointer && (this._lastPointer.inspect() == pointer.inspect())) return;
     this._lastPointer = pointer;
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+    this.activeDraggable.updateDrag(event, pointer);
+  },
+
+  endDrag: function(event) {
+    if(this._timeout) {
+      clearTimeout(this._timeout);
+      this._timeout = null;
+=======
     
     this.activeDraggable.updateDrag(event, pointer);
   },
@@ -181,28 +276,45 @@ var Draggables = {
     if(this._timeout) { 
       clearTimeout(this._timeout); 
       this._timeout = null; 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     }
     if(!this.activeDraggable) return;
     this._lastPointer = null;
     this.activeDraggable.endDrag(event);
     this.activeDraggable = null;
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   keyPress: function(event) {
     if(this.activeDraggable)
       this.activeDraggable.keyPress(event);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   addObserver: function(observer) {
     this.observers.push(observer);
     this._cacheObserverCallbacks();
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   removeObserver: function(element) {  // element instead of observer fixes mem leaks
     this.observers = this.observers.reject( function(o) { return o.element==element });
     this._cacheObserverCallbacks();
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   notify: function(eventName, draggable, event) {  // 'onStart', 'onEnd', 'onDrag'
     if(this[eventName+'Count'] > 0)
       this.observers.each( function(o) {
@@ -210,7 +322,11 @@ var Draggables = {
       });
     if(draggable.options[eventName]) draggable.options[eventName](draggable, event);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   _cacheObserverCallbacks: function() {
     ['onStart','onEnd','onDrag'].each( function(eventName) {
       Draggables[eventName+'Count'] = Draggables.observers.select(
@@ -218,7 +334,11 @@ var Draggables = {
       ).length;
     });
   }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+};
+=======
 }
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
 
 /*--------------------------------------------------------------------------*/
 
@@ -234,12 +354,21 @@ var Draggable = Class.create({
       },
       endeffect: function(element) {
         var toOpacity = Object.isNumber(element._opacity) ? element._opacity : 1.0;
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+        new Effect.Opacity(element, {duration:0.2, from:0.7, to:toOpacity,
+          queue: {scope:'_draggable', position:'end'},
+          afterFinish: function(){
+            Draggable._dragging[element] = false
+          }
+        });
+=======
         new Effect.Opacity(element, {duration:0.2, from:0.7, to:toOpacity, 
           queue: {scope:'_draggable', position:'end'},
           afterFinish: function(){ 
             Draggable._dragging[element] = false 
           }
         }); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       },
       zindex: 1000,
       revert: false,
@@ -250,12 +379,32 @@ var Draggable = Class.create({
       snap: false,  // false, or xy or [x,y] or function(x,y){ return [x,y] }
       delay: 0
     };
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(!arguments[1] || Object.isUndefined(arguments[1].endeffect))
       Object.extend(defaults, {
         starteffect: function(element) {
           element._opacity = Element.getOpacity(element);
           Draggable._dragging[element] = true;
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+          new Effect.Opacity(element, {duration:0.2, from:element._opacity, to:0.7});
+        }
+      });
+
+    var options = Object.extend(defaults, arguments[1] || { });
+
+    this.element = $(element);
+
+    if(options.handle && Object.isString(options.handle))
+      this.handle = this.element.down('.'+options.handle, 0);
+
+    if(!this.handle) this.handle = $(options.handle);
+    if(!this.handle) this.handle = this.element;
+
+=======
           new Effect.Opacity(element, {duration:0.2, from:element._opacity, to:0.7}); 
         }
       });
@@ -270,11 +419,25 @@ var Draggable = Class.create({
     if(!this.handle) this.handle = $(options.handle);
     if(!this.handle) this.handle = this.element;
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(options.scroll && !options.scroll.scrollTo && !options.scroll.outerHTML) {
       options.scroll = $(options.scroll);
       this._isScrollChild = Element.childOf(this.element, options.scroll);
     }
 
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+    Element.makePositioned(this.element); // fix IE
+
+    this.options  = options;
+    this.dragging = false;
+
+    this.eventMouseDown = this.initDrag.bindAsEventListener(this);
+    Event.observe(this.handle, "mousedown", this.eventMouseDown);
+
+    Draggables.register(this);
+  },
+
+=======
     Element.makePositioned(this.element); // fix IE    
 
     this.options  = options;
@@ -286,21 +449,34 @@ var Draggable = Class.create({
     Draggables.register(this);
   },
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   destroy: function() {
     Event.stopObserving(this.handle, "mousedown", this.eventMouseDown);
     Draggables.unregister(this);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   currentDelta: function() {
     return([
       parseInt(Element.getStyle(this.element,'left') || '0'),
       parseInt(Element.getStyle(this.element,'top') || '0')]);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+  initDrag: function(event) {
+    if(!Object.isUndefined(Draggable._dragging[this.element]) &&
+      Draggable._dragging[this.element]) return;
+    if(Event.isLeftClick(event)) {
+=======
   
   initDrag: function(event) {
     if(!Object.isUndefined(Draggable._dragging[this.element]) &&
       Draggable._dragging[this.element]) return;
     if(Event.isLeftClick(event)) {    
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       // abort on form elements, fixes a Firefox issue
       var src = Event.element(event);
       if((tag_name = src.tagName.toUpperCase()) && (
@@ -309,25 +485,52 @@ var Draggable = Class.create({
         tag_name=='OPTION' ||
         tag_name=='BUTTON' ||
         tag_name=='TEXTAREA')) return;
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+      var pointer = [Event.pointerX(event), Event.pointerY(event)];
+      var pos     = Position.cumulativeOffset(this.element);
+      this.offset = [0,1].map( function(i) { return (pointer[i] - pos[i]) });
+
+=======
         
       var pointer = [Event.pointerX(event), Event.pointerY(event)];
       var pos     = Position.cumulativeOffset(this.element);
       this.offset = [0,1].map( function(i) { return (pointer[i] - pos[i]) });
       
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       Draggables.activate(this);
       Event.stop(event);
     }
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   startDrag: function(event) {
     this.dragging = true;
     if(!this.delta)
       this.delta = this.currentDelta();
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(this.options.zindex) {
       this.originalZ = parseInt(Element.getStyle(this.element,'z-index') || 0);
       this.element.style.zIndex = this.options.zindex;
     }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+    if(this.options.ghosting) {
+      this._clone = this.element.cloneNode(true);
+      this._originallyAbsolute = (this.element.getStyle('position') == 'absolute');
+      if (!this._originallyAbsolute)
+        Position.absolutize(this.element);
+      this.element.parentNode.insertBefore(this._clone, this.element);
+    }
+
+=======
     
     if(this.options.ghosting) {
       this._clone = this.element.cloneNode(true);
@@ -337,6 +540,7 @@ var Draggable = Class.create({
       this.element.parentNode.insertBefore(this._clone, this.element);
     }
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(this.options.scroll) {
       if (this.options.scroll == window) {
         var where = this._getWindowScroll(this.options.scroll);
@@ -347,6 +551,17 @@ var Draggable = Class.create({
         this.originalScrollTop = this.options.scroll.scrollTop;
       }
     }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+    Draggables.notify('onStart', this, event);
+
+    if(this.options.starteffect) this.options.starteffect(this.element);
+  },
+
+  updateDrag: function(event, pointer) {
+    if(!this.dragging) this.startDrag(event);
+
+=======
     
     Draggables.notify('onStart', this, event);
         
@@ -356,10 +571,22 @@ var Draggable = Class.create({
   updateDrag: function(event, pointer) {
     if(!this.dragging) this.startDrag(event);
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(!this.options.quiet){
       Position.prepare();
       Droppables.show(pointer, this.element);
     }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+    Draggables.notify('onDrag', this, event);
+
+    this.draw(pointer);
+    if(this.options.change) this.options.change(this);
+
+    if(this.options.scroll) {
+      this.stopScrolling();
+
+=======
     
     Draggables.notify('onDrag', this, event);
     
@@ -369,6 +596,7 @@ var Draggable = Class.create({
     if(this.options.scroll) {
       this.stopScrolling();
       
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       var p;
       if (this.options.scroll == window) {
         with(this._getWindowScroll(this.options.scroll)) { p = [ left, top, left+width, top+height ]; }
@@ -386,6 +614,18 @@ var Draggable = Class.create({
       if(pointer[1] > (p[3]-this.options.scrollSensitivity)) speed[1] = pointer[1]-(p[3]-this.options.scrollSensitivity);
       this.startScrolling(speed);
     }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+    // fix AppleWebKit rendering
+    if(Prototype.Browser.WebKit) window.scrollBy(0,0);
+
+    Event.stop(event);
+  },
+
+  finishDrag: function(event, success) {
+    this.dragging = false;
+
+=======
     
     // fix AppleWebKit rendering
     if(Prototype.Browser.WebKit) window.scrollBy(0,0);
@@ -396,6 +636,7 @@ var Draggable = Class.create({
   finishDrag: function(event, success) {
     this.dragging = false;
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(this.options.quiet){
       Position.prepare();
       var pointer = [Event.pointerX(event), Event.pointerY(event)];
@@ -403,24 +644,41 @@ var Draggable = Class.create({
     }
 
     if(this.options.ghosting) {
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+      if (!this._originallyAbsolute)
+        Position.relativize(this.element);
+      delete this._originallyAbsolute;
+=======
       if (!this.element._originallyAbsolute)
         Position.relativize(this.element);
       delete this.element._originallyAbsolute;
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       Element.remove(this._clone);
       this._clone = null;
     }
 
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+    var dropped = false;
+    if(success) {
+      dropped = Droppables.fire(event, this.element);
+      if (!dropped) dropped = false;
+=======
     var dropped = false; 
     if(success) { 
       dropped = Droppables.fire(event, this.element); 
       if (!dropped) dropped = false; 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     }
     if(dropped && this.options.onDropped) this.options.onDropped(this.element);
     Draggables.notify('onEnd', this, event);
 
     var revert = this.options.revert;
     if(revert && Object.isFunction(revert)) revert = revert(this.element);
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     var d = this.currentDelta();
     if(revert && this.options.reverteffect) {
       if (dropped == 0 || revert != 'failure')
@@ -433,6 +691,15 @@ var Draggable = Class.create({
     if(this.options.zindex)
       this.element.style.zIndex = this.originalZ;
 
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+    if(this.options.endeffect)
+      this.options.endeffect(this.element);
+
+    Draggables.deactivate(this);
+    Droppables.reset();
+  },
+
+=======
     if(this.options.endeffect) 
       this.options.endeffect(this.element);
       
@@ -440,44 +707,77 @@ var Draggable = Class.create({
     Droppables.reset();
   },
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   keyPress: function(event) {
     if(event.keyCode!=Event.KEY_ESC) return;
     this.finishDrag(event, false);
     Event.stop(event);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   endDrag: function(event) {
     if(!this.dragging) return;
     this.stopScrolling();
     this.finishDrag(event, true);
     Event.stop(event);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   draw: function(point) {
     var pos = Position.cumulativeOffset(this.element);
     if(this.options.ghosting) {
       var r   = Position.realOffset(this.element);
       pos[0] += r[0] - Position.deltaX; pos[1] += r[1] - Position.deltaY;
     }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+    var d = this.currentDelta();
+    pos[0] -= d[0]; pos[1] -= d[1];
+
+=======
     
     var d = this.currentDelta();
     pos[0] -= d[0]; pos[1] -= d[1];
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(this.options.scroll && (this.options.scroll != window && this._isScrollChild)) {
       pos[0] -= this.options.scroll.scrollLeft-this.originalScrollLeft;
       pos[1] -= this.options.scroll.scrollTop-this.originalScrollTop;
     }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+    var p = [0,1].map(function(i){
+      return (point[i]-pos[i]-this.offset[i])
+    }.bind(this));
+
+=======
     
     var p = [0,1].map(function(i){ 
       return (point[i]-pos[i]-this.offset[i]) 
     }.bind(this));
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(this.options.snap) {
       if(Object.isFunction(this.options.snap)) {
         p = this.options.snap(p[0],p[1],this);
       } else {
       if(Object.isArray(this.options.snap)) {
         p = p.map( function(v, i) {
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+          return (v/this.options.snap[i]).round()*this.options.snap[i] }.bind(this));
+      } else {
+        p = p.map( function(v) {
+          return (v/this.options.snap).round()*this.options.snap }.bind(this));
+      }
+    }}
+
+=======
           return (v/this.options.snap[i]).round()*this.options.snap[i] }.bind(this))
       } else {
         p = p.map( function(v) {
@@ -485,15 +785,23 @@ var Draggable = Class.create({
       }
     }}
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     var style = this.element.style;
     if((!this.options.constraint) || (this.options.constraint=='horizontal'))
       style.left = p[0] + "px";
     if((!this.options.constraint) || (this.options.constraint=='vertical'))
       style.top  = p[1] + "px";
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+    if(style.visibility=="hidden") style.visibility = ""; // fix gecko rendering
+  },
+
+=======
     
     if(style.visibility=="hidden") style.visibility = ""; // fix gecko rendering
   },
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   stopScrolling: function() {
     if(this.scrollInterval) {
       clearInterval(this.scrollInterval);
@@ -501,14 +809,22 @@ var Draggable = Class.create({
       Draggables._lastScrollPointer = null;
     }
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   startScrolling: function(speed) {
     if(!(speed[0] || speed[1])) return;
     this.scrollSpeed = [speed[0]*this.options.scrollSpeed,speed[1]*this.options.scrollSpeed];
     this.lastScrolled = new Date();
     this.scrollInterval = setInterval(this.scroll.bind(this), 10);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   scroll: function() {
     var current = new Date();
     var delta = current - this.lastScrolled;
@@ -524,7 +840,11 @@ var Draggable = Class.create({
       this.options.scroll.scrollLeft += this.scrollSpeed[0] * delta / 1000;
       this.options.scroll.scrollTop  += this.scrollSpeed[1] * delta / 1000;
     }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     Position.prepare();
     Droppables.show(Draggables._lastPointer, this.element);
     Draggables.notify('onDrag', this);
@@ -538,10 +858,17 @@ var Draggable = Class.create({
         Draggables._lastScrollPointer[1] = 0;
       this.draw(Draggables._lastScrollPointer);
     }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+    if(this.options.change) this.options.change(this);
+  },
+
+=======
     
     if(this.options.change) this.options.change(this);
   },
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   _getWindowScroll: function(w) {
     var T, L, W, H;
     with (w.document) {
@@ -560,7 +887,11 @@ var Draggable = Class.create({
         H = documentElement.clientHeight;
       } else {
         W = body.offsetWidth;
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+        H = body.offsetHeight;
+=======
         H = body.offsetHeight
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       }
     }
     return { top: T, left: L, width: W, height: H };
@@ -577,11 +908,19 @@ var SortableObserver = Class.create({
     this.observer  = observer;
     this.lastValue = Sortable.serialize(this.element);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+  onStart: function() {
+    this.lastValue = Sortable.serialize(this.element);
+  },
+
+=======
   
   onStart: function() {
     this.lastValue = Sortable.serialize(this.element);
   },
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   onEnd: function() {
     Sortable.unmark();
     if(this.lastValue != Sortable.serialize(this.element))
@@ -591,11 +930,19 @@ var SortableObserver = Class.create({
 
 var Sortable = {
   SERIALIZE_RULE: /^[^_\-](?:[A-Za-z0-9\-\_]*)[_](.*)$/,
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+  sortables: { },
+
+  _findRootElement: function(element) {
+    while (element.tagName.toUpperCase() != "BODY") {
+=======
   
   sortables: { },
   
   _findRootElement: function(element) {
     while (element.tagName.toUpperCase() != "BODY") {  
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       if(element.id && Sortable.sortables[element.id]) return element;
       element = element.parentNode;
     }
@@ -606,22 +953,38 @@ var Sortable = {
     if(!element) return;
     return Sortable.sortables[element.id];
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+  destroy: function(element){
+    element = $(element);
+    var s = Sortable.sortables[element.id];
+
+=======
   
   destroy: function(element){
     var s = Sortable.options(element);
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(s) {
       Draggables.removeObserver(s.element);
       s.droppables.each(function(d){ Droppables.remove(d) });
       s.draggables.invoke('destroy');
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
       
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       delete Sortable.sortables[s.element.id];
     }
   },
 
   create: function(element) {
     element = $(element);
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+    var options = Object.extend({
+=======
     var options = Object.extend({ 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       element:     element,
       tag:         'li',       // assumes li children, override with tag: 'tagname'
       dropOnEmpty: false,
@@ -635,17 +998,30 @@ var Sortable = {
       delay:       0,
       hoverclass:  null,
       ghosting:    false,
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+      quiet:       false,
+=======
       quiet:       false, 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       scroll:      false,
       scrollSensitivity: 20,
       scrollSpeed: 15,
       format:      this.SERIALIZE_RULE,
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+      // these take arrays of elements or ids and can be
+      // used for better initialization performance
+      elements:    false,
+      handles:     false,
+
+=======
       
       // these take arrays of elements or ids and can be 
       // used for better initialization performance
       elements:    false,
       handles:     false,
       
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       onChange:    Prototype.emptyFunction,
       onUpdate:    Prototype.emptyFunction
     }, arguments[1] || { });
@@ -682,24 +1058,40 @@ var Sortable = {
     if(options.zindex)
       options_for_draggable.zindex = options.zindex;
 
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+    // build options for the droppables
+=======
     // build options for the droppables  
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     var options_for_droppable = {
       overlap:     options.overlap,
       containment: options.containment,
       tree:        options.tree,
       hoverclass:  options.hoverclass,
       onHover:     Sortable.onHover
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+    };
+
+=======
     }
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     var options_for_tree = {
       onHover:      Sortable.onEmptyHover,
       overlap:      options.overlap,
       containment:  options.containment,
       hoverclass:   options.hoverclass
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+    };
+
+    // fix for gecko engine
+    Element.cleanWhitespace(element);
+=======
     }
 
     // fix for gecko engine
     Element.cleanWhitespace(element); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
 
     options.draggables = [];
     options.droppables = [];
@@ -712,14 +1104,24 @@ var Sortable = {
 
     (options.elements || this.findElements(element, options) || []).each( function(e,i) {
       var handle = options.handles ? $(options.handles[i]) :
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+        (options.handle ? $(e).select('.' + options.handle)[0] : e);
+=======
         (options.handle ? $(e).select('.' + options.handle)[0] : e); 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       options.draggables.push(
         new Draggable(e, Object.extend(options_for_draggable, { handle: handle })));
       Droppables.add(e, options_for_droppable);
       if(options.tree) e.treeNode = element;
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+      options.droppables.push(e);
+    });
+
+=======
       options.droppables.push(e);      
     });
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     if(options.tree) {
       (Sortable.findTreeElements(element, options) || []).each( function(e) {
         Droppables.add(e, options_for_tree);
@@ -741,7 +1143,11 @@ var Sortable = {
     return Element.findChildren(
       element, options.only, options.tree ? true : false, options.tag);
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   findTreeElements: function(element, options) {
     return Element.findChildren(
       element, options.only, options.tree ? true : false, options.treeTag);
@@ -758,7 +1164,11 @@ var Sortable = {
         var oldParentNode = element.parentNode;
         element.style.visibility = "hidden"; // fix gecko rendering
         dropon.parentNode.insertBefore(element, dropon);
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+        if(dropon.parentNode!=oldParentNode)
+=======
         if(dropon.parentNode!=oldParentNode) 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
           Sortable.options(oldParentNode).onChange(element);
         Sortable.options(dropon.parentNode).onChange(element);
       }
@@ -769,12 +1179,32 @@ var Sortable = {
         var oldParentNode = element.parentNode;
         element.style.visibility = "hidden"; // fix gecko rendering
         dropon.parentNode.insertBefore(element, nextElement);
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+        if(dropon.parentNode!=oldParentNode)
+=======
         if(dropon.parentNode!=oldParentNode) 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
           Sortable.options(oldParentNode).onChange(element);
         Sortable.options(dropon.parentNode).onChange(element);
       }
     }
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+  onEmptyHover: function(element, dropon, overlap) {
+    var oldParentNode = element.parentNode;
+    var droponOptions = Sortable.options(dropon);
+
+    if(!Element.isParent(dropon, element)) {
+      var index;
+
+      var children = Sortable.findElements(dropon, {tag: droponOptions.tag, only: droponOptions.only});
+      var child = null;
+
+      if(children) {
+        var offset = Element.offsetSize(dropon, droponOptions.overlap) * (1.0 - overlap);
+
+=======
   
   onEmptyHover: function(element, dropon, overlap) {
     var oldParentNode = element.parentNode;
@@ -789,6 +1219,7 @@ var Sortable = {
       if(children) {
         var offset = Element.offsetSize(dropon, droponOptions.overlap) * (1.0 - overlap);
         
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
         for (index = 0; index < children.length; index += 1) {
           if (offset - Element.offsetSize (children[index], droponOptions.overlap) >= 0) {
             offset -= Element.offsetSize (children[index], droponOptions.overlap);
@@ -801,9 +1232,15 @@ var Sortable = {
           }
         }
       }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+      dropon.insertBefore(element, child);
+
+=======
       
       dropon.insertBefore(element, child);
       
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       Sortable.options(oldParentNode).onChange(element);
       droponOptions.onChange(element);
     }
@@ -816,6 +1253,31 @@ var Sortable = {
   mark: function(dropon, position) {
     // mark on ghosting only
     var sortable = Sortable.options(dropon.parentNode);
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+    if(sortable && !sortable.ghosting) return;
+
+    if(!Sortable._marker) {
+      Sortable._marker =
+        ($('dropmarker') || Element.extend(document.createElement('DIV'))).
+          hide().addClassName('dropmarker').setStyle({position:'absolute'});
+      document.getElementsByTagName("body").item(0).appendChild(Sortable._marker);
+    }
+    var offsets = Position.cumulativeOffset(dropon);
+    Sortable._marker.setStyle({left: offsets[0]+'px', top: offsets[1] + 'px'});
+
+    if(position=='after')
+      if(sortable.overlap == 'horizontal')
+        Sortable._marker.setStyle({left: (offsets[0]+dropon.clientWidth) + 'px'});
+      else
+        Sortable._marker.setStyle({top: (offsets[1]+dropon.clientHeight) + 'px'});
+
+    Sortable._marker.show();
+  },
+
+  _tree: function(element, options, parent) {
+    var children = Sortable.findElements(element, options) || [];
+
+=======
     if(sortable && !sortable.ghosting) return; 
 
     if(!Sortable._marker) {
@@ -839,11 +1301,16 @@ var Sortable = {
   _tree: function(element, options, parent) {
     var children = Sortable.findElements(element, options) || [];
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     for (var i = 0; i < children.length; ++i) {
       var match = children[i].id.match(options.format);
 
       if (!match) continue;
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
       
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
       var child = {
         id: encodeURIComponent(match ? match[1] : null),
         element: element,
@@ -851,6 +1318,18 @@ var Sortable = {
         children: [],
         position: parent.children.length,
         container: $(children[i]).down(options.treeTag)
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+      };
+
+      /* Get the element containing the children and recurse over it */
+      if (child.container)
+        this._tree(child.container, options, child);
+
+      parent.children.push (child);
+    }
+
+    return parent;
+=======
       }
       
       /* Get the element containing the children and recurse over it */
@@ -861,6 +1340,7 @@ var Sortable = {
     }
 
     return parent; 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   },
 
   tree: function(element) {
@@ -873,15 +1353,24 @@ var Sortable = {
       name: element.id,
       format: sortableOptions.format
     }, arguments[1] || { });
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     var root = {
       id: null,
       parent: null,
       children: [],
       container: element,
       position: 0
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+    };
+
+=======
     }
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     return Sortable._tree(element, options, root);
   },
 
@@ -897,7 +1386,11 @@ var Sortable = {
   sequence: function(element) {
     element = $(element);
     var options = Object.extend(this.options(element), arguments[1] || { });
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     return $(this.findElements(element, options) || []).map( function(item) {
       return item.id.match(options.format) ? item.id.match(options.format)[1] : '';
     });
@@ -906,14 +1399,22 @@ var Sortable = {
   setSequence: function(element, new_sequence) {
     element = $(element);
     var options = Object.extend(this.options(element), arguments[2] || { });
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
     
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     var nodeMap = { };
     this.findElements(element, options).each( function(n) {
         if (n.id.match(options.format))
             nodeMap[n.id.match(options.format)[1]] = [n, n.parentNode];
         n.parentNode.removeChild(n);
     });
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
    
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
     new_sequence.each(function(ident) {
       var n = nodeMap[ident];
       if (n) {
@@ -922,16 +1423,27 @@ var Sortable = {
       }
     });
   },
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+=======
   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   serialize: function(element) {
     element = $(element);
     var options = Object.extend(Sortable.options(element), arguments[1] || { });
     var name = encodeURIComponent(
       (arguments[1] && arguments[1].name) ? arguments[1].name : element.id);
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+
+    if (options.tree) {
+      return Sortable.tree(element, arguments[1]).children.map( function (item) {
+        return [name + Sortable._constructIndex(item) + "[id]=" +
+=======
     
     if (options.tree) {
       return Sortable.tree(element, arguments[1]).children.map( function (item) {
         return [name + Sortable._constructIndex(item) + "[id]=" + 
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
                 encodeURIComponent(item.id)].concat(item.children.map(arguments.callee));
       }).flatten().join('&');
     } else {
@@ -940,16 +1452,26 @@ var Sortable = {
       }).join('&');
     }
   }
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+};
+=======
 }
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
 
 // Returns true if child is contained within element
 Element.isParent = function(child, element) {
   if (!child.parentNode || child == element) return false;
   if (child.parentNode == element) return true;
   return Element.isParent(child.parentNode, element);
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+};
+
+Element.findChildren = function(element, only, recursive, tagName) {
+=======
 }
 
 Element.findChildren = function(element, only, recursive, tagName) {   
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js
   if(!element.hasChildNodes()) return null;
   tagName = tagName.toUpperCase();
   if(only) only = [only].flatten();
@@ -965,8 +1487,16 @@ Element.findChildren = function(element, only, recursive, tagName) {
   });
 
   return (elements.length>0 ? elements.flatten() : []);
+<<<<<<< HEAD:public/javascripts/dragdrop.js
+};
+
+Element.offsetSize = function (element, type) {
+  return element['offset' + ((type=='vertical' || type=='height') ? 'Height' : 'Width')];
+};
+=======
 }
 
 Element.offsetSize = function (element, type) {
   return element['offset' + ((type=='vertical' || type=='height') ? 'Height' : 'Width')];
 }
+>>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:public/javascripts/dragdrop.js

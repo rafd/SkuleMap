@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-require File.dirname(__FILE__) + '/../config/boot'
-<<<<<<< HEAD:script/about
-$LOAD_PATH.unshift "#{RAILTIES_PATH}/builtin/rails_info"
-require 'commands/about'
-=======
-require 'commands/about'
->>>>>>> 80b0af3f81f4e9f29a7a450f1ec4c738265c2e4b:script/about

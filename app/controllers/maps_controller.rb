@@ -30,13 +30,13 @@ def display_markers
 		@map = Variable.new("map")
 		      
           @marker = GMarker.new([@building.lat,@building.lng], :title => @building.name, :info_window => "<b>" << @building.name << "</b> (" << 									@building.code << ") <br/>" << @building.address )
+          @building.marker = "true"
+          
 end
 
 def remove_markers
 		@building = Building.find(params[:id])
-		@map = Variable.new("map")
-		      
-          @marker = GMarker.new([@building.lat,@building.lng], :title => @building.name, :info_window => "<b>" << @building.name << "</b> (" << 									@building.code << ") <br/>" << @building.address)
+				
 end
 
 

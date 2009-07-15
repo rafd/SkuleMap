@@ -42,7 +42,7 @@
         	<td width = "500px" align = "left"> 
         
       <% for building in @buildings -%>
-			<%=building.name %> - (<%=building.code%>) - <%= link_to_remote("Show", :url => {:action => :display_markers, :id => building.id})  %> - <%= link_to_remote("Remove", :url => {:action => :remove_markers, :id => building.id})  %><br/> 
+			<%=building.name %> - (<%=building.code%>) - <%= link_to_remote("Show", :url => {:action => :display_markers, :id => building.id})  %> - <%= link_to_remote("Remove", :url => {:action => :display_markers, :id => building.id})  %><br/> 
         		
 
        			<% end -%> 

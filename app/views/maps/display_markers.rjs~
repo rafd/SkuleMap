@@ -1,4 +1,5 @@
 
-page << @map.addOverlay(@marker)   
+page << @map.add_overlay(@marker)    
 
+page << @map.record_init @map.removeOverlay(@marker)
 

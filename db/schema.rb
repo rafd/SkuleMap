@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20090713190752) do
     t.string   "address",                                       :null => false
     t.string   "zip_code",                                      :null => false
     t.string   "building_type",                                 :null => false
+    t.string   "marker"
     t.integer  "floors"
     t.decimal  "lat",           :precision => 15, :scale => 10
     t.decimal  "lng",           :precision => 15, :scale => 10

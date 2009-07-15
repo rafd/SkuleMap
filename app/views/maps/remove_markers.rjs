@@ -1,1 +1,2 @@
-page << @map.removeOverlay(@marker)
+page << @map.record_init @map.removeOverlay(@building.marker)
+

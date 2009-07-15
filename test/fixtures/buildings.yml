@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  code: MyString
+  address: MyString
+  building_type: MyString
+  floors: 1
+
+two:
+  name: MyString
+  code: MyString
+  address: MyString
+  building_type: MyString
+  floors: 1

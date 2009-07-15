@@ -1,0 +1,23 @@
+<h1>New atm</h1>
+
+<% form_for(@atm) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :bank_name %><br />
+    <%= f.text_field :bank_name %>
+  </p>
+  <p>
+    <%= f.label :floor %><br />
+    <%= f.text_field :floor %>
+  </p>
+  <p>
+    <%= f.label :building_id %><br />
+%= select (:atm, :building_id, [['Choose a building', '']] + @buildings.collect {|bui| [bui.name, bui.id]}) %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', atms_path %>

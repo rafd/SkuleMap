@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Ajax Demo</title>
+    <%= javascript_include_tag "prototype" %>
+  </head>
+  <body>
+    <h1>What time is it?</h1>
+    <div id="time_div">
+      I don't have the time, but
+      <%= link_to_remote( "click here",
+                         :update => "time_div",
+                         :url =>{ :action => :say_when }) %>
+      and I will look it up.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>University of Toronto Skule Map</title>
+	<%= GMap.header %>
+	<%= @map.to_html %>
+	<%= javascript_include_tag "prototype" %>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<%= stylesheet_link_tag "style.css" %>
+
+
+	</style>
+</head>
+<body>
+   <%= javascript_include_tag :defaults %>
+
+<!--
+      
+     <table border="4">
+			<tr>
+			<td><%= @map.div(:width => 800, :height => 600) %></td>
+			<td>row 1, cell 2</td>
+			</tr>
+			<tr>
+			<td>University of Toronto Map</td>
+			<td>Choose your buildings</td>
+			</tr>
+		</table> -->
+
+
+<table style= "table-layout : auto;" id="box-table-b" summary="Main Table">
+    <thead>
+    	<tr>
+        	<th scope="col">University of Toronto Map</th>
+            <th scope="col">Make a selection</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+        	<td><%=@map.div(:width => 800, :height => 600) %></td>
+        	<td width = "500px" align = "left"> 
+        
+      <% for building in @buildings -%>
+			<%=building.name %> - (<%=building.code%>) - <%= link_to_remote("Show", :url => {:action => :display_markers, :id => building.id})  %> - <%= link_to_remote("Remove", :url => {:action => :display_markers, :id => building.id})  %><br/> 
+        		
+
+       			<% end -%> 
+       			
+       			
+      		
+</td>     
+   </tr>
+        
+    </tbody>
+</table>
+   </body>
+</html>
+

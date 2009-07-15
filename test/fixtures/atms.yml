@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bank_name: MyString
+  floor: 1
+  building_id: 1
+
+two:
+  bank_name: MyString
+  floor: 1
+  building_id: 1

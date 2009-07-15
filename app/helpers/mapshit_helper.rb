@@ -1,0 +1,2 @@
+module MapshitHelper
+end

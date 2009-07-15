@@ -1,0 +1,18 @@
+<p>
+  <b>Bank name:</b>
+  <%=h @atm.bank_name %>
+</p>
+
+<p>
+  <b>Floor:</b>
+  <%=h @atm.floor %>
+</p>
+
+<p>
+  <b>Building:</b>
+  <%=h @atm.building_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_atm_path(@atm) %> |
+<%= link_to 'Back', atms_path %>

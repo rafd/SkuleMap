@@ -1,0 +1,21 @@
+class CreateBuildings < ActiveRecord::Migration
+  def self.up
+    create_table :buildings do |t|
+      t.string :name
+      t.string :code
+      t.string :address
+      t.string :building_type
+      t.integer :floors
+      t.column :lat, :decimal, :precision => 15, :scale => 10
+    	
+   		 t.column :lng, :decimal, :precision => 15, :scale => 10
+    	
+     
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :buildings
+  end
+end

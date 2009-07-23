@@ -3,9 +3,11 @@
 <head>
 	<title>University of Toronto Skule Map</title>
 	<%= GMap.header %>
+	<%= javascript_include_tag("markerGroup") %>
 	<%= @map.to_html %>
 	<%= javascript_include_tag "prototype" %>
 
+  
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<%= stylesheet_link_tag "style.css" %>
 
@@ -42,7 +44,7 @@
         	<td width = "500px" align = "left"> 
         
       <% for building in @buildings -%>
-			<%=building.name %> - (<%=building.code%>) - <%= link_to_remote("Show", :url => {:action => :display_markers, :id => building.id})  %> - <%= link_to_remote("Remove", :url => {:action => :remove_markers, :id => building.id})  %><br/> 
+			<%=building.name %> - (<%=building.code%>) - <a href="#" onclick="group.showMarker(<[%= building.id %]>);return false;">View on map</a> - <%= link_to_remote("Remove", :url => {:action => :remove_markers, :id => building.id})  %><br/> 
         		
 
        			<% end -%> 

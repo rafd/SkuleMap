@@ -1,5 +1,4 @@
 
-page << @map.add_overlay(@marker)    
-
-page << @map.record_init @map.removeOverlay(@marker)
-
+@map.overlay_global_init (GMarkerGroup.new(true, 1 => @marker1), "myGroup")
+		
+page << myGroup.show (1)

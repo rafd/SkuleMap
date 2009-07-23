@@ -8,35 +8,40 @@ include GeoKit::Geocoders
 def simple_map
 	# Create a new map object, also defining the div ("map") 
 	# where the map will be rendered in the view
-	@map = GMap.new("map")
 	# Use the larger pan/zoom control but disable the map type
 	# selector
-	@map.control_init(:large_map => true,:map_type => false)
 	# Center the map on specific coordinates and focus in fairly
 	# closely
-	@map.center_zoom_init([43.662521,-79.395837], 16)
 		
 	@buildings = Building.find (:all)	
+
+	
+     @markers = Hash.new  
+     @buildings.each do |building|  
+     @markers[building.id] = GMarker.new([building.lat, building.lng], :title => building.name, :info_window => "<b>" << 							building.name << "</b> (" << building.code << ") <br/>" << building.address )
+       end  
+     group = GMarkerGroup.new(true, @markers)  
+   
+     @map = GMap.new("map_div")  
+		@map.control_init(:large_map => true,:map_type => false)
+	
+   	@map.overlay_global_init(GMarkerGroup.new(true, @markers),"kiosk_
+markers")
+   #   @map.center_zoom_init([75.5,-42.56],4)
+    @map.record_init group.center_and_zoom_on_markers  
+	
 	
 
-
-	#	@map.overlay_init(buildings1)
-
+	
 
 end
 
 def display_markers
-		@building = Building.find(params[:id])
-		@map = Variable.new("map")
-		      
-          @marker = GMarker.new([@building.lat,@building.lng], :title => @building.name, :info_window => "<b>" << @building.name << "</b> (" << 									@building.code << ") <br/>" << @building.address )
-          @building.marker = "true"
-          
+		
 end
 
 def remove_markers
-		@building = Building.find(params[:id])
-				
+		#@building = Building.find(params[:id])	
 end
 
 

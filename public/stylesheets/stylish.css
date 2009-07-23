@@ -1,0 +1,141 @@
+body
+	{
+	margin: 0; /* margin and padding only necessary to cater for Mac IE5 */
+	padding: 0;
+	/*\*/	overflow: hidden; /* because Mac IE5 don't understand */
+	}
+div
+	{
+	margin: 0;
+	padding: 0;
+	}
+#map
+  {
+  width:100%;
+  height: 100%;
+  }	
+
+
+#content
+	{
+	/*\*/
+	position: absolute;
+	top: 125px;
+	right: 305px;
+	bottom: 55px;
+	left: 155px;
+	/* Exclude all previous props for Mac IE5 */
+	margin: 125px 305px 5px 155px; /* Cater for Mac IE5 */
+	/*\*/ margin: 0; /* Put back for all the rest */
+	/*\*/ overflow: auto; /* no need for Mac IE5 to see this */
+	}
+#sidebar-left
+	{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 150px;
+	overflow: auto;
+	}
+#sidebar-right
+	{
+	position: absolute;
+	top:  0;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+	width: 300px;
+	}
+#header
+	{
+	position: absolute;
+	top: 0;
+	/*\*/right: 305px;
+	left: 155px;   /* Exclude right and left props for Mac IE5 */
+	margin: 0 305px 0 155px;
+	/*\*/ margin: 0; /* */
+	height: 120px;
+	}
+#footer
+	{
+	/*\*/ position: absolute;  /* Exclude for Mac IE5 */
+	right: 305px;
+	bottom: 0;
+	left: 155px;
+	height: 50px;
+	margin: 0 305px 0 155px; /* Cater for Mac IE5 */
+	/*\*/ margin: 0; /* Put back for all the rest */
+	}
+#footer h4
+	{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	}
+/* let the IE expressions commence */
+#sidebar-left
+	{
+	height: expression(document.body.clientHeight + "px");
+	}
+#sidebar-right
+	{
+	height: expression(document.body.clientHeight + "px");
+	}
+#list-items
+  {
+  font-family:Arial,Verdana,Sans-serif;
+  font-size: 10pt;
+	}
+#content
+	{
+	height: expression(document.body.clientHeight - (100 + 120 + (2 * 5)) + "px");
+	width: expressicon(document.body.clientWidth - (150 + 300 + (2 * 5)) + "px");
+	}
+#header
+	{
+	width: expression(document.body.clientWidth - (150 + 300 + (2 * 5)) + "px");
+	}
+#footer
+	{
+	width: expression(document.body.clientWidth - (150 + 300 + (2 * 5)) + "px");
+	}
+</style>
+/*<![endif]-->*/
+/* settings for appearance alone */
+body { background: #666666; }
+#content { background: #cccccc; }
+#sidebar-left { background: #101375; }
+#sidebar-right { background: #093149; }
+#header { background: #4486EA; }
+#footer { background: #131A2D; }
+#footer h4 { background: #ccffcc; }
+/* convenience div for padding inside positioned divs */
+div.paddingwrap
+	{
+	margin: 0;
+	padding: 1em;
+	}
+p, h1, h2, h4, li
+	{
+	margin: 0;
+	padding: 0;
+	color: #F2B818;
+	}
+h3
+	{
+	margin: 1em 0 0 0;
+	}
+ol
+	{
+	margin: 0 0 2em 1em;
+	padding: 0;
+	}
+code
+	{
+	display: block;
+	background-color: #dddddd;
+	}
+

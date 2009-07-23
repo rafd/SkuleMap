@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"➥
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAfAb2RNhzPaf0W1mtifapBRI9caN7296ZHDcvjSpGbL7PxwkwBSZidcfOwy4q2EZpjEJx3rc4Lt5Kg" type="text/javascript"></script>
+    <%=javascript_include_tag 'application'%>
+    <%= stylesheet_link_tag "style.css" %>
+    <script type="text/javascript">
+   var buildings=<%=(@buildings.collect {|b|b.attributes}).to_json%>;     
+  
+  
+  
+  
+       
+       
+    </script>
+</head>
+<body>
+     
+     
+     <table style= "table-layout : auto;" id="box-table-b" summary="Main Table">
+    <thead>
+    	<tr>
+        	<th scope="col">University of Toronto Map</th>
+            <th scope="col">Make a selection</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+        	<td><div id="map" style="width: 800px; height: 600px"></div></td>
+        	<td width = "500px" align = "left"> 
+        
+      <% for building in @buildings -%>
+			<%=building.name %> - (<%=building.code%>) - <INPUT TYPE="checkbox" NAME="checkbox"
+onclick="toggleMarker(this,{#building.id});"> <br/>
+       			<% end -%> 
+       			
+       			
+      		
+</td>     
+   </tr>
+        
+    </tbody>
+</table>
+     
+     
+     
+     
+     
+</body>
+</html>
+

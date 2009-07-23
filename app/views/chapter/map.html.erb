@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"➥
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+     <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAfAb2RNhzPaf0W1mtifapBRI9caN7296ZHDcvjSpGbL7PxwkwBSZidcfOwy4q2EZpjEJx3rc4Lt5Kg"
+type="text/javascript"></script>
+     <%=javascript_include_tag 'prototype', 'application' %>
+     <script type="text/javascript">
+        var markers=<%=(@buildings.collect {|b|b.attributes}).to_json(:include => 'atms')%>;
+ 				 // var markers = <%= @buildings.to_json%>;    
+     //var markers = @buildings
+     
+     
+     
+     </script>
+     <%=stylesheet_link_tag "stylish.css"%>
+</head>
+<body id="body">
+<div id="content">
+<div class="paddingwrap-content">
+
+<!--<h3>MAP GOES HERE</h3>-->
+<div id="map"></div>
+</div><!-- close div.paddingwrap -->
+</div><!-- close div#content -->
+<div id="sidebar-left">
+<div class="paddingwrap">
+
+<p>THIS WRITING IS ON THE LEFT</p>
+<h2>END LEFT</h2>
+</div><!-- close div.paddingwrap -->
+</div><!-- close div#sidebar-left -->
+<<div id="sidebar-right">
+<div class="paddingwrap">
+<p>Buildings</p><br/>
+<div id="list-items">
+	<% for building in @buildings -%>
+  <div id="item">
+  <form action="#">
+        <input name="box" id="checkbox" value="#" checked ="checked" onclick="boxclick(this, <%=building.id%>)" type="checkbox"> <%=building.name %> - (<%=building.code%>) 
+	</form>  
+  </div>      		
+
+       			<% end -%> 
+</div><!--close div.list-items -->
+</div><!-- close div.paddingwrap -->
+</div><!-- close div#sidebar-right -->
+
+<div id="header">
+<h1>University of Toronto Map</h1>
+<h2>Its pretty boring right now.</h2>
+</div><!-- close div#header -->
+<div id="footer">
+
+<p>THIS WRITING IS ON THE BOTTOM </p>
+</div><!-- close div#footer -->
+</body>
+</html>
+

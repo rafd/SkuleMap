@@ -1,0 +1,11 @@
+class ChapterController < ApplicationController
+
+def map
+
+@buildings = Building.find(:all)
+
+end
+
+
+
+end

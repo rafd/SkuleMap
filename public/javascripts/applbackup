@@ -1,0 +1,58 @@
+// Place your application-specific JavaScript functions and classes here
+// This file is automatically included by javascript_include_tag :defaults
+
+var map;
+var centerLatitude = 43.66396;
+var centerLongitude = -79.393601;
+
+var startZoom = 15;
+
+function addMarker(latitude, longitude, building_name, building_code, building_address) {
+    var marker = new GMarker(new GLatLng(latitude, longitude));
+    GEvent.addListener(marker, 'click',
+        function() {
+           marker.openInfoWindowHtml('<div style = "text-align: center; font-size: 15px; font-weight: bold; font-family: Tahoma; color: orangered;">' + building_name + ' (' + building_code + ')</div><br/><div style = "text-align: center;">' + building_address + '</div>');
+        }
+    );
+    map.addOverlay(marker);
+}
+function init() {
+    if (GBrowserIsCompatible()) {
+        map = new GMap2(document.getElementById("map"));
+        map.addControl(new GLargeMapControl());
+        map.setCenter(new GLatLng(centerLatitude, centerLongitude), startZoom);
+       
+       
+       
+     
+       
+       
+       
+       
+       
+        for(i=0; i<buildings.length; i++) {
+           addMarker(buildings[i].lat, buildings[i].lng, buildings[i].name, buildings[i].code, buildings[i].address);
+        }
+      
+     
+       function toggleMarker(box, id){
+       
+       
+       if (marker[id].isHidden()) {
+          marker.show();
+        } else {
+          marker.hide();
+        }
+      } 
+    }
+ 
+        
+        
+        
+        
+        
+    }
+}
+window.onload = init;
+window.onunload = GUnload;
+

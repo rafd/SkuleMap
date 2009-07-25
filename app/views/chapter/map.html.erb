@@ -6,8 +6,9 @@
 type="text/javascript"></script>
      <%=javascript_include_tag 'prototype', 'application' %>
      <script type="text/javascript">
-        var markers=<%=(@buildings.collect {|b|b.attributes}).to_json(:include => 'atms')%>;
- 				 // var markers = <%= @buildings.to_json%>;    
+        //var markers=<%=(@buildings.collect {|b|b.attributes}).to_json%>;
+ 
+var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked! 
      //var markers = @buildings
      
      

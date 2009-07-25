@@ -87,7 +87,8 @@ div
 #list-items
   {
   font-family:Arial,Verdana,Sans-serif;
-  font-size: 8pt;
+  font-size: 10pt;
+  color: orange;
 	}
 #content
 	{

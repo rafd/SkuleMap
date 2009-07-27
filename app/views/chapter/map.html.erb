@@ -4,7 +4,7 @@
 <head>
      <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAfAb2RNhzPaf0W1mtifapBRI9caN7296ZHDcvjSpGbL7PxwkwBSZidcfOwy4q2EZpjEJx3rc4Lt5Kg"
 type="text/javascript"></script>
-     <%=javascript_include_tag 'prototype', 'application' %>
+     <%=javascript_include_tag 'prototype', 'application', 'extinfowindow' %>
      <script type="text/javascript">
         //var markers=<%=(@buildings.collect {|b|b.attributes}).to_json%>;
  
@@ -36,12 +36,13 @@ var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked!
 <p>Buildings</p><br/>
 <div id="list-items">
 	<% for building in @buildings -%>
-  <div id="item">
+  <ul id="list_of_items">
+  <li id="item" onclick="liclick(this, <%=building.id%>)">
   <form action="#">
         <input name="box" id="checkbox" value="#" checked ="checked" onclick="boxclick(this, <%=building.id%>)" type="checkbox"> <%=building.name %> - (<%=building.code%>) 
 	</form>  
-  </div>      		
-
+  </li>
+  </ul>
        			<% end -%> 
 </div><!--close div.list-items -->
 </div><!-- close div.paddingwrap -->

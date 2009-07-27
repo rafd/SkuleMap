@@ -1,0 +1,18 @@
+<html>
+
+
+<p>
+  Content pulled from an Ajax request!
+</p>
+<p>
+  This is from an HTML file, but imagine if you passed a url to a server 
+  side page that renders HTML, like .php or .rhtml!  You can process dynamic 
+  data on the fly without preloading on page load.
+</p>
+<p>
+  Want to see a demo of the above statement? Go to 
+  <a href="http://updates.orbitz.com" target="_blank">Orbitz Traveler Update</a> 
+  and click any of the airports on the homepage map.
+</p>ahahahh
+</body>
+</html>

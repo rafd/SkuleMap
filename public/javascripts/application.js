@@ -48,7 +48,9 @@ function addMarker(latitude, longitude, id, address, code, name) {
 
 
 		GEvent.addListener(marker,'click',function() {
+    
     map.panTo (marker.getLatLng());
+
     marker.openInfoWindowTabsHtml(infoTabs, {
     selectedTab:0, maxWidth:800});
     
@@ -71,11 +73,7 @@ function init() {
           
           markerHash[current.id]={marker:marker,address:current.address,visible:true};
         }
-        
-        
- 
- 
-        }
+ }
 
 
 function boxclick(box,i) {
@@ -87,10 +85,12 @@ function boxclick(box,i) {
 					gmarkers[i-1 ].hide();
 					        map.closeInfoWindow(gmarkers[i-1]);
 					} 
- }
+}
 
-
- 
+function liclick(li,i) {
+			map.panTo (gmarkers[i-1].getLatLng());
+  
+} 
 
     
  

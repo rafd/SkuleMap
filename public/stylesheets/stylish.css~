@@ -86,10 +86,36 @@ div
 	}
 #list-items
   {
-  font-family:Arial,Verdana,Sans-serif;
-  font-size: 10pt;
-  color: orange;
+  font-family: futura, helvetica, arial;
+  font-size: 12pt;
+  
 	}
+	
+#list_of_items
+  {
+  float:left; 
+  width:200px; 
+  background:#eee; 
+  list-style:none; 
+  padding:0; 
+  }
+
+#list_of_items li 
+  { 
+  padding:10px; 
+  }
+
+#list_of_items li:hover 
+  { 
+  background:#555; 
+  color:#fff; 
+  cursor:pointer; 
+  cursor:hand; 
+  }
+
+
+
+
 #content
 	{
 	height: expression(document.body.clientHeight - (100 + 120 + (2 * 5)) + "px");
@@ -109,7 +135,7 @@ div
 body { background: #666666; }
 #content { background: #cccccc; }
 #sidebar-left { background: #101375; }
-#sidebar-right { background: #093149; }
+#sidebar-right { background: white; }
 #header { background: #4486EA; }
 #footer { background: #131A2D; }
 #footer h4 { background: #ccffcc; }

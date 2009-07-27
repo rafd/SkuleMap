@@ -30981,3 +30981,341 @@ Rendering chapter/map
   [4;35;1mAtm Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
   [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
 Completed in 38ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-25 00:07:52) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 315ms (View: 218, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (34.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:02:40) [GET]
+  [4;36;1mBuilding Load (12.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (9.4ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.8ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.3ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 367ms (View: 247, DB: 59) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:03:11) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 36ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:10:08) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 248ms (View: 164, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:13:39) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.2ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 252ms (View: 169, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:18:12) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 41ms (View: 27, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:18:30) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 36ms (View: 22, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:19:20) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 43ms (View: 29, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:20:32) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:22:32) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.3ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:22:59) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 36ms (View: 22, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:26:31) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 38ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:26:49) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:27:01) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 36ms (View: 22, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:28:42) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 99ms (View: 85, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:29:19) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 41ms (View: 25, DB: 5) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:29:22) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:29:29) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:31:29) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 92ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:33:20) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:36:48) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 36ms (View: 22, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:37:09) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 36ms (View: 22, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:39:42) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 44ms (View: 30, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:40:06) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 42ms (View: 28, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:40:32) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 38ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:41:17) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 46ms (View: 31, DB: 3) | 200 OK [http://localhost/chapter/map]

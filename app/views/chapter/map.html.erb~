@@ -60,13 +60,14 @@ var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked!
 <!-- Tooltip div -->
 <div id="bildings">
 <% for building in @buildings -%>
-<p><%=building.name%></p>
+<p><%=building.name %></p>
+
 <%end-%>
 
 </div>
 
 <script type="text/javascript">
-var tooltip_content=document.getElementById("bildings").getElementsByTagName("p");
+var tooltip_content=document.getElementById("bildings").getElementsByTagName("div");
 </script>
 
 

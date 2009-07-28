@@ -22,7 +22,16 @@ Tooltip.prototype = new GOverlay();
 
 Tooltip.prototype.initialize = function(map){
 	var div = document.createElement("div");
+	var img = document.createElement("img");
+	img.src = 'http://upload.wikimedia.org/wikipedia/commons/c/c9/Convocation_Hall_in_UofT.jpg';
+  img.style.width = '100px';
+	img.style.height = '100px';
+		img.style.padding = '5px';
+	div.appendChild(img);
 	div.appendChild(document.createTextNode(this.text_));
+  	
+
+	
 	div.className = 'tooltip';
 	div.style.position = 'absolute';
 	div.style.visibility = 'hidden';
@@ -48,6 +57,7 @@ Tooltip.prototype.redraw = function(force){
 
 //stylin dem tooltips 	
 	this.div_.style.background = 'white';
+	this.div_.style.width = '105px';
 	this.div_.style.border = 'ridge';
 	this.div_.style.padding = '3px';
 	this.div_.style.textAlign = 'center';

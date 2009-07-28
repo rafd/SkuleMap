@@ -25,7 +25,7 @@ function addMarker(latitude, longitude, id, address, code, name) {
    //creating the marker
     var marker = new GMarker(new GLatLng(latitude, longitude), gicons["buildings"]);
     //adding the custom tooltip
-    var tooltip = new Tooltip(marker,x.length,1); 
+    var tooltip = new Tooltip(marker,tooltip_content[id-1].innerHTML,1); 
     marker.tooltip = tooltip; 
     map.addOverlay(tooltip);
 

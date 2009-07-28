@@ -45,6 +45,13 @@ Tooltip.prototype.redraw = function(force){
 	var iconAnchor = this.marker_.getIcon().iconAnchor;
 	var xPos = Math.round(markerPos.x - this.div_.clientWidth / 2);
 	var yPos = markerPos.y - iconAnchor.y - this.div_.clientHeight - this.padding_;
+	
+	this.div_.style.background = 'white';
+	this.div_.style.border = 'ridge';
+	this.div_.style.padding = '2px';
+	
+	
+	
 	this.div_.style.top = yPos + 'px';
 	this.div_.style.left = xPos + 'px';
 }

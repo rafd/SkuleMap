@@ -4,13 +4,13 @@
 <head>
      <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAfAb2RNhzPaf0W1mtifapBRI9caN7296ZHDcvjSpGbL7PxwkwBSZidcfOwy4q2EZpjEJx3rc4Lt5Kg"
 type="text/javascript"></script>
-     <%=javascript_include_tag 'prototype', 'application', 'extinfowindow' %>
+     <%=javascript_include_tag 'prototype', 'application', 'Tooltip' %>
      <script type="text/javascript">
         //var markers=<%=(@buildings.collect {|b|b.attributes}).to_json%>;
  
 var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked! 
      //var markers = @buildings
-     
+     var toooltips = document.getElementsByTagName ("bildings");
      
      
      </script>
@@ -37,7 +37,7 @@ var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked!
 <div id="list-items">
 	<% for building in @buildings -%>
   <ul id="list_of_items">
-  <li id="item" onclick="liclick(this, <%=building.id%>)">
+  <li id="item" onclick="liclick(this, <%=building.id%>)" onmouseover="limouseover (this,<%=building.id%>)" onmouseout="limouseout (this,<%=building.id%>)">
   <form action="#">
         <input name="box" id="checkbox" value="#" checked ="checked" onclick="boxclick(this, <%=building.id%>)" type="checkbox"> <%=building.name %> - (<%=building.code%>) 
 	</form>  
@@ -56,6 +56,28 @@ var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked!
 
 <p>THIS WRITING IS ON THE BOTTOM </p>
 </div><!-- close div#footer -->
+
+<!-- Tooltip div -->
+<div id="bildings">
+<% for building in @buildings -%>
+
+<p><%=building.name%><p>
+
+<% end -%> 
+</div>
+
+<script type="text/javascript">
+x=document.getElementById("bildings").getElementsByTagName("p");
+</script>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
 

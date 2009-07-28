@@ -102,7 +102,7 @@ div
 
 #list_of_items li 
   { 
-  padding:10px; 
+  padding:2px; 
   }
 
 #list_of_items li:hover 

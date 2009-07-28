@@ -31319,3 +31319,1072 @@ Rendering chapter/map
   [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
   [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
 Completed in 46ms (View: 31, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:50:14) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 269ms (View: 186, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:50:21) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:51:19) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 25, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:51:55) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:55:30) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 38ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:55:48) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 46ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 18:57:45) [GET]
+  [4;36;1mBuilding Load (0.4ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 49ms (View: 35, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:07:55) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 41ms (View: 26, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:08:09) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:08:32) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:09:09) [GET]
+  [4;36;1mBuilding Load (2.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 23, DB: 5) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:09:35) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:09:42) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 38ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:10:49) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:11:03) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 38ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:24:18) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:36:13) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 44ms (View: 30, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 19:36:15) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:41:26) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:41:33) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:42:08) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 19:42:10) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 19:47:43) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 19:47:45) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:00:05) [GET]
+  [4;36;1mBuilding Load (0.4ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 42ms (View: 26, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:01:13) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:02:30) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:02:59) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 48ms (View: 34, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:03:01) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:04:31) [GET]
+  [4;36;1mBuilding Load (9.7ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 57ms (View: 33, DB: 12) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:04:32) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:05:46) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 36ms (View: 22, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:05:47) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:07:18) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:07:20) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:07:30) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:07:31) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:07:50) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:07:52) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:12:12) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 44ms (View: 29, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:12:26) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 38ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:12:28) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:14:58) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:15:00) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:16:47) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:17:04) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:17:40) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 49ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:17:43) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:18:11) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:18:13) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:29:52) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 43ms (View: 28, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:30:27) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:30:29) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:32:08) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 44ms (View: 29, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:32:10) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:32:54) [GET]
+  [4;36;1mBuilding Load (6.5ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (4.6ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.4ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 73ms (View: 48, DB: 13) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:32:56) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:33:05) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:33:07) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:33:56) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.2ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 38ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 20:33:57) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 20:56:27) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.2ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 42ms (View: 28, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:08:28) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 101ms (View: 87, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:08:49) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (4.6ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 45ms (View: 25, DB: 7) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:09:13) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 38ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 21:09:15) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:15:26) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 42ms (View: 28, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:16:17) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 21:16:19) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:17:01) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 21:17:03) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:51:29) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:52:01) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 44ms (View: 30, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:52:52) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 42ms (View: 26, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:53:55) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 25, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:54:26) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 97ms (View: 83, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 21:54:28) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:55:46) [GET]
+  [4;36;1mBuilding Load (0.3ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.2ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.2ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 39ms (View: 24, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 21:55:49) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 21:59:22) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 42ms (View: 28, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 21:59:24) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 22:01:56) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.2ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 45ms (View: 30, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 22:03:27) [GET]
+  [4;36;1mBuilding Load (12.3ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 50ms (View: 24, DB: 15) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 22:06:09) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 22:07:05) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.2ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 99ms (View: 85, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 22:07:27) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (2.2ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 42ms (View: 25, DB: 5) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-27 22:09:21) [GET]
+  [4;36;1mBuilding Load (0.2ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.1ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+  [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
+Completed in 45ms (View: 31, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-27 22:09:23) [GET]
+
+ActionController::RoutingError (No route matches "/examples/Tooltip_v2/tooltip_shadow.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

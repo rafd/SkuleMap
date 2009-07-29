@@ -29,6 +29,23 @@ var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked!
 
 <p>THIS WRITING IS ON THE LEFT</p>
 <h2>END LEFT</h2>
+
+<div id="seach_box">
+	<% form_tag ({:controller=> "chapter", :action=> "search"}, {:id=>'search_form'}) do %>
+            <div class="search_field">
+                <label for="search_label">Point of interest:</label>
+                <%= text_field "post", "keywords", :size => 15 %>
+            </div>
+
+            <div id="submit_search">
+                <%= submit_tag "Find point of interest" %>
+            </div>
+	<% end %>
+</div>
+<% if @result_buildings -%>
+	<% render :partial => "search_results" %>
+<% end -%>
+
 </div><!-- close div.paddingwrap -->
 </div><!-- close div#sidebar-left -->
 <<div id="sidebar-right">

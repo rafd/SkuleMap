@@ -33058,3 +33058,320 @@ Rendering chapter/map
   [4;36;1mAtm Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
   [4;35;1mAtm Load (0.1ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 3) [0m
 Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-28 20:23:30) [GET]
+  [4;36;1mBuilding Load (50.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (49.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Columns (5.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mAtm Load (1.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+Completed in 564ms (View: 393, DB: 109) | 200 OK [http://localhost/chapter/map]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#search (for 127.0.0.1 at 2009-07-28 20:23:40) [POST]
+  Parameters: {"commit"=>"Find point of interest", "authenticity_token"=>"9pmo11Co8b7IcIOxxTdkBpoFhhesF+8EeQZip+lLAR4=", "post"=>{"keywords"=>"sf"}}
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM buildings WHERE name LIKE '%%' OR code LIKE '%%' OR address LIKE '%%' OR zip_code LIKE '%%' OR building_type LIKE '%%'[0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #3 of app/views/chapter/_search_results.html.erb:
+1: 
+2: 
+3: <% for buildings in @result_buildimgs do%>
+4:   <p>buildings.name</p> <!--need to make this clickable and link it to markers on map later-->
+5: <% end %>
+
+    app/views/chapter/_search_results.html.erb:3
+    app/controllers/chapter_controller.rb:22:in `search'
+
+Rendered rescues/_trace (84.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-28 20:26:05) [GET]
+  [4;36;1mBuilding Load (1.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (7.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mAtm Load (1.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #3 of app/views/chapter/_search_results.html.erb:
+1: 
+2: 
+3: <% for buildings in @result_buildimgs do%>
+4:   <p>buildings.name</p> <!--need to make this clickable and link it to markers on map later-->
+5: <% end %>
+
+    app/views/chapter/_search_results.html.erb:3
+    app/views/chapter/map.html.erb:46
+
+Rendered rescues/_trace (93.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-28 20:27:11) [GET]
+  [4;35;1mBuilding Load (1.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;36;1mBuilding Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mAtm Load (1.0ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;36;1mAtm Columns (5.0ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.0ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #3 of app/views/chapter/_search_results.html.erb:
+1: 
+2: <% if !@result_buildimgs %>
+3: <% for buildings in @result_buildimgs do%>
+4:   <p>buildings.name</p> <!--need to make this clickable and link it to markers on map later-->
+5: <% end %>
+6: <% end %>
+
+    app/views/chapter/_search_results.html.erb:3
+    app/views/chapter/map.html.erb:46
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-28 20:27:38) [GET]
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (5.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Columns (5.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mAtm Load (2.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #3 of app/views/chapter/_search_results.html.erb:
+1: 
+2: <%# if !@result_buildings %>
+3: <% for buildings in @result_buildings do%>
+4:   <p>buildings.name</p> <!--need to make this clickable and link it to markers on map later-->
+5: <% end %>
+6: <%# end %>
+
+    app/views/chapter/_search_results.html.erb:3
+    app/views/chapter/map.html.erb:46
+
+Rendered rescues/_trace (89.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-28 20:28:24) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;36;1mBuilding Columns (5.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mAtm Load (1.0ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;36;1mAtm Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.0ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #3 of app/views/chapter/_search_results.html.erb:
+1: 
+2: <% if !@result_buildings %>
+3: <% for building in @result_buildings do%>
+4:   <p>building.name</p> <!--need to make this clickable and link it to markers on map later-->
+5: <% end %>
+6: <% end %>
+
+    app/views/chapter/_search_results.html.erb:3
+    app/views/chapter/map.html.erb:46
+
+Rendered rescues/_trace (92.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-28 20:30:48) [GET]
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (5.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (1.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mAtm Load (0.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #3 of app/views/chapter/_search_results.html.erb:
+1: 
+2: <% if !@result_buildings %>
+3: <% for building in @result_buildings do%>
+4:   <p>building.name</p> <!--need to make this clickable and link it to markers on map later-->
+5: <% end %>
+6: <% end %>
+
+    app/views/chapter/_search_results.html.erb:3
+    app/views/chapter/map.html.erb:46
+
+Rendered rescues/_trace (95.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-28 20:31:24) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;36;1mBuilding Columns (5.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mAtm Load (0.0ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;36;1mAtm Columns (5.0ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (0.0ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #3 of app/views/chapter/_search_results.html.erb:
+1: 
+2: <% if !@result_buildings %>
+3: <% for building in @result_buildings do%>
+4:   <p>building.name</p> <!--need to make this clickable and link it to markers on map later-->
+5: <% end %>
+6: <% end %>
+
+    app/views/chapter/_search_results.html.erb:3
+    app/views/chapter/map.html.erb:46
+
+Rendered rescues/_trace (96.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-28 20:31:52) [GET]
+  [4;36;1mBuilding Load (1.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (5.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (0.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mAtm Load (0.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+Rendered chapter/_search_results (1.0ms)
+Completed in 53ms (View: 31, DB: 10) | 200 OK [http://localhost/chapter/map]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-28 20:32:18) [GET]
+  [4;35;1mBuilding Load (1.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;36;1mBuilding Columns (5.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mAtm Load (1.0ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;36;1mAtm Columns (5.0ms)[0m   [0;1mSHOW FIELDS FROM `atms`[0m
+  [4;35;1mAtm Load (1.0ms)[0m   [0mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+Completed in 143ms (View: 119, DB: 14) | 200 OK [http://localhost/chapter/map]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#search (for 127.0.0.1 at 2009-07-28 20:32:23) [POST]
+  Parameters: {"commit"=>"Find point of interest", "authenticity_token"=>"9pmo11Co8b7IcIOxxTdkBpoFhhesF+8EeQZip+lLAR4=", "post"=>{"keywords"=>"sf"}}
+  [4;36;1mBuilding Load (1.0ms)[0m   [0;1mSELECT * FROM buildings WHERE name LIKE '%%' OR code LIKE '%%' OR address LIKE '%%' OR zip_code LIKE '%%' OR building_type LIKE '%%'[0m
+Rendering chapter/map
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #9 of app/views/chapter/map.html.erb:
+6: type="text/javascript"></script>
+7:      <%=javascript_include_tag 'prototype', 'application', 'Tooltip' %>
+8:      <script type="text/javascript">
+9:         //var markers=<%=(@buildings.collect {|b|b.attributes}).to_json%>;
+10:  
+11: var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked! 
+12:      //var markers = @buildings
+
+    app/views/chapter/map.html.erb:9
+    app/controllers/chapter_controller.rb:22:in `search'
+
+Rendered rescues/_trace (77.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#search (for 127.0.0.1 at 2009-07-28 20:32:48) [POST]
+  Parameters: {"commit"=>"Find point of interest", "authenticity_token"=>"9pmo11Co8b7IcIOxxTdkBpoFhhesF+8EeQZip+lLAR4=", "post"=>{"keywords"=>"SF"}}
+  [4;35;1mBuilding Load (1.0ms)[0m   [0mSELECT * FROM buildings WHERE name LIKE '%%' OR code LIKE '%%' OR address LIKE '%%' OR zip_code LIKE '%%' OR building_type LIKE '%%'[0m
+Rendering chapter/map
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #9 of app/views/chapter/map.html.erb:
+6: type="text/javascript"></script>
+7:      <%=javascript_include_tag 'prototype', 'application', 'Tooltip' %>
+8:      <script type="text/javascript">
+9:         //var markers=<%=(@buildings.collect {|b|b.attributes}).to_json%>;
+10:  
+11: var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked! 
+12:      //var markers = @buildings
+
+    app/views/chapter/map.html.erb:9
+    app/controllers/chapter_controller.rb:22:in `search'
+
+Rendered rescues/_trace (81.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-07-28 20:34:28) [GET]
+  [4;36;1mBuilding Load (1.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering chapter/map
+  [4;35;1mBuilding Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mAtm Load (2.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 1) [0m
+  [4;35;1mAtm Columns (8.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mAtm Load (1.0ms)[0m   [0;1mSELECT * FROM `atms` WHERE (`atms`.building_id = 2) [0m
+Completed in 52ms (View: 24, DB: 17) | 200 OK [http://localhost/chapter/map]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#search (for 127.0.0.1 at 2009-07-28 20:34:31) [POST]
+  Parameters: {"commit"=>"Find point of interest", "authenticity_token"=>"9pmo11Co8b7IcIOxxTdkBpoFhhesF+8EeQZip+lLAR4=", "post"=>{"keywords"=>"SF"}}
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM buildings WHERE name LIKE '%%' OR code LIKE '%%' OR address LIKE '%%' OR zip_code LIKE '%%' OR building_type LIKE '%%'[0m
+Rendering chapter/map
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #9 of app/views/chapter/map.html.erb:
+6: type="text/javascript"></script>
+7:      <%=javascript_include_tag 'prototype', 'application', 'Tooltip' %>
+8:      <script type="text/javascript">
+9:         //var markers=<%=(@buildings.collect {|b|b.attributes}).to_json%>;
+10:  
+11: var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked! 
+12:      //var markers = @buildings
+
+    app/views/chapter/map.html.erb:9
+    app/controllers/chapter_controller.rb:22:in `search'
+
+Rendered rescues/_trace (76.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)

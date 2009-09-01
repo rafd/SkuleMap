@@ -1,0 +1,27 @@
+<h1>New obbject</h1>
+
+<% form_for(@obbject) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :floor %><br />
+    <%= f.text_field :floor %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :building_id %><br />
+ <%= select_tag ('building_id', options_for_select([['Choose a building', '']] + @buildings.collect {|bui| [bui.name, bui.id]},@building)) %><br/>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', obbjects_path %>

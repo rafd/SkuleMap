@@ -1,0 +1,11 @@
+<p style="font-family: futura, helvetica, arial;">Buildings</p><br/>
+	<% for building in @feature.buildings -%>
+  <ul id="list_of_items">
+  <li id="item" onclick="liclick(this, <%=building.id%>)" onmouseover="limouseover (this,<%=building.id%>)" onmouseout="limouseout (this,<%=building.id%>)">
+  <form action="#">
+        <input name="box" id="checkbox" value="#" checked ="checked" onclick="boxclick(this, <%=building.id%>)" type="checkbox"> <%=building.name %> 
+	</form>  
+  </li>
+  </ul>
+       			<% end -%> 
+

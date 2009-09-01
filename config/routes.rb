@@ -1,11 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :buildings
+  map.resources :obbjects
+
+  map.resources :features
 
   map.resources :buildings
 
   map.resources :buildings
 
-  map.resources :atms
+  map.resources :buildings
 
   map.resources :buildings
 

@@ -21,9 +21,9 @@ div
 	/*\*/
 	position: absolute;
 	top: 125px;
-	right: 305px;
+	right: 300px;
 	bottom: 55px;
-	left: 155px;
+	left: 200px;
 	/* Exclude all previous props for Mac IE5 */
 	margin: 125px 305px 5px 155px; /* Cater for Mac IE5 */
 	/*\*/ margin: 0; /* Put back for all the rest */
@@ -35,24 +35,25 @@ div
 	top: 0;
 	bottom: 0;
 	left: 0;
-	width: 150px;
+	width: 200px;
 	overflow: auto;
 	}
 #sidebar-right
 	{
 	position: absolute;
 	top:  0;
-	right: 0;
+	right: 50;
+	
 	bottom: 0;
 	overflow: auto;
-	width: 300px;
+	width: auto;
 	}
 #header
 	{
 	position: absolute;
 	top: 0;
-	/*\*/right: 305px;
-	left: 155px;   /* Exclude right and left props for Mac IE5 */
+	/*\*/right: 300px;
+	left: 200px;   /* Exclude right and left props for Mac IE5 */
 	margin: 0 305px 0 155px;
 	/*\*/ margin: 0; /* */
 	height: 120px;
@@ -60,9 +61,9 @@ div
 #footer
 	{
 	/*\*/ position: absolute;  /* Exclude for Mac IE5 */
-	right: 305px;
+	right: 300px;
 	bottom: 0;
-	left: 155px;
+	left: 200px;
 	height: 50px;
 	margin: 0 305px 0 155px; /* Cater for Mac IE5 */
 	/*\*/ margin: 0; /* Put back for all the rest */
@@ -94,7 +95,7 @@ div
 #list_of_items
   {
   float:left; 
-  width:200px; 
+  width:250px; 
   background:#eee; 
   list-style:none; 
   padding:0; 

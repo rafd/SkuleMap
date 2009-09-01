@@ -2,11 +2,12 @@
 
 <table>
   <tr>
+  	<th>ID</th>
     <th>Name</th>
     <th>Code</th>
     <th>Address</th>
     <th>Zip code</th>
-    <th>Building type</th>
+    <th>Feature List</th>
     <th>Floors</th>
     <th>Lat</th>
     <th>Lng</th>
@@ -14,11 +15,15 @@
 
 <% @buildings.each do |building| %>
   <tr>
+  	<td><%=h building.id %></td>
     <td><%=h building.name %></td>
     <td><%=h building.code %></td>
     <td><%=h building.address %></td>
     <td><%=h building.zip_code %></td>
-    <td><%=h building.building_type %></td>
+    <td>
+    <% for feature in building.features  -%>
+    	<%= feature.name %>
+    <% end -%></td>
     <td><%=h building.floors %></td>
     <td><%=h building.lat %></td>
     <td><%=h building.lng %></td>

@@ -15,44 +15,46 @@ var currentFocus=false;
 
 
 
-function addMarker(latitude, longitude, id, address, code, name) {
+function addMarker(current) {
+
     var gicons = [];
   //  gicons["building"] = new GIcon(G_DEFAULT_ICON, "icon-building.png");
    
-   
+   var id = current.building.id;
   
     
    //creating the marker
-    var marker = new GMarker(new GLatLng(latitude, longitude), gicons["buildings"]);
+    var marker = new GMarker(new GLatLng(current.building.lat, current.building.lng));
     //adding the custom tooltip
-    var tooltip = new Tooltip(marker,tooltip_content[id-1].innerHTML,5); 
+    var tooltip = new Tooltip(marker,current.building.name,5, current.building.name); 
     marker.tooltip = tooltip; 
-    map.addOverlay(tooltip);
 
-    
-    
-    
+     
+    map.addOverlay(marker);
+   
+
+        map.addOverlay(tooltip);
+   
+ gmarkers.push (marker);    
     
     //adding the marker to the map and adding it to global array
-    map.addOverlay(marker);
-    
-    gmarkers.push (marker);
-    
+   // map.addOverlay(marker);
+  
     //making tabs for the marker infowindow
     var infoTabs = [
     
     new GInfoWindowTab("Info", 
     //the html of the window
-    '<h4 align="center">'+name+' - ('+code+')</h4><br/><div>'+address+'</div>'),
+    '<h4 align="center">'+current.building.name+' - ('+current.building.code+')</h4><br/><div>'+current.building.address+'</div>'),
     
     
     new GInfoWindowTab("Washrooms", "This is tab C content")
 		];
 
 
-    if (markers[id-1].building.atms.length > 0) {
+    if (current.building.obbjects.length > 0) {
     
-    infoTabs[2] =    new GInfoWindowTab("Atms", 'This building has these atms:<br/>A '+markers[id-1].building.atms[0].bank_name +' atm on floor #');
+    infoTabs[2] =    new GInfoWindowTab("Atms", 'This building has these atms:<br/>A '+current.building.atms[0].bank_name +' atm on floor #');
     }
    
    
@@ -99,32 +101,25 @@ function addMarker(latitude, longitude, id, address, code, name) {
     	});
 }
 
-
+//this function starts as the window loads
 function init() {
-        map = new GMap($("map"));
-        map.addControl(new GSmallMapControl());
-        map.setCenter(new GLatLng(centerLatitude, centerLongitude), startZoom);
         
-        for(i=0;i<markers.length; i++) {
-			  
-          
-          
-          
-          
-          var current =markers[i];
-          //marker=addMarker(current.lat, current.lng, current.id, current.address, current.code, current.name);
-          marker=addMarker(current.building.lat, current.building.lng, current.building.id, current.building.address, current.building.code, current.building.name);
-          
-          markerHash[current.id]={marker:marker,address:current.address,visible:true};
-          
-         
-}
-          
-          
-          
-        }
- 
+        //declare map and add controls and shit
+        map = new GMap($("map"));
+        
+       map.addControl(new GSmallMapControl());
+   
 
+
+			map.enableContinuousZoom();
+			map.enableDoubleClickZoom();
+			map.enableScrollWheelZoom();
+			
+			
+
+      map.setCenter(new GLatLng(centerLatitude, centerLongitude), startZoom);
+      
+}
 
 function boxclick(box,i) {
        if (box.checked) {
@@ -132,7 +127,7 @@ function boxclick(box,i) {
 			  map.panTo (gmarkers[i-1].getLatLng());
 					}
 					else {
-					gmarkers[i-1 ].hide();
+					gmarkers[i-1].hide();
 					        map.closeInfoWindow(gmarkers[i-1]);
 					        				gmarkers[i-1].tooltip.hide();
 					} 
@@ -161,8 +156,29 @@ function limouseout (li,i) {
 				
   	 		          
 } 
+function markeradd (){
 
-    
+	 
+	map.clearOverlays();
+	  new Ajax.Request( 'lista',
+      { method: 'get',
+     
+        onComplete: function(request){
+          //parse the result to JSON (simply by eval-ing it)
+          
+          markers=eval( "(" + request.responseText + ")" );
+          if (markers!=null){
+           for(i=0;i<markers.length; i++) {
+		  	var current =markers[i];
+	      //marker=addMarker(current.lat, current.lng, current.id, current.address, current.code, current.name);
+	      addMarker(current,current.building.id);
+	    }
+          } // end of the res.success check
+        }
+  }); // end of the new Ajax.Request() call
+}
+
+
  
 window.onload=init;
 

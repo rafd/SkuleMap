@@ -1,0 +1,26 @@
+<h1>Listing obbjects</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Floor</th>
+    <th>Description</th>
+    <th>Building</th>
+  </tr>
+
+<% @obbjects.each do |obbject| %>
+  <tr>
+    <td><%=h obbject.name %></td>
+    <td><%=h obbject.floor %></td>
+    <td><%=h obbject.description %></td>
+    <td><%=h obbject.building.name %></td>
+    <td><%= link_to 'Show', obbject %></td>
+    <td><%= link_to 'Edit', edit_obbject_path(obbject) %></td>
+    <td><%= link_to 'Destroy', obbject, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New obbject', new_obbject_path %>

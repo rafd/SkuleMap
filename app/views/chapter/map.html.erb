@@ -6,12 +6,7 @@
 type="text/javascript"></script>
      <%=javascript_include_tag 'prototype', 'application', 'Tooltip' %>
      <script type="text/javascript">
-        //var markers=<%=(@buildings.collect {|b|b.attributes}).to_json%>;
- 
-var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked! 
-     //var markers = @buildings
-     var toooltips = document.getElementsByTagName ("bildings");
-     
+
      
      </script>
      <%=stylesheet_link_tag "stylish.css"%>
@@ -27,47 +22,44 @@ var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked!
 <div id="sidebar-left">
 <div class="paddingwrap">
 
-<p>THIS WRITING IS ON THE LEFT</p>
-<h2>END LEFT</h2>
 
-<div id="seach_box">
-	<% form_tag ({:controller=> "chapter", :action=> "search"}, {:id=>'search_form'}) do %>
-            <div class="search_field">
-                <label for="search_label">Point of interest:</label>
-                <%= text_field "post", "keywords", :size => 15 %>
-            </div>
 
-            <div id="submit_search">
-                <%= submit_tag "Find point of interest" %>
-            </div>
-	<% end %>
-</div>
-<% if @result_buildings -%>
-	<% render :partial => "search_results" %>
+<% form_remote_tag(:url => {:action => 'list'},
+    :update => "list-items", :success => "markeradd ()",
+    :html => {:id => 'list_form'}) do %>
+
+
+  <p style="font-family: futura, helvetica, arial;">
+    Building type: <br/><br/>
+	  <%= select_tag ('feature', options_for_select([['Choose a building type', '']] + @features.collect {|fea| [fea.name, fea.id]},@feature)) %><br/>
+  </p>
+  <p><br/>
+<%= submit_tag 'Show' %>
+
+
 <% end -%>
+
+  </p>
 
 </div><!-- close div.paddingwrap -->
 </div><!-- close div#sidebar-left -->
 <<div id="sidebar-right">
 <div class="paddingwrap">
-<p>Buildings</p><br/>
+
+<div id="home-menu">
+
 <div id="list-items">
-	<% for building in @buildings -%>
-  <ul id="list_of_items">
-  <li id="item" onclick="liclick(this, <%=building.id%>)" onmouseover="limouseover (this,<%=building.id%>)" onmouseout="limouseout (this,<%=building.id%>)">
-  <form action="#">
-        <input name="box" id="checkbox" value="#" checked ="checked" onclick="boxclick(this, <%=building.id%>)" type="checkbox"> <%=building.name %> - (<%=building.code%>) 
-	</form>  
-  </li>
-  </ul>
-       			<% end -%> 
 </div><!--close div.list-items -->
+</div><!--close div.home-menu -->
+
+
+
 </div><!-- close div.paddingwrap -->
 </div><!-- close div#sidebar-right -->
 
 <div id="header">
 <h1>University of Toronto Map</h1>
-<h2>Its pretty boring right now.</h2>
+<h2>Well, well, well.</h2>
 </div><!-- close div#header -->
 <div id="footer">
 
@@ -75,19 +67,6 @@ var markers = <%= @buildings.to_json(:include => :atms)%>;   //finally worked!
 </div><!-- close div#footer -->
 
 <!-- Tooltip div -->
-<div id="bildings">
-<% for building in @buildings -%>
-<p><%=building.name %></p>
-
-<%end-%>
-
-</div>
-
-<script type="text/javascript">
-var tooltip_content=document.getElementById("bildings").getElementsByTagName("p");
-</script>
-
-
 
 
 

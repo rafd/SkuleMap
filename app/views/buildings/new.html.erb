@@ -20,8 +20,10 @@
     <%= f.text_field :zip_code %>
   </p>
   <p>
-    <%= f.label :building_type %><br />
-    <%= f.text_field :building_type %>
+      Feature List:<br />
+    <% for feature in @features  -%>
+    	<%= check_box_tag('feature_list[]', feature.id, @building.features.collect {|obj| obj.id}.include?(feature.id))%><%= feature.name %><br/>
+    <% end -%>
   </p>
   <p>
     <%= f.label :floors %><br />

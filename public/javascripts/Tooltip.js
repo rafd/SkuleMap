@@ -12,10 +12,11 @@
  * @param {String} text
  * @param {Number} padding
  */
-function Tooltip(marker, text, padding){
+function Tooltip(marker, text, padding, name){
 	this.marker_ = marker;
 	this.text_ = text;
 	this.padding_ = padding;
+	this.name_ = name;
 }
 
 Tooltip.prototype = new GOverlay();
@@ -23,9 +24,9 @@ Tooltip.prototype = new GOverlay();
 Tooltip.prototype.initialize = function(map){
 	var div = document.createElement("div");
 	var img = document.createElement("img");
-	img.src = 'http://upload.wikimedia.org/wikipedia/commons/c/c9/Convocation_Hall_in_UofT.jpg';
-  img.style.width = '100px';
-	img.style.height = '100px';
+	img.src = '/images/'+this.name_+'.jpg';
+  img.style.width = '195px';
+	img.style.height = '195px';
 		img.style.padding = '5px';
 	div.appendChild(img);
 	div.appendChild(document.createTextNode(this.text_));
@@ -57,7 +58,7 @@ Tooltip.prototype.redraw = function(force){
 
 //stylin dem tooltips 	
 	this.div_.style.background = 'white';
-	this.div_.style.width = '105px';
+	this.div_.style.width = '205px';
 	this.div_.style.border = 'ridge';
 	this.div_.style.padding = '3px';
 	this.div_.style.textAlign = 'center';

@@ -2,7 +2,8 @@ class Building < ActiveRecord::Base
 include GeoKit::Geocoders
 
 
-has_many :atms
+has_many :obbjects
+has_and_belongs_to_many :features
 
 validates_presence_of :name, :code, :address
 validates_uniqueness_of :name, :code

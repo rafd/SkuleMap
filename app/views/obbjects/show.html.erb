@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @obbject.name %>
+</p>
+
+<p>
+  <b>Floor:</b>
+  <%=h @obbject.floor %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @obbject.description %>
+</p>
+
+<p>
+  <b>Building:</b>
+  <%=h @obbject.building.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_obbject_path(@obbject) %> |
+<%= link_to 'Back', obbjects_path %>

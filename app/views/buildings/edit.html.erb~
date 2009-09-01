@@ -1,0 +1,47 @@
+<h1>Editing building</h1>
+
+<% form_for(@building) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :zip_code %><br />
+    <%= f.text_field :zip_code %>
+  </p>
+  <p>
+    Feature List:<br />
+    <% for feature in @features  -%> 	
+    <%= check_box_tag('feature_list[]', feature.id, @building.features.collect {|obj| obj.id}.include?(feature.id))%>
+   <%= feature.name %><br/>
+    <% end -%>
+  </p>
+  <p>
+    <%= f.label :floors %><br />
+    <%= f.text_field :floors %>
+  </p>
+  <p>
+    <%= f.label :lat %><br />
+    <%= f.text_field :lat %>
+  </p>
+  <p>
+    <%= f.label :lng %><br />
+    <%= f.text_field :lng %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @building %> |
+<%= link_to 'Back', buildings_path %>

@@ -1,0 +1,89 @@
+class ObbjectsController < ApplicationController
+  # GET /obbjects
+  # GET /obbjects.xml
+  def index
+    @obbjects = Obbject.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @obbjects }
+    end
+  end
+
+  # GET /obbjects/1
+  # GET /obbjects/1.xml
+  def show
+    @obbject = Obbject.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @obbject }
+    end
+  end
+
+  # GET /obbjects/new
+  # GET /obbjects/new.xml
+  def new
+    @obbject = Obbject.new
+    @buildings = Building.all
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @obbject }
+    end
+  end
+
+  # GET /obbjects/1/edit
+  def edit
+    @obbject = Obbject.find(params[:id])
+    @buildings = Building.find(:all)
+  end
+
+  # POST /obbjects
+  # POST /obbjects.xml
+  def create
+    @obbject = Obbject.new(params[:obbject])
+ 		building = Building.find(params[:building_id])
+ 		@obbject.building = building
+    respond_to do |format|
+      if @obbject.save
+        flash[:notice] = 'Obbject was successfully created.'
+        format.html { redirect_to(@obbject) }
+        format.xml  { render :xml => @obbject, :status => :created, :location => @obbject }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @obbject.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /obbjects/1
+  # PUT /obbjects/1.xml
+  def update
+    @obbject = Obbject.find(params[:id])
+		building = Building.find(params[:building_id])
+ 		@obbject.building = building
+    respond_to do |format|
+      if @obbject.update_attributes(params[:obbject])
+        flash[:notice] = 'Obbject was successfully updated.'
+        format.html { redirect_to(@obbject) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @obbject.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /obbjects/1
+  # DELETE /obbjects/1.xml
+  def destroy
+    @obbject = Obbject.find(params[:id])
+    @obbject.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(obbjects_url) }
+      format.xml  { head :ok }
+    end
+  end
+end

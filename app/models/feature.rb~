@@ -1,0 +1,5 @@
+class Feature < ActiveRecord::Base
+
+
+has_many_belongs_to_many :buildings
+end

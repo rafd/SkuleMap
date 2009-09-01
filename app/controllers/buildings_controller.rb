@@ -3,6 +3,7 @@ class BuildingsController < ApplicationController
   # GET /buildings.xml
   def index
     @buildings = Building.all
+    @features = Feature.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class BuildingsController < ApplicationController
   # GET /buildings/1.xml
   def show
     @building = Building.find(params[:id])
+    @features = Feature.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +27,7 @@ class BuildingsController < ApplicationController
   # GET /buildings/new.xml
   def new
     @building = Building.new
-
+    @features = Feature.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @building }
@@ -34,14 +36,34 @@ class BuildingsController < ApplicationController
 
   # GET /buildings/1/edit
   def edit
+    @features = Feature.find(:all)
     @building = Building.find(params[:id])
+    
   end
 
   # POST /buildings
   # POST /buildings.xml
   def create
+  
     @building = Building.new(params[:building])
     @building.address = @building.address << ', Toronto, ON'
+    @features = Feature.all
+    checked_features = []
+    
+    
+    
+    checked_params = params[:feature_list] || []
+    for check_box_id in checked_params
+    	feature = Feature.find (check_box_id)
+    	if not @building.features.include?(feature)	
+    		@building.features << feature 
+    	end
+    	checked_features << feature 
+    	
+    end
+    
+    
+    
 
     respond_to do |format|
       if @building.save
@@ -59,7 +81,27 @@ class BuildingsController < ApplicationController
   # PUT /buildings/1.xml
   def update
     @building = Building.find(params[:id])
-
+    @features = Feature.all
+    checked_features = []
+    
+    
+    
+    checked_params = params[:feature_list] || []
+    for check_box_id in checked_params
+    	feature = Feature.find (check_box_id)
+    	if not @building.features.include?(feature)	
+    		@building.features << feature 
+    	end
+    	checked_features << feature 
+    	
+    end
+		missing_features = @features - checked_features
+		for feature in missing_features
+			if @building.features.include?(feature)
+				@building.features.delete(feature)
+			end
+	  end
+		
     respond_to do |format|
       if @building.update_attributes(params[:building])
         flash[:notice] = 'Building was successfully updated.'

@@ -47675,3 +47675,1379 @@ Rendering obbjects/index
   [4;35;1mBuilding Load (0.2ms)[0m   [0mSELECT * FROM `buildings` WHERE (`buildings`.`id` = 4) [0m
 Completed in 58ms (View: 44, DB: 3) | 200 OK [http://localhost/obbjects]
   [4;36;1mFeature Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `features`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 16:57:23) [GET]
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+  [4;36;1mBuilding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mbuildings_features Columns (0.0ms)[0m   [0mMysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`[0m
+
+ActionView::TemplateError (Mysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`) on line #24 of app/views/buildings/index.html.erb:
+21:     <td><%=h building.address %></td>
+22:     <td><%=h building.zip_code %></td>
+23:     <td>
+24:     <% for feature in building.features  -%>
+25:     	<%= feature.name %>
+26:     <% end -%></td>
+27:     <td><%=h building.floors %></td>
+
+    app/views/buildings/index.html.erb:24
+    app/views/buildings/index.html.erb:16:in `each'
+    app/views/buildings/index.html.erb:16
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (312.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-09-19 17:00:16) [GET]
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` [0m
+Rendering chapter/map
+  [4;36;1mFeature Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `features`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/chapter/map]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#list (for 127.0.0.1 at 2009-09-19 17:00:21) [POST]
+  Parameters: {"feature"=>"1", "commit"=>"Show", "authenticity_token"=>"cUw4yRlkg+j/adrdpUVb+8Kt3a08Ed77eilYyGomQho="}
+  [4;35;1mFeature Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `features`[0m
+  [4;36;1mFeature Load (15.0ms)[0m   [0;1mSELECT * FROM `features` WHERE (`features`.`id` = 1) [0m
+  [4;35;1mbuildings_features Columns (0.0ms)[0m   [0mMysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`[0m
+
+ActionView::TemplateError (Mysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`) on line #2 of app/views/chapter/_list_of_buildings.html.erb:
+1: <p>Buildings</p><br/>
+2: 	<% for building in @feature.buildings -%>
+3:   <ul id="list_of_items">
+4:   <li id="item" onclick="liclick(this, <%=building.id%>)" onmouseover="limouseover (this,<%=building.id%>)" onmouseout="limouseout (this,<%=building.id%>)">
+5:   <form action="#">
+
+    app/views/chapter/_list_of_buildings.html.erb:2
+    app/controllers/chapter_controller.rb:14:in `list'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mbuildings_features Columns (0.0ms)[0m   [0;1mMysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`[0m
+/!\ FAILSAFE /!\  Sat Sep 19 17:00:21 -0400 2009
+  Status: 500 Internal Server Error
+  Mysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract_adapter.rb:212:in `log'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/mysql_adapter.rb:320:in `execute'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/mysql_adapter.rb:466:in `columns'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:207:in `columns'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/has_and_belongs_to_many_association.rb:13:in `columns'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/has_and_belongs_to_many_association.rb:112:in `finding_with_ambiguous_select?'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/has_and_belongs_to_many_association.rb:23:in `construct_find_options!'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:54:in `find'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:395:in `find_target'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:349:in `load_target'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:78:in `respond_to?'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/message_verifier.rb:36:in `dump'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/message_verifier.rb:36:in `generate'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:151:in `marshal'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:100:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `each'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `new'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `new'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `run'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+    C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    C:/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    C:/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#list (for 127.0.0.1 at 2009-09-19 17:00:29) [POST]
+  Parameters: {"feature"=>"", "commit"=>"Show", "authenticity_token"=>"cUw4yRlkg+j/adrdpUVb+8Kt3a08Ed77eilYyGomQho="}
+  [4;35;1mFeature Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `features`[0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` WHERE (`features`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Feature with ID=):
+  app/controllers/chapter_controller.rb:10:in `list'
+
+Rendered rescues/_trace (140.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBuildings (20090713190752)
+Migrating to CreateFeatures (20090809205435)
+Migrating to CreateObbjects (20090829230554)
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mdescribe `atms`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `atms`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mdescribe `buildings`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `buildings`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW FIELDS FROM `features`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `features`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `features`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW FIELDS FROM `obbjects`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `obbjects`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSHOW KEYS FROM `obbjects`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:06:22) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+ERROR: compiling _run_erb_app47views47buildings47index46html46erb RAISED compile error
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:34: syntax error, unexpected kEND, expecting ')'
+ end ; @output_buffer.concat "\n"
+    ^
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:41: syntax error, unexpected kENSURE, expecting ')'
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47buildings47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing buildings</h1>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<table>\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "  \t<th>ID</th>\n"
+@output_buffer.concat "    <th>Name</th>\n"
+@output_buffer.concat "    <th>Code</th>\n"
+@output_buffer.concat "    <th>Address</th>\n"
+@output_buffer.concat "    <th>Zip code</th>\n"
+@output_buffer.concat "    <th>Feature List</th>\n"
+@output_buffer.concat "    <th>Floors</th>\n"
+@output_buffer.concat "    <th>Lat</th>\n"
+@output_buffer.concat "    <th>Lng</th>\n"
+@output_buffer.concat "  </tr>\n"
+@output_buffer.concat "\n"
+ @buildings.each do |building| ; @output_buffer.concat "\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "  \t<td>"; @output_buffer.concat((h building.id ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.name ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.code ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.address ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.zip_code ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>\n"
+@output_buffer.concat "    "
+@output_buffer.concat "    \t"; @output_buffer.concat((# feature.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    "; @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.floors ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.lat ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.lng ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Show', building ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Edit', edit_building_path(building) ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "  </tr>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "</table>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<br />\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'New building', new_building_path ).to_s); @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43:in `compile!'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+C:/InstantRails/rails_apps/SkuleMap/app/controllers/buildings_controller.rb:8:in `index'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:159:in `process_client'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `process_client'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `new'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `new'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+C:/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:34: syntax error, unexpected kEND, expecting ')'
+ end ; @output_buffer.concat "\n"
+    ^
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:41: syntax error, unexpected kENSURE, expecting ')'
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43: syntax error, unexpected kEND, expecting ')') on line #34 of app/views/buildings/index.html.erb:
+31:     <td><%= link_to 'Edit', edit_building_path(building) %></td>
+32:     <td><%= link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete %></td>
+33:   </tr>
+34: <% end %>
+35: </table>
+36: 
+37: <br />
+
+    app/views/buildings/index.html.erb:43:in `compile!'
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (156.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:06:47) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+ERROR: compiling _run_erb_app47views47buildings47index46html46erb RAISED compile error
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:34: syntax error, unexpected kEND, expecting ')'
+ end 
+    ^
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:41: syntax error, unexpected kENSURE, expecting ')'
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47buildings47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing buildings</h1>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<table>\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "  \t<th>ID</th>\n"
+@output_buffer.concat "    <th>Name</th>\n"
+@output_buffer.concat "    <th>Code</th>\n"
+@output_buffer.concat "    <th>Address</th>\n"
+@output_buffer.concat "    <th>Zip code</th>\n"
+@output_buffer.concat "    <th>Feature List</th>\n"
+@output_buffer.concat "    <th>Floors</th>\n"
+@output_buffer.concat "    <th>Lat</th>\n"
+@output_buffer.concat "    <th>Lng</th>\n"
+@output_buffer.concat "  </tr>\n"
+@output_buffer.concat "\n"
+ @buildings.each do |building| ; @output_buffer.concat "\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "  \t<td>"; @output_buffer.concat((h building.id ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.name ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.code ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.address ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.zip_code ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>\n"
+@output_buffer.concat "    "
+@output_buffer.concat "    \t"; @output_buffer.concat((# feature.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    "; @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.floors ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.lat ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.lng ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Show', building ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Edit', edit_building_path(building) ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "  </tr>\n"
+ end 
+@output_buffer.concat "</table>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<br />\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'New building', new_building_path ).to_s); @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43:in `compile!'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+C:/InstantRails/rails_apps/SkuleMap/app/controllers/buildings_controller.rb:8:in `index'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:159:in `process_client'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `process_client'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `new'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `new'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+C:/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:34: syntax error, unexpected kEND, expecting ')'
+ end 
+    ^
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:41: syntax error, unexpected kENSURE, expecting ')'
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43: syntax error, unexpected kEND, expecting ')') on line #34 of app/views/buildings/index.html.erb:
+31:     <td><%= link_to 'Edit', edit_building_path(building) %></td>
+32:     <td><%= link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete %></td>
+33:   </tr>
+34: <% end -%>
+35: </table>
+36: 
+37: <br />
+
+    app/views/buildings/index.html.erb:43:in `compile!'
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:07:40) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+ERROR: compiling _run_erb_app47views47buildings47index46html46erb RAISED compile error
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:34: syntax error, unexpected kEND, expecting ')'
+ end 
+    ^
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:41: syntax error, unexpected kENSURE, expecting ')'
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47buildings47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing buildings</h1>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<table>\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "  \t<th>ID</th>\n"
+@output_buffer.concat "    <th>Name</th>\n"
+@output_buffer.concat "    <th>Code</th>\n"
+@output_buffer.concat "    <th>Address</th>\n"
+@output_buffer.concat "    <th>Zip code</th>\n"
+@output_buffer.concat "    <th>Feature List</th>\n"
+@output_buffer.concat "    <th>Floors</th>\n"
+@output_buffer.concat "    <th>Lat</th>\n"
+@output_buffer.concat "    <th>Lng</th>\n"
+@output_buffer.concat "  </tr>\n"
+@output_buffer.concat "\n"
+ @buildings.each do |building| ; @output_buffer.concat "\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "  \t<td>"; @output_buffer.concat((h building.id ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.name ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.code ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.address ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.zip_code ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>\n"
+@output_buffer.concat "    "
+@output_buffer.concat "    \t"; @output_buffer.concat((# feature.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    "; @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.floors ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.lat ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.lng ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Show', building ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Edit', edit_building_path(building) ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((# link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "  </tr>\n"
+ end 
+@output_buffer.concat "</table>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<br />\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'New building', new_building_path ).to_s); @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43:in `compile!'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+C:/InstantRails/rails_apps/SkuleMap/app/controllers/buildings_controller.rb:8:in `index'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:159:in `process_client'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `process_client'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `new'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `new'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+C:/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:34: syntax error, unexpected kEND, expecting ')'
+ end 
+    ^
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:41: syntax error, unexpected kENSURE, expecting ')'
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43: syntax error, unexpected kEND, expecting ')') on line #34 of app/views/buildings/index.html.erb:
+31:     <td><%= link_to 'Edit', edit_building_path(building) %></td>
+32:     <td><%=# link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete %></td>
+33:   </tr>
+34: <% end -%>
+35: </table>
+36: 
+37: <br />
+
+    app/views/buildings/index.html.erb:43:in `compile!'
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:07:53) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+ERROR: compiling _run_erb_app47views47buildings47index46html46erb RAISED compile error
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:34: syntax error, unexpected kEND, expecting ')'
+ end 
+    ^
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:41: syntax error, unexpected kENSURE, expecting ')'
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47buildings47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing buildings</h1>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<table>\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "  \t<th>ID</th>\n"
+@output_buffer.concat "    <th>Name</th>\n"
+@output_buffer.concat "    <th>Code</th>\n"
+@output_buffer.concat "    <th>Address</th>\n"
+@output_buffer.concat "    <th>Zip code</th>\n"
+@output_buffer.concat "    <th>Feature List</th>\n"
+@output_buffer.concat "    <th>Floors</th>\n"
+@output_buffer.concat "    <th>Lat</th>\n"
+@output_buffer.concat "    <th>Lng</th>\n"
+@output_buffer.concat "  </tr>\n"
+@output_buffer.concat "\n"
+ @buildings.each do |building| ; @output_buffer.concat "\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "  \t<td>"; @output_buffer.concat((h building.id ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.name ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.code ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.address ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.zip_code ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>\n"
+@output_buffer.concat "    "
+@output_buffer.concat "    \t"; @output_buffer.concat((# feature.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    "; @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.floors ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.lat ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h building.lng ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((# link_to 'Show', building ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((# link_to 'Edit', edit_building_path(building) ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((# link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "  </tr>\n"
+ end 
+@output_buffer.concat "</table>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<br />\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'New building', new_building_path ).to_s); @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43:in `compile!'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+C:/InstantRails/rails_apps/SkuleMap/app/controllers/buildings_controller.rb:8:in `index'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:159:in `process_client'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `each'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:158:in `process_client'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `new'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:285:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `initialize'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `new'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-x86-mswin32/lib/mongrel.rb:268:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+C:/InstantRails/ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+C:/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/InstantRails/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:34: syntax error, unexpected kEND, expecting ')'
+ end 
+    ^
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:41: syntax error, unexpected kENSURE, expecting ')'
+C:/InstantRails/rails_apps/SkuleMap/app/views/buildings/index.html.erb:43: syntax error, unexpected kEND, expecting ')') on line #34 of app/views/buildings/index.html.erb:
+31:     <td><%=# link_to 'Edit', edit_building_path(building) %></td>
+32:     <td><%=# link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete %></td>
+33:   </tr>
+34: <% end -%>
+35: </table>
+36: 
+37: <br />
+
+    app/views/buildings/index.html.erb:43:in `compile!'
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#show (for 127.0.0.1 at 2009-09-19 17:08:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBuilding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` WHERE (`buildings`.`id` = 1) [0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/show
+  [4;36;1mbuildings_features Columns (0.0ms)[0m   [0;1mMysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`[0m
+
+ActionView::TemplateError (Mysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`) on line #23 of app/views/buildings/show.html.erb:
+20: 
+21: <p>
+22:    <b>Feature List:</b><br />
+23:     <% for feature in @building.features  -%>
+24:     	<%= feature.name %> <br/>
+25:     <% end -%>
+26: </p>
+
+    app/views/buildings/show.html.erb:23
+    app/controllers/buildings_controller.rb:20:in `show'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:08:42) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+  [4;35;1mBuilding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mbuildings_features Columns (0.0ms)[0m   [0;1mMysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`[0m
+
+ActionView::TemplateError (Mysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`) on line #24 of app/views/buildings/index.html.erb:
+21:     <td><%=h building.address %></td>
+22:     <td><%=h building.zip_code %></td>
+23:     <td>
+24:     <% for feature in building.features  -%>
+25:     	<%= feature.name %>
+26:     <% end -%></td>
+27:     <td><%=h building.floors %></td>
+
+    app/views/buildings/index.html.erb:24
+    app/views/buildings/index.html.erb:16:in `each'
+    app/views/buildings/index.html.erb:16
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#show (for 127.0.0.1 at 2009-09-19 17:14:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBuilding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` WHERE (`buildings`.`id` = 1) [0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/show
+  [4;36;1mbuildings_features Columns (0.0ms)[0m   [0;1mMysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`[0m
+
+ActionView::TemplateError (Mysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`) on line #23 of app/views/buildings/show.html.erb:
+20: 
+21: <p>
+22:    <b>Feature List:</b><br />
+23:     <% for feature in @building.features  -%>
+24:     	<%= feature.name %> <br/>
+25:     <% end -%>
+26: </p>
+
+    app/views/buildings/show.html.erb:23
+    app/controllers/buildings_controller.rb:20:in `show'
+
+Rendered rescues/_trace (93.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#show (for 127.0.0.1 at 2009-09-19 17:14:15) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mBuilding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` WHERE (`buildings`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Building with ID=index):
+  app/controllers/buildings_controller.rb:17:in `show'
+
+Rendered rescues/_trace (156.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:14:21) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+  [4;35;1mBuilding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mbuildings_features Columns (0.0ms)[0m   [0;1mMysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`[0m
+
+ActionView::TemplateError (Mysql::Error: Table 'skule2_development.buildings_features' doesn't exist: SHOW FIELDS FROM `buildings_features`) on line #24 of app/views/buildings/index.html.erb:
+21:     <td><%=h building.address %></td>
+22:     <td><%=h building.zip_code %></td>
+23:     <td>
+24:     <% for feature in building.features  -%>
+25:     	<%= feature.name %>
+26:     <% end -%></td>
+27:     <td><%=h building.floors %></td>
+
+    app/views/buildings/index.html.erb:24
+    app/views/buildings/index.html.erb:16:in `each'
+    app/views/buildings/index.html.erb:16
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (171.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBuildings (20090713190752)
+Migrating to CreateFeatures (20090809205435)
+Migrating to CreateObbjects (20090829230554)
+Migrating to BuildingsFeatures (20090919212911)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE `buildings_features` (`buildings_id` int(11), `features_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090919212911')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `atms`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `atms`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `buildings`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `buildings`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW FIELDS FROM `buildings_features`[0m
+  [4;36;1mSQL (343.0ms)[0m   [0;1mdescribe `buildings_features`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `buildings_features`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `features`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mdescribe `features`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `features`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `obbjects`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mdescribe `obbjects`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `obbjects`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:32:06) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+  [4;35;1mBuilding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mbuildings_features Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings_features`[0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mMysql::Error: Unknown column 'buildings_features.building_id' in 'where clause': SELECT * FROM `features` INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) [0m
+
+ActionView::TemplateError (Mysql::Error: Unknown column 'buildings_features.building_id' in 'where clause': SELECT * FROM `features`  INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) ) on line #24 of app/views/buildings/index.html.erb:
+21:     <td><%=h building.address %></td>
+22:     <td><%=h building.zip_code %></td>
+23:     <td>
+24:     <% for feature in building.features  -%>
+25:     	<%= feature.name %>
+26:     <% end -%></td>
+27:     <td><%=h building.floors %></td>
+
+    app/views/buildings/index.html.erb:24
+    app/views/buildings/index.html.erb:16:in `each'
+    app/views/buildings/index.html.erb:16
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (172.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#show (for 127.0.0.1 at 2009-09-19 17:32:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBuilding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mBuilding Load (15.0ms)[0m   [0mSELECT * FROM `buildings` WHERE (`buildings`.`id` = 1) [0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/show
+  [4;35;1mbuildings_features Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `buildings_features`[0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mMysql::Error: Unknown column 'buildings_features.building_id' in 'where clause': SELECT * FROM `features` INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) [0m
+
+ActionView::TemplateError (Mysql::Error: Unknown column 'buildings_features.building_id' in 'where clause': SELECT * FROM `features`  INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) ) on line #23 of app/views/buildings/show.html.erb:
+20: 
+21: <p>
+22:    <b>Feature List:</b><br />
+23:     <% for feature in @building.features  -%>
+24:     	<%= feature.name %> <br/>
+25:     <% end -%>
+26: </p>
+
+    app/views/buildings/show.html.erb:23
+    app/controllers/buildings_controller.rb:20:in `show'
+
+Rendered rescues/_trace (172.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:33:03) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+  [4;35;1mBuilding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mbuildings_features Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings_features`[0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mMysql::Error: Unknown column 'buildings_features.building_id' in 'where clause': SELECT * FROM `features` INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) [0m
+
+ActionView::TemplateError (Mysql::Error: Unknown column 'buildings_features.building_id' in 'where clause': SELECT * FROM `features`  INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) ) on line #24 of app/views/buildings/index.html.erb:
+21:     <td><%=h building.address %></td>
+22:     <td><%=h building.zip_code %></td>
+23:     <td>
+24:     <% for feature in building.features  -%>
+25:     	<%= feature.name %>
+26:     <% end -%></td>
+27:     <td><%=h building.floors %></td>
+
+    app/views/buildings/index.html.erb:24
+    app/views/buildings/index.html.erb:16:in `each'
+    app/views/buildings/index.html.erb:16
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (172.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FeaturesController#index (for 127.0.0.1 at 2009-09-19 17:34:39) [GET]
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/features
+Rendering features/index
+  [4;35;1mFeature Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `features`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/features]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FeaturesController#edit (for 127.0.0.1 at 2009-09-19 17:34:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFeature Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `features`[0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` WHERE (`features`.`id` = 1) [0m
+Rendering template within layouts/features
+Rendering features/edit
+Completed in 31ms (View: 15, DB: 16) | 200 OK [http://localhost/features/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FeaturesController#update (for 127.0.0.1 at 2009-09-19 17:34:44) [PUT]
+  Parameters: {"feature"=>{"name"=>"engineering"}, "commit"=>"Update", "authenticity_token"=>"cUw4yRlkg+j/adrdpUVb+8Kt3a08Ed77eilYyGomQho=", "id"=>"1"}
+  [4;36;1mFeature Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `features`[0m
+  [4;35;1mFeature Load (16.0ms)[0m   [0mSELECT * FROM `features` WHERE (`features`.`id` = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/features/1
+Completed in 31ms (DB: 16) | 302 Found [http://localhost/features/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FeaturesController#show (for 127.0.0.1 at 2009-09-19 17:34:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFeature Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `features`[0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` WHERE (`features`.`id` = 1) [0m
+Rendering template within layouts/features
+Rendering features/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/features/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FeaturesController#index (for 127.0.0.1 at 2009-09-19 17:34:47) [GET]
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/features
+Rendering features/index
+  [4;35;1mFeature Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `features`[0m
+Completed in 93ms (View: 15, DB: 0) | 200 OK [http://localhost/features]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ObbjectsController#index (for 127.0.0.1 at 2009-09-19 17:34:57) [GET]
+  [4;36;1mObbject Load (0.0ms)[0m   [0;1mSELECT * FROM `obbjects` [0m
+Rendering template within layouts/obbjects
+Rendering obbjects/index
+  [4;35;1mObbject Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `obbjects`[0m
+  [4;36;1mBuilding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` WHERE (`buildings`.`id` = 1) [0m
+Completed in 78ms (View: 48, DB: 15) | 200 OK [http://localhost/obbjects]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ObbjectsController#edit (for 127.0.0.1 at 2009-09-19 17:35:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mObbject Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `obbjects`[0m
+  [4;35;1mObbject Load (0.0ms)[0m   [0mSELECT * FROM `obbjects` WHERE (`obbjects`.`id` = 1) [0m
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+Rendering template within layouts/obbjects
+Rendering obbjects/edit
+  [4;35;1mBuilding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/obbjects/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ObbjectsController#update (for 127.0.0.1 at 2009-09-19 17:35:05) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"cUw4yRlkg+j/adrdpUVb+8Kt3a08Ed77eilYyGomQho=", "id"=>"1", "obbject"=>{"name"=>"seats", "floor"=>"1", "description"=>"lots of seats"}, "building_id"=>"1"}
+  [4;36;1mObbject Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `obbjects`[0m
+  [4;35;1mObbject Load (0.0ms)[0m   [0mSELECT * FROM `obbjects` WHERE (`obbjects`.`id` = 1) [0m
+  [4;36;1mBuilding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mBuilding Load (15.0ms)[0m   [0mSELECT * FROM `buildings` WHERE (`buildings`.`id` = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/obbjects/1
+Completed in 63ms (DB: 15) | 302 Found [http://localhost/obbjects/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ObbjectsController#show (for 127.0.0.1 at 2009-09-19 17:35:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mObbject Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `obbjects`[0m
+  [4;35;1mObbject Load (0.0ms)[0m   [0mSELECT * FROM `obbjects` WHERE (`obbjects`.`id` = 1) [0m
+Rendering template within layouts/obbjects
+Rendering obbjects/show
+  [4;36;1mBuilding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mBuilding Load (16.0ms)[0m   [0mSELECT * FROM `buildings` WHERE (`buildings`.`id` = 1) [0m
+Completed in 47ms (View: 15, DB: 32) | 200 OK [http://localhost/obbjects/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ObbjectsController#index (for 127.0.0.1 at 2009-09-19 17:35:07) [GET]
+  [4;36;1mObbject Load (0.0ms)[0m   [0;1mSELECT * FROM `obbjects` [0m
+Rendering template within layouts/obbjects
+Rendering obbjects/index
+  [4;35;1mObbject Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `obbjects`[0m
+  [4;36;1mBuilding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` WHERE (`buildings`.`id` = 1) [0m
+Completed in 31ms (View: 0, DB: 31) | 200 OK [http://localhost/obbjects]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:35:24) [GET]
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+  [4;36;1mBuilding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mbuildings_features Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `buildings_features`[0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mMysql::Error: Unknown column 'buildings_features.building_id' in 'where clause': SELECT * FROM `features` INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) [0m
+
+ActionView::TemplateError (Mysql::Error: Unknown column 'buildings_features.building_id' in 'where clause': SELECT * FROM `features`  INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) ) on line #24 of app/views/buildings/index.html.erb:
+21:     <td><%=h building.address %></td>
+22:     <td><%=h building.zip_code %></td>
+23:     <td>
+24:     <% for feature in building.features  -%>
+25:     	<%= feature.name %>
+26:     <% end -%></td>
+27:     <td><%=h building.floors %></td>
+
+    app/views/buildings/index.html.erb:24
+    app/views/buildings/index.html.erb:16:in `each'
+    app/views/buildings/index.html.erb:16
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (171.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBuildings (20090713190752)
+Migrating to CreateFeatures (20090809205435)
+Migrating to CreateObbjects (20090829230554)
+Migrating to BuildingsFeatures (20090919212911)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mdescribe `atms`[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mSHOW KEYS FROM `atms`[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mSQL (8.0ms)[0m   [0mdescribe `buildings`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `buildings`[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mSHOW FIELDS FROM `buildings_features`[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mdescribe `buildings_features`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSHOW KEYS FROM `buildings_features`[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW FIELDS FROM `features`[0m
+  [4;35;1mSQL (7.0ms)[0m   [0mdescribe `features`[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW KEYS FROM `features`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSHOW FIELDS FROM `obbjects`[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mdescribe `obbjects`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW KEYS FROM `obbjects`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:43:25) [GET]
+  [4;35;1mBuilding Load (0.0ms)[0m   [0mSELECT * FROM `buildings` [0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+  [4;35;1mBuilding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `buildings`[0m
+  [4;36;1mbuildings_features Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings_features`[0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mMysql::Error: Unknown column 'buildings_features.building_id' in 'where clause': SELECT * FROM `features` INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) [0m
+
+ActionView::TemplateError (Mysql::Error: Unknown column 'buildings_features.building_id' in 'where clause': SELECT * FROM `features`  INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) ) on line #24 of app/views/buildings/index.html.erb:
+21:     <td><%=h building.address %></td>
+22:     <td><%=h building.zip_code %></td>
+23:     <td>
+24:     <% for feature in building.features  -%>
+25:     	<%= feature.name %>
+26:     <% end -%></td>
+27:     <td><%=h building.floors %></td>
+
+    app/views/buildings/index.html.erb:24
+    app/views/buildings/index.html.erb:16:in `each'
+    app/views/buildings/index.html.erb:16
+    app/controllers/buildings_controller.rb:8:in `index'
+
+Rendered rescues/_trace (187.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mDROP TABLE `buildings_features`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20090919212911'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `atms`[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSHOW KEYS FROM `atms`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `buildings`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW KEYS FROM `buildings`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `features`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `features`[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSHOW KEYS FROM `features`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `obbjects`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `obbjects`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW KEYS FROM `obbjects`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBuildings (20090713190752)
+Migrating to CreateFeatures (20090809205435)
+Migrating to CreateObbjects (20090829230554)
+Migrating to BuildingsFeatures (20090919212911)
+  [4;36;1mSQL (16.0ms)[0m   [0;1mCREATE TABLE `buildings_features` (`building_id` int(11), `feature_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090919212911')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSHOW FIELDS FROM `atms`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `atms`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `atms`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `buildings`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `buildings`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW FIELDS FROM `buildings_features`[0m
+  [4;36;1mSQL (343.0ms)[0m   [0;1mdescribe `buildings_features`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `buildings_features`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `features`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `features`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `features`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW FIELDS FROM `obbjects`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `obbjects`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `obbjects`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BuildingsController#index (for 127.0.0.1 at 2009-09-19 17:45:03) [GET]
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` [0m
+Rendering template within layouts/buildings
+Rendering buildings/index
+  [4;36;1mBuilding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `buildings`[0m
+  [4;35;1mbuildings_features Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `buildings_features`[0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 1 ) [0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` INNER JOIN `buildings_features` ON `features`.id = `buildings_features`.feature_id WHERE (`buildings_features`.building_id = 2 ) [0m
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhost/buildings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-19 17:45:21) [GET]
+
+ActionController::RoutingError (No route matches "/chpater/map" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-09-19 17:45:32) [GET]
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` [0m
+Rendering chapter/map
+  [4;36;1mFeature Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `features`[0m
+Completed in 31ms (View: 0, DB: 15) | 200 OK [http://localhost/chapter/map]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#list (for 127.0.0.1 at 2009-09-19 17:45:35) [POST]
+  Parameters: {"feature"=>"1", "commit"=>"Show", "authenticity_token"=>"cUw4yRlkg+j/adrdpUVb+8Kt3a08Ed77eilYyGomQho="}
+  [4;35;1mFeature Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `features`[0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` WHERE (`features`.`id` = 1) [0m
+  [4;35;1mbuildings_features Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `buildings_features`[0m
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` INNER JOIN `buildings_features` ON `buildings`.id = `buildings_features`.building_id WHERE (`buildings_features`.feature_id = 1 ) [0m
+Rendered chapter/_list_of_buildings (16.0ms)
+Completed in 31ms (View: 16, DB: 15) | 200 OK [http://localhost/chapter/list]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#lista (for 127.0.0.1 at 2009-09-19 17:45:35) [GET]
+Completed in 94ms (View: 0, DB: 0) | 200 OK [http://localhost/chapter/lista]
+  [4;35;1mFeature Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `features`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#map (for 127.0.0.1 at 2009-09-19 17:48:02) [GET]
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` [0m
+  [4;35;1mFeature Load (0.0ms)[0m   [0mSELECT * FROM `features` [0m
+Rendering chapter/map
+  [4;36;1mFeature Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `features`[0m
+Completed in 2839ms (View: 2761, DB: 0) | 200 OK [http://localhost/chapter/map]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#list (for 127.0.0.1 at 2009-09-19 17:48:09) [POST]
+  Parameters: {"feature"=>"1", "commit"=>"Show", "authenticity_token"=>"M8aoLXNX+zH2RxiSmeBCZhuQexChmdfRYsp+qCe1L/A="}
+  [4;35;1mFeature Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `features`[0m
+  [4;36;1mFeature Load (0.0ms)[0m   [0;1mSELECT * FROM `features` WHERE (`features`.`id` = 1) [0m
+  [4;35;1mbuildings_features Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `buildings_features`[0m
+  [4;36;1mBuilding Load (0.0ms)[0m   [0;1mSELECT * FROM `buildings` INNER JOIN `buildings_features` ON `buildings`.id = `buildings_features`.building_id WHERE (`buildings_features`.feature_id = 1 ) [0m
+Rendered chapter/_list_of_buildings (62.0ms)
+Completed in 94ms (View: 78, DB: 0) | 200 OK [http://localhost/chapter/list]
+  [4;35;1mSQL (15.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ChapterController#lista (for 127.0.0.1 at 2009-09-19 17:48:09) [GET]
+Completed in 16ms (View: 0, DB: 15) | 200 OK [http://localhost/chapter/lista]
+  [4;35;1mFeature Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `features`[0m

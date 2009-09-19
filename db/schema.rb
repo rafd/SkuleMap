@@ -9,29 +9,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090829230554) do
+ActiveRecord::Schema.define(:version => 20090919212911) do
+
+  create_table "atms", :force => true do |t|
+    t.string   "bank_name"
+    t.integer  "floor"
+    t.integer  "building_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "buildings", :force => true do |t|
-    t.string   "name",                                       :null => false
-    t.string   "code",                                       :null => false
-    t.string   "address",                                    :null => false
-    t.string   "zip_code",                                   :null => false
+    t.string   "name",                                          :default => "", :null => false
+    t.string   "code",                                          :default => "", :null => false
+    t.string   "address",                                       :default => "", :null => false
+    t.string   "zip_code",                                      :default => "", :null => false
+    t.string   "building_type",                                 :default => "", :null => false
     t.integer  "floors"
-    t.decimal  "lat",        :precision => 15, :scale => 10
-    t.decimal  "lng",        :precision => 15, :scale => 10
+    t.decimal  "lat",           :precision => 15, :scale => 10
+    t.decimal  "lng",           :precision => 15, :scale => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "buildings_features", :id => false, :force => true do |t|
-    t.integer "building_id", :null => false
-    t.integer "feature_id",  :null => false
+    t.integer  "building_id"
+    t.integer  "feature_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "features", :force => true do |t|
+    t.string   "name",       :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",       :limit => 50, :null => false
   end
 
   create_table "obbjects", :force => true do |t|
